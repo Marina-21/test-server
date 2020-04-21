@@ -4,26 +4,25 @@ const chaiHttp = require('chai-http');
 const expect = chai.expect;
 const fetch = require('node-fetch');
 
-const { serverUrl } = require('../const/list');
+
 
 chai.use(chaiHttp);
 
-async function spin() {
+async function spinFavbet() {
     try {
-        let response = await fetch('https://dev-gw01.betslots.cf/v1/client/spin', {
+        let response = await fetch('https://www.favorit.com.ua/bigames/cg-gw01/v1/client/spin', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                token: "f7aad3f8cbd8e21754f71e78f7f53c7a",
+                token: "ac5f3ef1b3662f467bb07bd92f77e05f",
                 gameId: 4,
                 params: {
                     lines: 10,
-                    bet: 60
+                    bet: 100,
                 },
-                action: "spin",
-                // cheats: "FGABG22IGJDHEHC"
+                action: "spin"
             }),
         });
 
@@ -32,13 +31,7 @@ async function spin() {
         return res;
     } catch (err) {
         console.log('!!!!!!ERROR!!!!!! ' + err);
-        let res = await response.json();
-        console.log(res)
-        let { code, message } = res.status;
-        console.log(code + "  code");
-        console.log(message + "  message");
-
     }
 };
 
-module.exports = { spin };
+module.exports = { spinFavbet };

@@ -11,16 +11,16 @@ const { spin } = require('../const/spin');
 chai.use(chaiHttp);
 
 
-describe.only('Test wining lines', () => {
+describe.skip('Test wining lines', () => {
 
     it('spin', async() => {
-        const response = await spin();
+        const res = await spin();
 
-        expect(response.status.status).to.be.equal(200);
+        expect(res.status.status).to.be.equal(200);
 
-        if (response.context.hasOwnProperty('win')) {
+        if (res.context.hasOwnProperty('win')) {
 
-            const winLines = response.context.win.lines;
+            const winLines = res.context.win.lines;
             console.log(winLines);
 
 
