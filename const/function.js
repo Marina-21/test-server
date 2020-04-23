@@ -12,5 +12,8 @@ function betLines(res) {
     return bet / counLines;
 };
 
+function winRight() {
+    return PaytableCoef(winPositions, paytable, winSymbol) * bet;
+};
 
-module.exports = { PaytableCoef, betLines };
+module.exports = { PaytableCoef, betLines, winRight };

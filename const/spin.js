@@ -1,4 +1,4 @@
-const mocha = require('mocha');
+// const mocha = require('mocha');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const expect = chai.expect;
@@ -16,14 +16,14 @@ async function spin() {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                token: "f7aad3f8cbd8e21754f71e78f7f53c7a",
+                token: "a687cde0da07ecc1ca07200c9911e40d",
                 gameId: 4,
                 params: {
                     lines: 10,
                     bet: 60
                 },
                 action: "spin",
-                // cheats: "FGABG22IGJDHEHC"
+                cheats: "FGABG22IGJDHEHC"
             }),
         });
 
@@ -32,13 +32,8 @@ async function spin() {
         return res;
     } catch (err) {
         console.log('!!!!!!ERROR!!!!!! ' + err);
-        let res = await response.json();
-        console.log(res)
-        let { code, message } = res.status;
-        console.log(code + "  code");
-        console.log(message + "  message");
 
     }
-};
+}
 
 module.exports = { spin };

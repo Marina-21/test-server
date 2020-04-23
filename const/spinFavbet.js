@@ -1,4 +1,4 @@
-const mocha = require('mocha');
+// const mocha = require('mocha');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const expect = chai.expect;
@@ -32,6 +32,6 @@ async function spinFavbet() {
     } catch (err) {
         console.log('!!!!!!ERROR!!!!!! ' + err);
     }
-};
+}
 
 module.exports = { spinFavbet };

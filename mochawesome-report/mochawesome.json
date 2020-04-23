@@ -1,23 +1,118 @@
 {
   "stats": {
-    "suites": 0,
-    "tests": 0,
-    "passes": 0,
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2020-04-21T15:31:18.523Z",
-    "end": "2020-04-21T15:31:18.523Z",
-    "duration": 0,
-    "testsRegistered": 0,
-    "passPercent": null,
-    "pendingPercent": null,
+    "start": "2020-04-23T14:29:20.380Z",
+    "end": "2020-04-23T14:29:21.948Z",
+    "duration": 1568,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
     "skipped": 0,
     "hasSkipped": false
   },
   "results": [
-    false
+    {
+      "uuid": "caac76a1-9c5e-476b-aaf7-df8302ce03ea",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "baca16b6-56a4-4408-81d3-3e43f97f48e5",
+          "title": "Test win",
+          "fullFile": "/Users/marinaratova/Desktop/JS/mocha-chai-test-project/test/test-winAmount.js",
+          "file": "/test/test-winAmount.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook: Spin",
+              "fullTitle": "Test win \"before all\" hook: Spin",
+              "timedOut": false,
+              "duration": 1561,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "try {\n    res = await spin();\n    expect(res.status.status).to.be.equal(200);\n    const funcResult = checkWin1(res);\n\n    if (funcResult !== null) {\n        winLines = funcResult.allWinLines.filter(winLines => winLines.id !== null);\n        matrixSymbols = funcResult.matrixSymbols;\n        console.log(matrixSymbols);\n        isRun = true;\n    }\n} catch (error) {\n    let { code, message } = res.status;\n    console.log(code + \"  code\");\n    console.log(message + \"  message\");\n    console.log('!!!!!!ERROR in before block!!!!!! ' + error);\n}",
+              "err": {},
+              "uuid": "4483d2b0-ac62-483f-b69d-2bc33a0285d4",
+              "parentUUID": "baca16b6-56a4-4408-81d3-3e43f97f48e5",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "check correct wining symbol position",
+              "fullTitle": "Test win check correct wining symbol position",
+              "timedOut": false,
+              "duration": 1,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "if (isRun) {\n    console.log((winLines.length) + \"winLines\");\n    winLines.forEach((el) => {\n        console.log(el.id);\n        const winPositions = el.positions;\n        console.log(winPositions);\n        const winSymbol = el.symbol;\n        winPositions.forEach((el) => {\n            const tempSymbols = matrixSymbols[el[0]][el[1]];\n            if (tempSymbols !== \"2\") {\n                expect(winSymbol).to.be.equal(tempSymbols);\n            } else {\n                expect(\"2\").to.be.equal(tempSymbols);\n                console.log('there is a wild in the pay line');\n            }\n        });\n        console.log([winSymbol] + \" is correct position\");\n    });\n}",
+              "err": {},
+              "uuid": "2e286d44-32f8-4bbc-84df-481360b7c9f3",
+              "parentUUID": "baca16b6-56a4-4408-81d3-3e43f97f48e5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "check correct accrual of winnings",
+              "fullTitle": "Test win check correct accrual of winnings",
+              "timedOut": false,
+              "duration": 1,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "if (isRun) {\n    let bet = betLines(res);\n    winLines.forEach((el) => {\n        const winPositions = el.positions;\n        const winSymbol = el.symbol;\n        const amount = el.amount;\n        const getingSymbols = [];\n        winPositions.forEach((el) => {\n            const tempSymbols = matrixSymbols[el[0]][el[1]];\n            getingSymbols.push(tempSymbols);\n        });\n        const arrWithWild = getingSymbols.filter((value) => {\n            return value === \"2\";\n        });\n        function winRight() {\n            return PaytableCoef(winPositions, paytable, winSymbol) * bet;\n        }\n        if (arrWithWild.length > 0 && winSymbol !== \"2\") {\n            expect(amount).to.be.equal(winRight() * 2);\n            console.log(winRight());\n            console.log(amount);\n        } else {\n            expect(amount).to.be.equal(winRight());\n            console.log(winRight());\n            console.log(amount);\n        }\n    });\n}",
+              "err": {},
+              "uuid": "e53dd5cd-4216-4ebb-a4f8-506c7770c127",
+              "parentUUID": "baca16b6-56a4-4408-81d3-3e43f97f48e5",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "2e286d44-32f8-4bbc-84df-481360b7c9f3",
+            "e53dd5cd-4216-4ebb-a4f8-506c7770c127"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 10000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 10000
+    }
   ],
   "meta": {
     "mocha": {

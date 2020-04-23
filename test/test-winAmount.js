@@ -1,4 +1,4 @@
-const mocha = require('mocha');
+// const mocha = require('mocha');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const expect = chai.expect;
@@ -13,16 +13,16 @@ const { spinFavbet } = require('../const/spinFavbet');
 chai.use(chaiHttp);
 
 
-function checkWin1(res) {
+const checkWin1 = (res) => {
     if (res.context.hasOwnProperty('win')) {
-        const allWinLines = res.context.win.lines;
-        console.log('allWinLines  ' + allWinLines.length);
 
-        const matrixSymbols = res.context.matrix;
+        const allWinLines = res.context.win.lines;
+        let matrixSymbols = res.context.matrix;
+
         return {
             allWinLines,
             matrixSymbols
-        }
+        };
 
     } else {
         console.log('spin without win');
@@ -31,9 +31,11 @@ function checkWin1(res) {
 };
 
 for (let i = 0; i < 1; i++) {
-    describe.skip('Test win', () => {
+    describe.only('Test win', () => {
         let res = null;
         let isRun = false;
+        let winLines = null;
+        let matrixSymbols = null;
 
         before("Spin", async() => {
             try {
@@ -74,16 +76,16 @@ for (let i = 0; i < 1; i++) {
                     winPositions.forEach((el) => {
                         const tempSymbols = matrixSymbols[el[0]][el[1]];
                         if (tempSymbols !== "2") {
-                            expect(winSymbol).to.be.equal(tempSymbols)
+                            expect(winSymbol).to.be.equal(tempSymbols);
                         } else {
-                            expect("2").to.be.equal(tempSymbols)
+                            expect("2").to.be.equal(tempSymbols);
                             console.log('there is a wild in the pay line');
-                        };
+                        }
                     });
                     console.log([winSymbol] + " is correct position");
 
                 });
-            };
+            }
         });
 
         it('check correct accrual of winnings', function() {
@@ -104,23 +106,22 @@ for (let i = 0; i < 1; i++) {
 
                     function winRight() {
                         return PaytableCoef(winPositions, paytable, winSymbol) * bet;
-                    };
+                    }
 
-                    if (arrWithWild.length > 0 && arrWithWild.length < 2) {
+                    if (arrWithWild.length > 0 && winSymbol !== "2") {
                         expect(amount).to.be.equal(winRight() * 2);
                         console.log(winRight());
                         console.log(amount);
-                    } else if (arrWithWild.length >= 2) {
-                        possibleWinSymbol = winRight();
+
                     } else {
                         expect(amount).to.be.equal(winRight());
                         console.log(winRight());
                         console.log(amount);
-                    };
+                    }
 
                 });
-            };
+            }
         });
 
     });
-};
+}
