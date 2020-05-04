@@ -5,25 +5,15 @@ const expect = chai.expect;
 const fetch = require('node-fetch');
 const fs = require('fs').promises;
 
-const { serverUrl } = require('../const/list');
+const { chekActionSpin } = require('../const/function');
 
 chai.use(chaiHttp);
 
 let actionSpin;
 
-function chekActionSpin(res) {
-    let nameAction = 'spin';
-    if (res.context.hasOwnProperty("freespins")) {
-        const fsRest = res.context.freespins.count.rest;
-        if (fsRest > 0) {
-            nameAction = 'freespin';
-        }
-    }
 
-    return nameAction;
-}
 
-async function spin() {
+async function spinEW() {
     const data = await fs.readFile('db.txt', 'utf8');
     actionSpin = data;
 
@@ -35,13 +25,13 @@ async function spin() {
             },
             body: JSON.stringify({
                 token: "805cd546883792db1fabe79440fe440c",
-                gameId: 5,
+                gameId: 14,
                 params: {
                     lines: 10,
                     bet: 20
                 },
-                action: actionSpin,
-                // cheats: "1GABGA2IGJDH1HC"
+                action: actionSpin
+                    // cheats: "1GABGA2IGJDH1HC"
             }),
         });
 
@@ -56,8 +46,7 @@ async function spin() {
 
     }
 }
-
-async function spinbeforFS() {
+async function spinbeforFSEW() {
     try {
         let response = await fetch('https://dev-gw01.betslots.cf/v1/client/spin', {
             method: 'POST',
@@ -66,13 +55,13 @@ async function spinbeforFS() {
             },
             body: JSON.stringify({
                 token: "805cd546883792db1fabe79440fe440c",
-                gameId: 5,
+                gameId: 14,
                 params: {
                     lines: 10,
                     bet: 20
                 },
                 action: "spin",
-                cheats: "1GABG12IGJDH1HC"
+                cheats: "1GABG1AIGJDH1HC"
             }),
         });
 
@@ -84,8 +73,7 @@ async function spinbeforFS() {
 
     }
 }
-
-async function freespin() {
+async function freespinEW() {
     try {
         let response = await fetch('https://dev-gw01.betslots.cf/v1/client/spin', {
             method: 'POST',
@@ -94,7 +82,7 @@ async function freespin() {
             },
             body: JSON.stringify({
                 token: "805cd546883792db1fabe79440fe440c",
-                gameId: 5,
+                gameId: 14,
                 params: {
                     lines: 10,
                     bet: 20
@@ -113,4 +101,4 @@ async function freespin() {
 }
 
 
-module.exports = { spin, spinbeforFS, freespin };
+module.exports = { spinEW, spinbeforFSEW, freespinEW };

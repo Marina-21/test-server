@@ -30,8 +30,8 @@ const checkWin1 = (res) => {
     }
 };
 
-for (let i = 0; i < 1; i++) {
-    describe.only('Test win', () => {
+for (let i = 0; i < 5; i++) {
+    describe.skip('Test win', () => {
         let res = null;
         let isRun = false;
         let winLines = null;
@@ -40,6 +40,7 @@ for (let i = 0; i < 1; i++) {
         before("Spin", async() => {
             try {
                 res = await spin();
+                console.log(res.context.current + "   type of Spin");
 
                 expect(res.status.status).to.be.equal(200);
 

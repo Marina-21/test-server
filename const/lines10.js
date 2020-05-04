@@ -1,4 +1,4 @@
-lines = {
+const lines10 = {
     "1": [
         [
             0,
@@ -221,4 +221,4 @@ lines = {
     ]
 };
 
-module.exports = { lines };
+module.exports = { lines10 };
