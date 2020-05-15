@@ -1,16 +1,24 @@
-const mocha = require('mocha');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const expect = chai.expect;
 const _ = require('lodash');
+const { betLines } = require('../../const/function');
+
+const log4js = require('log4js');
+log4js.configure({
+    appenders: { cheese: { type: 'file', filename: 'cheese.log' } },
+    categories: { default: { appenders: ['cheese'], level: 'error' } }
+});
+const logger = log4js.getLogger();
+logger.level = 'debug';
 
 
 
-const { spin } = require('../const/spin');
+const { spin } = require('../../const/spin');
 
 chai.use(chaiHttp);
 
-for (let i = 0; i < 1000; i++) {
+for (let i = 0; i < 100; i++) {
     describe.skip('Test type of win', () => {
 
         it('spintype of win is tru', async() => {
@@ -20,7 +28,7 @@ for (let i = 0; i < 1000; i++) {
 
             function typeofwin() {
                 const totalWin = res.context.win.total;
-                const bet = res.context.bet;
+                const bet = betLines(res);
                 const typeCoef = totalWin / bet;
                 console.log((typeCoef) + " - typeCoef");
                 if (typeCoef < 12.5) {
@@ -29,10 +37,10 @@ for (let i = 0; i < 1000; i++) {
                     return "big";
                 } else if (typeCoef >= 100 && typeCoef < 500) {
                     return "ultra";
-                } else(typeCoef >= 500 && typeCoef <= 1500); {
+                } else if (typeCoef >= 500 && typeCoef <= 1500) {
                     return "mega";
                 }
-            };
+            }
 
             if (res.context.hasOwnProperty('win')) {
 
@@ -41,13 +49,14 @@ for (let i = 0; i < 1000; i++) {
 
 
                 expect(gameTypeWin).to.eql(typeofwin());
-                console.log("Type of win is correct");
+                // console.log("Type of win is correct");
+                logger.info("Type of win is correct");
 
             } else {
 
                 console.log("spin without wining");
 
-            };
+            }
         });
     });
 }

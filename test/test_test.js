@@ -36,7 +36,6 @@ for (let i = 0; i < 1; i++) {
     describe.skip('Test win', () => {
         let res = null;
         let isRun = false;
-        // let bet = betLines(res);
 
         before("Spin", async() => {
 

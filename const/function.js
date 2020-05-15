@@ -9,7 +9,7 @@ function PaytableCoef(winPositions, paytable, winSymbol) {
 function betLines(res) {
     let bet = res.context.bet;
     let counLines = res.context.lines;
-    return bet / counLines;
+    return bet * counLines;
 }
 
 function winRight() {
@@ -62,6 +62,7 @@ function chekExpendingWild(matrix) {
         let tempSymbol = el.filter(symbol => symbol != 2);
         if (tempSymbol.length < 3) {
             newMatrix.push(["2", "2", "2"]);
+            console.log(tempSymbol);
             ExpWild = true;
             let params = index;
             indexWild.push(params);

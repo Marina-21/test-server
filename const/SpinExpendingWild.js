@@ -27,11 +27,11 @@ async function spinEW() {
                 token: "805cd546883792db1fabe79440fe440c",
                 gameId: 14,
                 params: {
-                    lines: 10,
-                    bet: 20
+                    lines: 20,
+                    bet: 200
                 },
                 action: actionSpin
-                    // cheats: "1GABGA2IGJDH1HC"
+                    // cheats: "FG1CHIGIFEGAHJJ"
             }),
         });
 
@@ -57,11 +57,11 @@ async function spinbeforFSEW() {
                 token: "805cd546883792db1fabe79440fe440c",
                 gameId: 14,
                 params: {
-                    lines: 10,
-                    bet: 20
+                    lines: 20,
+                    bet: 200
                 },
                 action: "spin",
-                cheats: "1GABG1AIGJDH1HC"
+                cheats: "11ABGBAIGJDH1H1"
             }),
         });
 
@@ -84,8 +84,8 @@ async function freespinEW() {
                 token: "805cd546883792db1fabe79440fe440c",
                 gameId: 14,
                 params: {
-                    lines: 10,
-                    bet: 20
+                    lines: 20,
+                    bet: 200
                 },
                 action: "freespin"
             }),

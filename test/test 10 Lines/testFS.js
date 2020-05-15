@@ -4,13 +4,13 @@ const expect = chai.expect;
 const fs = require('fs').promises;
 
 
-const { freespin } = require('../const/spin');
-const { spinbeforFS } = require('../const/spin');
-const { checkWin1 } = require('../const/function');
-const { PaytableCoef } = require('../const/function');
-const { paytable } = require('../const/Paytable');
-const { betLines } = require('../const/function');
-const { chekActionSpin } = require('../const/function');
+const { freespin } = require('../../const/spin');
+const { spinbeforFS } = require('../../const/spin');
+const { checkWin1 } = require('../../const/function');
+const { PaytableCoef } = require('../../const/function');
+const { paytable } = require('../../const/Paytable');
+const { chekActionSpin } = require('../../const/function');
+const { betLines } = require('../../const/function');
 
 chai.use(chaiHttp);
 
@@ -57,8 +57,6 @@ for (let i = 15; i >= 0; i--) {
             } else {
                 try {
                     const res = await freespin();
-
-                    expect(res.status.status).to.be.equal(200);
 
                     const obj = res.context.freespins.count;
                     console.log(obj.rest);
@@ -206,7 +204,7 @@ for (let i = 15; i >= 0; i--) {
             let { res, matrix, winLinesWithoutNull, funcResult, action } = data;
             if (action == true && funcResult !== null) {
                 console.log(matrix);
-                let bet = betLines(res);
+                let bet = res.context.bet;
                 winLinesWithoutNull.forEach((el) => {
                     const winPositions = el.positions;
                     console.log(winPositions);
@@ -244,7 +242,7 @@ for (let i = 15; i >= 0; i--) {
             if (action == true) {
                 if (funcResult !== null && isWinNull == true) {
 
-                    const bet = res.context.bet;
+                    const bet = betLines(res);
                     const symbol = 1;
                     const amount = winLinesNull.amount;
                     const winPositions = winLinesNull.positions;

@@ -4,7 +4,7 @@ const chaiHttp = require('chai-http');
 const expect = chai.expect;
 
 
-const { spin } = require('../const/spin');
+const { spin } = require('../../const/spin');
 
 
 chai.use(chaiHttp);

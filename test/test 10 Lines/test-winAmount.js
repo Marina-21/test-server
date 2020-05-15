@@ -3,11 +3,10 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 const expect = chai.expect;
 
-const { paytable } = require('../const/Paytable');
-const { PaytableCoef } = require('../const/function');
-const { spin } = require('../const/spin');
-const { betLines } = require('../const/function');
-const { spinFavbet } = require('../const/spinFavbet');
+const { paytable } = require('../../const/Paytable');
+const { PaytableCoef } = require('../../const/function');
+const { spin } = require('../../const/spin');
+const { spinFavbet } = require('../../const/spinFavbet');
 
 
 chai.use(chaiHttp);
@@ -30,7 +29,7 @@ const checkWin1 = (res) => {
     }
 };
 
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 500; i++) {
     describe.skip('Test win', () => {
         let res = null;
         let isRun = false;
@@ -91,11 +90,12 @@ for (let i = 0; i < 5; i++) {
 
         it('check correct accrual of winnings', function() {
             if (isRun) {
-                let bet = betLines(res);
+                let bet = res.context.bet;
                 winLines.forEach((el) => {
                     const winPositions = el.positions;
                     const winSymbol = el.symbol;
                     const amount = el.amount;
+                    console.log(amount);
                     const getingSymbols = [];
                     winPositions.forEach((el) => {
                         const tempSymbols = matrixSymbols[el[0]][el[1]];
@@ -112,7 +112,7 @@ for (let i = 0; i < 5; i++) {
                     if (arrWithWild.length > 0 && winSymbol !== "2") {
                         expect(amount).to.be.equal(winRight() * 2);
                         console.log(winRight());
-                        console.log(amount);
+
 
                     } else {
                         expect(amount).to.be.equal(winRight());

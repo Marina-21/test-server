@@ -5,9 +5,10 @@ const expect = chai.expect;
 const _ = require('lodash');
 
 
-const { spin } = require('../const/spin');
-const { paytable } = require('../const/Paytable');
-const PaytableCoef = require('../const/function');
+const { spin } = require('../../const/spin');
+const { paytable } = require('../../const/Paytable');
+const { PaytableCoef } = require('../../const/function');
+const { betLines } = require('../../const/function');
 
 
 chai.use(chaiHttp);
@@ -26,7 +27,8 @@ function checkWin(res) {
             console.log("winAmount  " + (winAmount));
             return {
                 symbol,
-                winAmount
+                winAmount,
+                winLine
             };
         } else {
             console.log('the scatter did not fall out');
@@ -38,12 +40,14 @@ function checkWin(res) {
     }
 }
 
-for (let i = 0; i < 1; i++) {
+for (let i = 0; i < 50; i++) {
     describe.skip('Spin', () => {
         let res = null;
         let isRun = false;
         let symbol = 1;
         let winAmount = null;
+        let winLine = null;
+
 
 
         before("Spin", async() => {
@@ -57,6 +61,7 @@ for (let i = 0; i < 1; i++) {
                 if (funcResult !== null) {
                     symbol = funcResult.symbol;
                     winAmount = funcResult.winAmount;
+                    winLine = funcResult.winLine;
                     isRun = true;
                 }
             } catch (error) {
@@ -68,11 +73,13 @@ for (let i = 0; i < 1; i++) {
         });
         it('check correct accrual Scatter', function() {
             if (isRun) {
-                console.log("symbol in IT " + symbol);
-                console.log("res" + res);
 
-                const bet = res.context.bet;
-                const winRightNull = PaytableCoef(res, paytable, symbol) * bet;
+                console.log("symbol in IT " + symbol);
+                let winPositions = winLine.positions;
+                console.log(winPositions);
+
+                const bet = betLines(res);
+                const winRightNull = PaytableCoef(winPositions, paytable, symbol) * bet;
 
                 expect(winAmount).to.be.equal(winRightNull);
                 console.log("scatter is accrualed correct");

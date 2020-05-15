@@ -28,14 +28,14 @@ async function spin() {
     actionSpin = data;
 
     try {
-        let response = await fetch('https://dev-gw01.betslots.cf/v1/client/spin', {
+        let response = await fetch('https://cg-gw01.live132.com/v1/client/spin', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                token: "805cd546883792db1fabe79440fe440c",
-                gameId: 5,
+                token: "3720debe54f2205e9274459b6d9cbd4d",
+                gameId: 12,
                 params: {
                     lines: 10,
                     bet: 20
@@ -53,26 +53,25 @@ async function spin() {
         return res;
     } catch (err) {
         console.log('!!!!!!ERROR!!!!!! ' + err);
-
     }
 }
 
 async function spinbeforFS() {
     try {
-        let response = await fetch('https://dev-gw01.betslots.cf/v1/client/spin', {
+        let response = await fetch('https://cg-gw01.live132.com/v1/client/spin', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                token: "805cd546883792db1fabe79440fe440c",
+                token: "3720debe54f2205e9274459b6d9cbd4d",
                 gameId: 5,
                 params: {
                     lines: 10,
                     bet: 20
                 },
-                action: "spin",
-                cheats: "1GABG12IGJDH1HC"
+                action: "spin"
+                    // cheats: "1GABG12IGJDH1HC"
             }),
         });
 
@@ -108,7 +107,6 @@ async function freespin() {
         return res;
     } catch (err) {
         console.log('!!!!!!ERROR!!!!!! ' + err);
-
     }
 }
 

@@ -1,0 +1,3383 @@
+[2020-05-14T22:27:00.616] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: {
+    currency: 'TMT',
+    balance: 1811834,
+    i18n: 'tr',
+    playerId: '22136_34',
+    userName: 'Sdfsdf  Sdfdf',
+    oid: 34,
+    cid: '-53'
+  },
+  settings: {
+    width: 5,
+    height: 3,
+    rtp: 95.6,
+    type: 'pioneer',
+    bets: [
+        6,   8,  10,  12,   16,
+       20,  40,  60,  80,  100,
+      200, 400, 600, 800, 1000
+    ],
+    autoplay: { count: [Array], limits: [Object] },
+    reels: [ [Array], [Array], [Array], [Array], [Array] ],
+    lines: {
+      '1': [Array],
+      '2': [Array],
+      '3': [Array],
+      '4': [Array],
+      '5': [Array],
+      '6': [Array],
+      '7': [Array],
+      '8': [Array],
+      '9': [Array],
+      '10': [Array]
+    },
+    paytable: {
+      '1': [Object],
+      '2': [Object],
+      A: [Object],
+      B: [Object],
+      C: [Object],
+      D: [Object],
+      E: [Object],
+      F: [Object],
+      G: [Object],
+      H: [Object],
+      I: [Object],
+      J: [Object]
+    }
+  },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 10,
+    lines: 10
+  }
+}
+[2020-05-14T22:27:01.842] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1811798, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 6,
+    lines: 10,
+    win: { total: 24, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:27:01.842] [INFO] default - 6
+[2020-05-14T22:27:01.842] [INFO] default - 2
+[2020-05-14T22:27:01.846] [INFO] default - 1811798
+[2020-05-14T22:27:01.846] [INFO] default - 1811798
+[2020-05-14T22:27:02.766] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1811718, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 8,
+    lines: 10
+  }
+}
+[2020-05-14T22:27:02.766] [INFO] default - 8
+[2020-05-14T22:27:02.766] [INFO] default - 2
+[2020-05-14T22:27:02.768] [INFO] default - 1811718
+[2020-05-14T22:27:02.768] [INFO] default - 1811718
+[2020-05-14T22:27:03.994] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1811698, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 10,
+    lines: 10,
+    win: { total: 80, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:27:03.994] [INFO] default - 10
+[2020-05-14T22:27:03.994] [INFO] default - 2
+[2020-05-14T22:27:03.996] [INFO] default - 1811698
+[2020-05-14T22:27:03.996] [INFO] default - 1811698
+[2020-05-14T22:27:05.066] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1811674, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 12,
+    lines: 10,
+    win: { total: 96, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:27:05.066] [INFO] default - 12
+[2020-05-14T22:27:05.067] [INFO] default - 2
+[2020-05-14T22:27:05.068] [INFO] default - 1811674
+[2020-05-14T22:27:05.068] [INFO] default - 1811674
+[2020-05-14T22:27:08.806] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1811514, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 16,
+    lines: 10
+  }
+}
+[2020-05-14T22:27:08.806] [INFO] default - 16
+[2020-05-14T22:27:08.806] [INFO] default - 2
+[2020-05-14T22:27:08.808] [INFO] default - 1811514
+[2020-05-14T22:27:08.808] [INFO] default - 1811514
+[2020-05-14T22:27:11.281] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1811314, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 20,
+    lines: 10
+  }
+}
+[2020-05-14T22:27:11.282] [INFO] default - 20
+[2020-05-14T22:27:11.282] [INFO] default - 2
+[2020-05-14T22:27:11.285] [INFO] default - 1811314
+[2020-05-14T22:27:11.285] [INFO] default - 1811314
+[2020-05-14T22:27:12.386] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1811074, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 40,
+    lines: 10,
+    win: { total: 160, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:27:12.386] [INFO] default - 40
+[2020-05-14T22:27:12.387] [INFO] default - 2
+[2020-05-14T22:27:12.390] [INFO] default - 1811074
+[2020-05-14T22:27:12.390] [INFO] default - 1811074
+[2020-05-14T22:27:13.209] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1810474, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 60,
+    lines: 10
+  }
+}
+[2020-05-14T22:27:13.210] [INFO] default - 60
+[2020-05-14T22:27:13.210] [INFO] default - 2
+[2020-05-14T22:27:13.212] [INFO] default - 1810474
+[2020-05-14T22:27:13.213] [INFO] default - 1810474
+[2020-05-14T22:27:14.336] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1809674, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 80,
+    lines: 10
+  }
+}
+[2020-05-14T22:27:14.336] [INFO] default - 80
+[2020-05-14T22:27:14.336] [INFO] default - 2
+[2020-05-14T22:27:14.338] [INFO] default - 1809674
+[2020-05-14T22:27:14.338] [INFO] default - 1809674
+[2020-05-14T22:27:15.565] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1809474, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 100,
+    lines: 10,
+    win: { total: 800, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:27:15.566] [INFO] default - 100
+[2020-05-14T22:27:15.566] [INFO] default - 2
+[2020-05-14T22:27:15.569] [INFO] default - 1809474
+[2020-05-14T22:27:15.569] [INFO] default - 1809474
+[2020-05-14T22:27:16.484] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1807474, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 200,
+    lines: 10
+  }
+}
+[2020-05-14T22:27:16.484] [INFO] default - 200
+[2020-05-14T22:27:16.484] [INFO] default - 2
+[2020-05-14T22:27:16.485] [INFO] default - 1807474
+[2020-05-14T22:27:16.485] [INFO] default - 1807474
+[2020-05-14T22:27:17.815] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1803474, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 400,
+    lines: 10
+  }
+}
+[2020-05-14T22:27:17.815] [INFO] default - 400
+[2020-05-14T22:27:17.816] [INFO] default - 2
+[2020-05-14T22:27:17.816] [INFO] default - 1803474
+[2020-05-14T22:27:17.816] [INFO] default - 1803474
+[2020-05-14T22:27:19.046] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1799874, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 600,
+    lines: 10,
+    win: { total: 2400, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:27:19.046] [INFO] default - 600
+[2020-05-14T22:27:19.046] [INFO] default - 2
+[2020-05-14T22:27:19.047] [INFO] default - 1799874
+[2020-05-14T22:27:19.047] [INFO] default - 1799874
+[2020-05-14T22:27:19.837] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1791874, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 800,
+    lines: 10
+  }
+}
+[2020-05-14T22:27:19.837] [INFO] default - 800
+[2020-05-14T22:27:19.837] [INFO] default - 2
+[2020-05-14T22:27:19.838] [INFO] default - 1791874
+[2020-05-14T22:27:19.839] [INFO] default - 1791874
+[2020-05-14T22:27:20.889] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1781874, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 1000,
+    lines: 10
+  }
+}
+[2020-05-14T22:27:20.890] [INFO] default - 1000
+[2020-05-14T22:27:20.890] [INFO] default - 2
+[2020-05-14T22:27:20.893] [INFO] default - 1781874
+[2020-05-14T22:27:20.893] [INFO] default - 1781874
+[2020-05-14T22:27:21.504] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: {
+    currency: 'TMT',
+    balance: 1781874,
+    i18n: 'tr',
+    playerId: '22136_34',
+    userName: 'Sdfsdf  Sdfdf',
+    oid: 34,
+    cid: '-53'
+  },
+  settings: {
+    width: 5,
+    height: 3,
+    rtp: 95.6,
+    type: 'pioneer',
+    bets: [
+        6,   8,  10,  12,   16,
+       20,  40,  60,  80,  100,
+      200, 400, 600, 800, 1000
+    ],
+    autoplay: { count: [Array], limits: [Object] },
+    reels: [ [Array], [Array], [Array], [Array], [Array] ],
+    lines: {
+      '1': [Array],
+      '2': [Array],
+      '3': [Array],
+      '4': [Array],
+      '5': [Array],
+      '6': [Array],
+      '7': [Array],
+      '8': [Array],
+      '9': [Array],
+      '10': [Array]
+    },
+    paytable: {
+      '1': [Object],
+      '2': [Object],
+      A: [Object],
+      B: [Object],
+      C: [Object],
+      D: [Object],
+      E: [Object],
+      F: [Object],
+      G: [Object],
+      H: [Object],
+      I: [Object],
+      J: [Object]
+    }
+  },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 10,
+    lines: 10
+  }
+}
+[2020-05-14T22:27:22.835] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1781874, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 6,
+    lines: 10,
+    win: { total: 60, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:27:22.835] [INFO] default - 6
+[2020-05-14T22:27:22.835] [INFO] default - 3
+[2020-05-14T22:27:22.837] [INFO] default - 1781874
+[2020-05-14T22:27:22.837] [INFO] default - 1781874
+[2020-05-14T22:27:23.960] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1781890, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 8,
+    lines: 10,
+    win: { total: 96, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:27:23.960] [INFO] default - 8
+[2020-05-14T22:27:23.960] [INFO] default - 3
+[2020-05-14T22:27:23.962] [INFO] default - 1781890
+[2020-05-14T22:27:23.962] [INFO] default - 1781890
+[2020-05-14T22:27:25.599] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1781790, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 10,
+    lines: 10
+  }
+}
+[2020-05-14T22:27:25.599] [INFO] default - 10
+[2020-05-14T22:27:25.599] [INFO] default - 3
+[2020-05-14T22:27:25.602] [INFO] default - 1781790
+[2020-05-14T22:27:25.602] [INFO] default - 1781790
+[2020-05-14T22:27:26.726] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1781730, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 12,
+    lines: 10,
+    win: { total: 60, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:27:26.728] [INFO] default - 12
+[2020-05-14T22:27:26.728] [INFO] default - 3
+[2020-05-14T22:27:26.730] [INFO] default - 1781730
+[2020-05-14T22:27:26.730] [INFO] default - 1781730
+[2020-05-14T22:27:28.875] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1781970, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 16,
+    lines: 10,
+    win: { total: 400, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:27:28.875] [INFO] default - 16
+[2020-05-14T22:27:28.875] [INFO] default - 3
+[2020-05-14T22:27:28.876] [INFO] default - 1781970
+[2020-05-14T22:27:28.876] [INFO] default - 1781970
+[2020-05-14T22:27:29.798] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1781770, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 20,
+    lines: 10
+  }
+}
+[2020-05-14T22:27:29.798] [INFO] default - 20
+[2020-05-14T22:27:29.798] [INFO] default - 3
+[2020-05-14T22:27:29.800] [INFO] default - 1781770
+[2020-05-14T22:27:29.800] [INFO] default - 1781770
+[2020-05-14T22:27:31.917] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1782170, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 40,
+    lines: 10,
+    win: { total: 800, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:27:31.918] [INFO] default - 40
+[2020-05-14T22:27:31.918] [INFO] default - 3
+[2020-05-14T22:27:31.920] [INFO] default - 1782170
+[2020-05-14T22:27:31.920] [INFO] default - 1782170
+[2020-05-14T22:27:33.381] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1796570, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 60,
+    lines: 10,
+    win: { total: 15000, type: 'big', lines: [Array] }
+  }
+}
+[2020-05-14T22:27:33.381] [INFO] default - 60
+[2020-05-14T22:27:33.382] [INFO] default - 3
+[2020-05-14T22:27:33.383] [INFO] default - 1796570
+[2020-05-14T22:27:33.383] [INFO] default - 1796570
+[2020-05-14T22:27:34.465] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1795770, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 80,
+    lines: 10
+  }
+}
+[2020-05-14T22:27:34.465] [INFO] default - 80
+[2020-05-14T22:27:34.465] [INFO] default - 3
+[2020-05-14T22:27:34.467] [INFO] default - 1795770
+[2020-05-14T22:27:34.467] [INFO] default - 1795770
+[2020-05-14T22:27:35.532] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1796770, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 100,
+    lines: 10,
+    win: { total: 2000, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:27:35.533] [INFO] default - 100
+[2020-05-14T22:27:35.533] [INFO] default - 3
+[2020-05-14T22:27:35.535] [INFO] default - 1796770
+[2020-05-14T22:27:35.535] [INFO] default - 1796770
+[2020-05-14T22:27:36.351] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1794770, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 200,
+    lines: 10
+  }
+}
+[2020-05-14T22:27:36.351] [INFO] default - 200
+[2020-05-14T22:27:36.351] [INFO] default - 3
+[2020-05-14T22:27:36.354] [INFO] default - 1794770
+[2020-05-14T22:27:36.354] [INFO] default - 1794770
+[2020-05-14T22:27:37.580] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1791570, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 400,
+    lines: 10,
+    win: { total: 800, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:27:37.580] [INFO] default - 400
+[2020-05-14T22:27:37.580] [INFO] default - 3
+[2020-05-14T22:27:37.581] [INFO] default - 1791570
+[2020-05-14T22:27:37.582] [INFO] default - 1791570
+[2020-05-14T22:27:38.911] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1787370, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 600,
+    lines: 10,
+    win: { total: 1800, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:27:38.911] [INFO] default - 600
+[2020-05-14T22:27:38.911] [INFO] default - 3
+[2020-05-14T22:27:38.913] [INFO] default - 1787370
+[2020-05-14T22:27:38.913] [INFO] default - 1787370
+[2020-05-14T22:27:39.833] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1779370, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 800,
+    lines: 10
+  }
+}
+[2020-05-14T22:27:39.833] [INFO] default - 800
+[2020-05-14T22:27:39.834] [INFO] default - 3
+[2020-05-14T22:27:39.837] [INFO] default - 1779370
+[2020-05-14T22:27:39.837] [INFO] default - 1779370
+[2020-05-14T22:27:41.287] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1772370, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 1000,
+    lines: 10,
+    win: { total: 3000, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:27:41.287] [INFO] default - 1000
+[2020-05-14T22:27:41.287] [INFO] default - 3
+[2020-05-14T22:27:41.288] [INFO] default - 1772370
+[2020-05-14T22:27:41.288] [INFO] default - 1772370
+[2020-05-14T22:27:41.881] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: {
+    currency: 'TMT',
+    balance: 1772370,
+    i18n: 'tr',
+    playerId: '22136_34',
+    userName: 'Sdfsdf  Sdfdf',
+    oid: 34,
+    cid: '-53'
+  },
+  settings: {
+    width: 5,
+    height: 3,
+    rtp: 95.6,
+    type: 'pioneer',
+    bets: [
+        6,   8,  10,  12,   16,
+       20,  40,  60,  80,  100,
+      200, 400, 600, 800, 1000
+    ],
+    autoplay: { count: [Array], limits: [Object] },
+    reels: [ [Array], [Array], [Array], [Array], [Array] ],
+    lines: {
+      '1': [Array],
+      '2': [Array],
+      '3': [Array],
+      '4': [Array],
+      '5': [Array],
+      '6': [Array],
+      '7': [Array],
+      '8': [Array],
+      '9': [Array],
+      '10': [Array]
+    },
+    paytable: {
+      '1': [Object],
+      '2': [Object],
+      A: [Object],
+      B: [Object],
+      C: [Object],
+      D: [Object],
+      E: [Object],
+      F: [Object],
+      G: [Object],
+      H: [Object],
+      I: [Object],
+      J: [Object]
+    }
+  },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 10,
+    lines: 10
+  }
+}
+[2020-05-14T22:27:43.111] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1772322, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 6,
+    lines: 10,
+    win: { total: 12, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:27:43.111] [INFO] default - 6
+[2020-05-14T22:27:43.111] [INFO] default - 4
+[2020-05-14T22:27:43.114] [INFO] default - 1772322
+[2020-05-14T22:27:43.114] [INFO] default - 1772322
+[2020-05-14T22:27:44.044] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1772242, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 8,
+    lines: 10
+  }
+}
+[2020-05-14T22:27:44.045] [INFO] default - 8
+[2020-05-14T22:27:44.045] [INFO] default - 4
+[2020-05-14T22:27:44.046] [INFO] default - 1772242
+[2020-05-14T22:27:44.046] [INFO] default - 1772242
+[2020-05-14T22:27:44.860] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1772142, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 10,
+    lines: 10
+  }
+}
+[2020-05-14T22:27:44.863] [INFO] default - 10
+[2020-05-14T22:27:44.863] [INFO] default - 4
+[2020-05-14T22:27:44.865] [INFO] default - 1772142
+[2020-05-14T22:27:44.865] [INFO] default - 1772142
+[2020-05-14T22:27:45.727] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1772022, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 12,
+    lines: 10
+  }
+}
+[2020-05-14T22:27:45.727] [INFO] default - 12
+[2020-05-14T22:27:45.727] [INFO] default - 4
+[2020-05-14T22:27:45.729] [INFO] default - 1772022
+[2020-05-14T22:27:45.729] [INFO] default - 1772022
+[2020-05-14T22:27:46.795] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1771862, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 16,
+    lines: 10
+  }
+}
+[2020-05-14T22:27:46.796] [INFO] default - 16
+[2020-05-14T22:27:46.796] [INFO] default - 4
+[2020-05-14T22:27:46.798] [INFO] default - 1771862
+[2020-05-14T22:27:46.798] [INFO] default - 1771862
+[2020-05-14T22:27:47.818] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1771662, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 20,
+    lines: 10
+  }
+}
+[2020-05-14T22:27:47.818] [INFO] default - 20
+[2020-05-14T22:27:47.818] [INFO] default - 4
+[2020-05-14T22:27:47.819] [INFO] default - 1771662
+[2020-05-14T22:27:47.819] [INFO] default - 1771662
+[2020-05-14T22:27:49.255] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1771462, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 40,
+    lines: 10,
+    win: { total: 200, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:27:49.255] [INFO] default - 40
+[2020-05-14T22:27:49.255] [INFO] default - 4
+[2020-05-14T22:27:49.258] [INFO] default - 1771462
+[2020-05-14T22:27:49.258] [INFO] default - 1771462
+[2020-05-14T22:27:50.484] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1771102, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 60,
+    lines: 10,
+    win: { total: 240, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:27:50.485] [INFO] default - 60
+[2020-05-14T22:27:50.485] [INFO] default - 4
+[2020-05-14T22:27:50.486] [INFO] default - 1771102
+[2020-05-14T22:27:50.486] [INFO] default - 1771102
+[2020-05-14T22:27:52.119] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1770302, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 80,
+    lines: 10
+  }
+}
+[2020-05-14T22:27:52.119] [INFO] default - 80
+[2020-05-14T22:27:52.119] [INFO] default - 4
+[2020-05-14T22:27:52.120] [INFO] default - 1770302
+[2020-05-14T22:27:52.120] [INFO] default - 1770302
+[2020-05-14T22:27:53.066] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1769302, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 100,
+    lines: 10
+  }
+}
+[2020-05-14T22:27:53.066] [INFO] default - 100
+[2020-05-14T22:27:53.066] [INFO] default - 4
+[2020-05-14T22:27:53.068] [INFO] default - 1769302
+[2020-05-14T22:27:53.068] [INFO] default - 1769302
+[2020-05-14T22:27:54.091] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1767302, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 200,
+    lines: 10
+  }
+}
+[2020-05-14T22:27:54.091] [INFO] default - 200
+[2020-05-14T22:27:54.091] [INFO] default - 4
+[2020-05-14T22:27:54.092] [INFO] default - 1767302
+[2020-05-14T22:27:54.092] [INFO] default - 1767302
+[2020-05-14T22:27:55.224] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1771302, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 400,
+    lines: 10,
+    win: { total: 8000, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:27:55.224] [INFO] default - 400
+[2020-05-14T22:27:55.224] [INFO] default - 4
+[2020-05-14T22:27:55.226] [INFO] default - 1771302
+[2020-05-14T22:27:55.226] [INFO] default - 1771302
+[2020-05-14T22:27:56.251] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1765302, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 600,
+    lines: 10
+  }
+}
+[2020-05-14T22:27:56.251] [INFO] default - 600
+[2020-05-14T22:27:56.251] [INFO] default - 4
+[2020-05-14T22:27:56.253] [INFO] default - 1765302
+[2020-05-14T22:27:56.254] [INFO] default - 1765302
+[2020-05-14T22:27:57.116] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1757302, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 800,
+    lines: 10
+  }
+}
+[2020-05-14T22:27:57.116] [INFO] default - 800
+[2020-05-14T22:27:57.117] [INFO] default - 4
+[2020-05-14T22:27:57.119] [INFO] default - 1757302
+[2020-05-14T22:27:57.119] [INFO] default - 1757302
+[2020-05-14T22:27:58.060] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1747302, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 1000,
+    lines: 10
+  }
+}
+[2020-05-14T22:27:58.061] [INFO] default - 1000
+[2020-05-14T22:27:58.061] [INFO] default - 4
+[2020-05-14T22:27:58.063] [INFO] default - 1747302
+[2020-05-14T22:27:58.063] [INFO] default - 1747302
+[2020-05-14T22:28:28.679] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: {
+    currency: 'TMT',
+    balance: 1747302,
+    i18n: 'tr',
+    playerId: '22136_34',
+    userName: 'Sdfsdf  Sdfdf',
+    oid: 34,
+    cid: '-53'
+  },
+  settings: {
+    width: 5,
+    height: 3,
+    rtp: 95.6,
+    type: 'pioneer',
+    bets: [
+        6,   8,  10,  12,   16,
+       20,  40,  60,  80,  100,
+      200, 400, 600, 800, 1000
+    ],
+    autoplay: { count: [Array], limits: [Object] },
+    reels: [ [Array], [Array], [Array], [Array], [Array] ],
+    lines: {
+      '1': [Array],
+      '2': [Array],
+      '3': [Array],
+      '4': [Array],
+      '5': [Array],
+      '6': [Array],
+      '7': [Array],
+      '8': [Array],
+      '9': [Array],
+      '10': [Array]
+    },
+    paytable: {
+      '1': [Object],
+      '2': [Object],
+      A: [Object],
+      B: [Object],
+      C: [Object],
+      D: [Object],
+      E: [Object],
+      F: [Object],
+      G: [Object],
+      H: [Object],
+      I: [Object],
+      J: [Object]
+    }
+  },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 10,
+    lines: 10
+  }
+}
+[2020-05-14T22:28:29.804] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1747350, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 6,
+    lines: 10,
+    win: { total: 108, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:28:29.804] [INFO] default - 6
+[2020-05-14T22:28:29.804] [INFO] default - 6
+[2020-05-14T22:28:29.809] [INFO] default - 1747350
+[2020-05-14T22:28:29.809] [INFO] default - 1747350
+[2020-05-14T22:28:30.952] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1747382, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 8,
+    lines: 10,
+    win: { total: 112, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:28:30.952] [INFO] default - 8
+[2020-05-14T22:28:30.952] [INFO] default - 6
+[2020-05-14T22:28:30.954] [INFO] default - 1747382
+[2020-05-14T22:28:30.954] [INFO] default - 1747382
+[2020-05-14T22:28:32.261] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1747582, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 10,
+    lines: 10,
+    win: { total: 300, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:28:32.261] [INFO] default - 10
+[2020-05-14T22:28:32.261] [INFO] default - 6
+[2020-05-14T22:28:32.262] [INFO] default - 1747582
+[2020-05-14T22:28:32.263] [INFO] default - 1747582
+[2020-05-14T22:28:33.081] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1747462, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 12,
+    lines: 10
+  }
+}
+[2020-05-14T22:28:33.082] [INFO] default - 12
+[2020-05-14T22:28:33.082] [INFO] default - 6
+[2020-05-14T22:28:33.084] [INFO] default - 1747462
+[2020-05-14T22:28:33.084] [INFO] default - 1747462
+[2020-05-14T22:28:34.413] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1747622, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 16,
+    lines: 10,
+    win: { total: 320, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:28:34.413] [INFO] default - 16
+[2020-05-14T22:28:34.413] [INFO] default - 6
+[2020-05-14T22:28:34.415] [INFO] default - 1747622
+[2020-05-14T22:28:34.415] [INFO] default - 1747622
+[2020-05-14T22:28:35.848] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1747842, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 20,
+    lines: 10,
+    win: { total: 420, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:28:35.848] [INFO] default - 20
+[2020-05-14T22:28:35.848] [INFO] default - 6
+[2020-05-14T22:28:35.850] [INFO] default - 1747842
+[2020-05-14T22:28:35.850] [INFO] default - 1747842
+[2020-05-14T22:28:37.074] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1748162, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 40,
+    lines: 10,
+    win: { total: 720, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:28:37.074] [INFO] default - 40
+[2020-05-14T22:28:37.074] [INFO] default - 6
+[2020-05-14T22:28:37.076] [INFO] default - 1748162
+[2020-05-14T22:28:37.076] [INFO] default - 1748162
+[2020-05-14T22:28:38.092] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1747562, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 60,
+    lines: 10
+  }
+}
+[2020-05-14T22:28:38.092] [INFO] default - 60
+[2020-05-14T22:28:38.092] [INFO] default - 6
+[2020-05-14T22:28:38.094] [INFO] default - 1747562
+[2020-05-14T22:28:38.094] [INFO] default - 1747562
+[2020-05-14T22:28:39.633] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1746762, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 80,
+    lines: 10
+  }
+}
+[2020-05-14T22:28:39.633] [INFO] default - 80
+[2020-05-14T22:28:39.633] [INFO] default - 6
+[2020-05-14T22:28:39.635] [INFO] default - 1746762
+[2020-05-14T22:28:39.635] [INFO] default - 1746762
+[2020-05-14T22:28:41.886] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1761762, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 100,
+    lines: 10,
+    win: { total: 16000, type: 'big', lines: [Array] }
+  }
+}
+[2020-05-14T22:28:41.886] [INFO] default - 100
+[2020-05-14T22:28:41.886] [INFO] default - 6
+[2020-05-14T22:28:41.887] [INFO] default - 1761762
+[2020-05-14T22:28:41.887] [INFO] default - 1761762
+[2020-05-14T22:28:42.911] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1765762, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 200,
+    lines: 10,
+    win: { total: 6000, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:28:42.912] [INFO] default - 200
+[2020-05-14T22:28:42.912] [INFO] default - 6
+[2020-05-14T22:28:42.916] [INFO] default - 1765762
+[2020-05-14T22:28:42.916] [INFO] default - 1765762
+[2020-05-14T22:28:43.893] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1761762, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 400,
+    lines: 10
+  }
+}
+[2020-05-14T22:28:43.893] [INFO] default - 400
+[2020-05-14T22:28:43.893] [INFO] default - 6
+[2020-05-14T22:28:43.896] [INFO] default - 1761762
+[2020-05-14T22:28:43.896] [INFO] default - 1761762
+[2020-05-14T22:28:45.120] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1785762, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 600,
+    lines: 10,
+    win: { total: 30000, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:28:45.120] [INFO] default - 600
+[2020-05-14T22:28:45.120] [INFO] default - 6
+[2020-05-14T22:28:45.122] [INFO] default - 1785762
+[2020-05-14T22:28:45.122] [INFO] default - 1785762
+[2020-05-14T22:28:45.879] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1777762, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 800,
+    lines: 10
+  }
+}
+[2020-05-14T22:28:45.879] [INFO] default - 800
+[2020-05-14T22:28:45.879] [INFO] default - 6
+[2020-05-14T22:28:45.880] [INFO] default - 1777762
+[2020-05-14T22:28:45.880] [INFO] default - 1777762
+[2020-05-14T22:28:46.816] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1767762, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 1000,
+    lines: 10
+  }
+}
+[2020-05-14T22:28:46.816] [INFO] default - 1000
+[2020-05-14T22:28:46.816] [INFO] default - 6
+[2020-05-14T22:28:46.817] [INFO] default - 1767762
+[2020-05-14T22:28:46.817] [INFO] default - 1767762
+[2020-05-14T22:28:47.289] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: {
+    currency: 'TMT',
+    balance: 1767762,
+    i18n: 'tr',
+    playerId: '22136_34',
+    userName: 'Sdfsdf  Sdfdf',
+    oid: 34,
+    cid: '-53'
+  },
+  settings: {
+    width: 5,
+    height: 3,
+    rtp: 95.6,
+    type: 'pioneer',
+    bets: [
+        6,   8,  10,  12,   16,
+       20,  40,  60,  80,  100,
+      200, 400, 600, 800, 1000
+    ],
+    autoplay: { count: [Array], limits: [Object] },
+    reels: [ [Array], [Array], [Array], [Array], [Array] ],
+    lines: {
+      '1': [Array],
+      '2': [Array],
+      '3': [Array],
+      '4': [Array],
+      '5': [Array],
+      '6': [Array],
+      '7': [Array],
+      '8': [Array],
+      '9': [Array],
+      '10': [Array]
+    },
+    paytable: {
+      '1': [Object],
+      '2': [Object],
+      A: [Object],
+      B: [Object],
+      C: [Object],
+      D: [Object],
+      E: [Object],
+      F: [Object],
+      G: [Object],
+      H: [Object],
+      I: [Object],
+      J: [Object]
+    }
+  },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 10,
+    lines: 10,
+    win: { total: 600, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:28:48.441] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1767822, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 6,
+    lines: 10,
+    win: { total: 120, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:28:48.441] [INFO] default - 6
+[2020-05-14T22:28:48.441] [INFO] default - 8
+[2020-05-14T22:28:48.442] [INFO] default - 1767822
+[2020-05-14T22:28:48.442] [INFO] default - 1767822
+[2020-05-14T22:28:49.361] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1767742, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 8,
+    lines: 10
+  }
+}
+[2020-05-14T22:28:49.361] [INFO] default - 8
+[2020-05-14T22:28:49.361] [INFO] default - 8
+[2020-05-14T22:28:49.362] [INFO] default - 1767742
+[2020-05-14T22:28:49.362] [INFO] default - 1767742
+[2020-05-14T22:28:50.385] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1767642, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 10,
+    lines: 10
+  }
+}
+[2020-05-14T22:28:50.386] [INFO] default - 10
+[2020-05-14T22:28:50.386] [INFO] default - 8
+[2020-05-14T22:28:50.387] [INFO] default - 1767642
+[2020-05-14T22:28:50.387] [INFO] default - 1767642
+[2020-05-14T22:28:51.511] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1767570, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 12,
+    lines: 10,
+    win: { total: 48, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:28:51.512] [INFO] default - 12
+[2020-05-14T22:28:51.512] [INFO] default - 8
+[2020-05-14T22:28:51.513] [INFO] default - 1767570
+[2020-05-14T22:28:51.513] [INFO] default - 1767570
+[2020-05-14T22:28:52.448] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1767410, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 16,
+    lines: 10
+  }
+}
+[2020-05-14T22:28:52.448] [INFO] default - 16
+[2020-05-14T22:28:52.449] [INFO] default - 8
+[2020-05-14T22:28:52.450] [INFO] default - 1767410
+[2020-05-14T22:28:52.450] [INFO] default - 1767410
+[2020-05-14T22:28:53.674] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1767290, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 20,
+    lines: 10,
+    win: { total: 80, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:28:53.674] [INFO] default - 20
+[2020-05-14T22:28:53.674] [INFO] default - 8
+[2020-05-14T22:28:53.675] [INFO] default - 1767290
+[2020-05-14T22:28:53.675] [INFO] default - 1767290
+[2020-05-14T22:28:54.584] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1766890, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 40,
+    lines: 10
+  }
+}
+[2020-05-14T22:28:54.584] [INFO] default - 40
+[2020-05-14T22:28:54.584] [INFO] default - 8
+[2020-05-14T22:28:54.585] [INFO] default - 1766890
+[2020-05-14T22:28:54.585] [INFO] default - 1766890
+[2020-05-14T22:28:55.608] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1766290, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 60,
+    lines: 10
+  }
+}
+[2020-05-14T22:28:55.608] [INFO] default - 60
+[2020-05-14T22:28:55.608] [INFO] default - 8
+[2020-05-14T22:28:55.609] [INFO] default - 1766290
+[2020-05-14T22:28:55.609] [INFO] default - 1766290
+[2020-05-14T22:28:56.531] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1765490, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 80,
+    lines: 10
+  }
+}
+[2020-05-14T22:28:56.531] [INFO] default - 80
+[2020-05-14T22:28:56.531] [INFO] default - 8
+[2020-05-14T22:28:56.533] [INFO] default - 1765490
+[2020-05-14T22:28:56.533] [INFO] default - 1765490
+[2020-05-14T22:28:58.135] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1765490, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 100,
+    lines: 10,
+    win: { total: 1000, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:28:58.136] [INFO] default - 100
+[2020-05-14T22:28:58.136] [INFO] default - 8
+[2020-05-14T22:28:58.139] [INFO] default - 1765490
+[2020-05-14T22:28:58.140] [INFO] default - 1765490
+[2020-05-14T22:28:59.193] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1763490, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 200,
+    lines: 10
+  }
+}
+[2020-05-14T22:28:59.194] [INFO] default - 200
+[2020-05-14T22:28:59.194] [INFO] default - 8
+[2020-05-14T22:28:59.196] [INFO] default - 1763490
+[2020-05-14T22:28:59.196] [INFO] default - 1763490
+[2020-05-14T22:29:00.470] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1767490, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 400,
+    lines: 10,
+    win: { total: 8000, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:29:00.470] [INFO] default - 400
+[2020-05-14T22:29:00.470] [INFO] default - 8
+[2020-05-14T22:29:00.472] [INFO] default - 1767490
+[2020-05-14T22:29:00.472] [INFO] default - 1767490
+[2020-05-14T22:29:02.470] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1761490, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 600,
+    lines: 10
+  }
+}
+[2020-05-14T22:29:02.470] [INFO] default - 600
+[2020-05-14T22:29:02.470] [INFO] default - 8
+[2020-05-14T22:29:02.473] [INFO] default - 1761490
+[2020-05-14T22:29:02.473] [INFO] default - 1761490
+[2020-05-14T22:29:04.945] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1753490, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 800,
+    lines: 10
+  }
+}
+[2020-05-14T22:29:04.945] [INFO] default - 800
+[2020-05-14T22:29:04.945] [INFO] default - 8
+[2020-05-14T22:29:04.947] [INFO] default - 1753490
+[2020-05-14T22:29:04.947] [INFO] default - 1753490
+[2020-05-14T22:29:05.849] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1743490, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 1000,
+    lines: 10
+  }
+}
+[2020-05-14T22:29:05.849] [INFO] default - 1000
+[2020-05-14T22:29:05.849] [INFO] default - 8
+[2020-05-14T22:29:05.851] [INFO] default - 1743490
+[2020-05-14T22:29:05.851] [INFO] default - 1743490
+[2020-05-14T22:29:06.397] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: {
+    currency: 'TMT',
+    balance: 1743490,
+    i18n: 'tr',
+    playerId: '22136_34',
+    userName: 'Sdfsdf  Sdfdf',
+    oid: 34,
+    cid: '-53'
+  },
+  settings: {
+    width: 5,
+    height: 3,
+    rtp: 95.6,
+    type: 'pioneer',
+    bets: [
+        6,   8,  10,  12,   16,
+       20,  40,  60,  80,  100,
+      200, 400, 600, 800, 1000
+    ],
+    autoplay: { count: [Array], limits: [Object] },
+    reels: [ [Array], [Array], [Array], [Array], [Array] ],
+    lines: {
+      '1': [Array],
+      '2': [Array],
+      '3': [Array],
+      '4': [Array],
+      '5': [Array],
+      '6': [Array],
+      '7': [Array],
+      '8': [Array],
+      '9': [Array],
+      '10': [Array]
+    },
+    paytable: {
+      '1': [Object],
+      '2': [Object],
+      A: [Object],
+      B: [Object],
+      C: [Object],
+      D: [Object],
+      E: [Object],
+      F: [Object],
+      G: [Object],
+      H: [Object],
+      I: [Object],
+      J: [Object]
+    }
+  },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 10,
+    lines: 10
+  }
+}
+[2020-05-14T22:29:07.385] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1743430, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 6,
+    lines: 10
+  }
+}
+[2020-05-14T22:29:07.385] [INFO] default - 6
+[2020-05-14T22:29:07.385] [INFO] default - 9
+[2020-05-14T22:29:07.387] [INFO] default - 1743430
+[2020-05-14T22:29:07.387] [INFO] default - 1743430
+[2020-05-14T22:29:08.544] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1743542, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 8,
+    lines: 10,
+    win: { total: 192, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:29:08.545] [INFO] default - 8
+[2020-05-14T22:29:08.545] [INFO] default - 9
+[2020-05-14T22:29:08.546] [INFO] default - 1743542
+[2020-05-14T22:29:08.546] [INFO] default - 1743542
+[2020-05-14T22:29:09.535] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1743442, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 10,
+    lines: 10
+  }
+}
+[2020-05-14T22:29:09.536] [INFO] default - 10
+[2020-05-14T22:29:09.536] [INFO] default - 9
+[2020-05-14T22:29:09.538] [INFO] default - 1743442
+[2020-05-14T22:29:09.538] [INFO] default - 1743442
+[2020-05-14T22:29:10.560] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1743322, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 12,
+    lines: 10
+  }
+}
+[2020-05-14T22:29:10.560] [INFO] default - 12
+[2020-05-14T22:29:10.560] [INFO] default - 9
+[2020-05-14T22:29:10.562] [INFO] default - 1743322
+[2020-05-14T22:29:10.563] [INFO] default - 1743322
+[2020-05-14T22:29:12.262] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1743482, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 16,
+    lines: 10,
+    win: { total: 320, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:29:12.262] [INFO] default - 16
+[2020-05-14T22:29:12.262] [INFO] default - 9
+[2020-05-14T22:29:12.263] [INFO] default - 1743482
+[2020-05-14T22:29:12.263] [INFO] default - 1743482
+[2020-05-14T22:29:13.118] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1743282, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 20,
+    lines: 10
+  }
+}
+[2020-05-14T22:29:13.118] [INFO] default - 20
+[2020-05-14T22:29:13.118] [INFO] default - 9
+[2020-05-14T22:29:13.119] [INFO] default - 1743282
+[2020-05-14T22:29:13.119] [INFO] default - 1743282
+[2020-05-14T22:29:14.244] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1742882, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 40,
+    lines: 10
+  }
+}
+[2020-05-14T22:29:14.244] [INFO] default - 40
+[2020-05-14T22:29:14.244] [INFO] default - 9
+[2020-05-14T22:29:14.245] [INFO] default - 1742882
+[2020-05-14T22:29:14.245] [INFO] default - 1742882
+[2020-05-14T22:29:15.678] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1742522, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 60,
+    lines: 10,
+    win: { total: 240, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:29:15.678] [INFO] default - 60
+[2020-05-14T22:29:15.678] [INFO] default - 9
+[2020-05-14T22:29:15.679] [INFO] default - 1742522
+[2020-05-14T22:29:15.679] [INFO] default - 1742522
+[2020-05-14T22:29:17.214] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1741962, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 80,
+    lines: 10,
+    win: { total: 240, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:29:17.214] [INFO] default - 80
+[2020-05-14T22:29:17.214] [INFO] default - 9
+[2020-05-14T22:29:17.215] [INFO] default - 1741962
+[2020-05-14T22:29:17.215] [INFO] default - 1741962
+[2020-05-14T22:29:18.136] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1740962, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 100,
+    lines: 10
+  }
+}
+[2020-05-14T22:29:18.136] [INFO] default - 100
+[2020-05-14T22:29:18.136] [INFO] default - 9
+[2020-05-14T22:29:18.138] [INFO] default - 1740962
+[2020-05-14T22:29:18.138] [INFO] default - 1740962
+[2020-05-14T22:29:20.390] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1740962, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 200,
+    lines: 10,
+    win: { total: 2000, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:29:20.391] [INFO] default - 200
+[2020-05-14T22:29:20.391] [INFO] default - 9
+[2020-05-14T22:29:20.393] [INFO] default - 1740962
+[2020-05-14T22:29:20.393] [INFO] default - 1740962
+[2020-05-14T22:29:21.517] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1742562, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 400,
+    lines: 10,
+    win: { total: 5600, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:29:21.518] [INFO] default - 400
+[2020-05-14T22:29:21.518] [INFO] default - 9
+[2020-05-14T22:29:21.520] [INFO] default - 1742562
+[2020-05-14T22:29:21.520] [INFO] default - 1742562
+[2020-05-14T22:29:22.773] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1737762, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 600,
+    lines: 10,
+    win: { total: 1200, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:29:22.775] [INFO] default - 600
+[2020-05-14T22:29:22.775] [INFO] default - 9
+[2020-05-14T22:29:22.776] [INFO] default - 1737762
+[2020-05-14T22:29:22.777] [INFO] default - 1737762
+[2020-05-14T22:29:23.565] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1729762, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 800,
+    lines: 10
+  }
+}
+[2020-05-14T22:29:23.566] [INFO] default - 800
+[2020-05-14T22:29:23.566] [INFO] default - 9
+[2020-05-14T22:29:23.568] [INFO] default - 1729762
+[2020-05-14T22:29:23.568] [INFO] default - 1729762
+[2020-05-14T22:29:24.589] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1719762, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 1000,
+    lines: 10
+  }
+}
+[2020-05-14T22:29:24.590] [INFO] default - 1000
+[2020-05-14T22:29:24.590] [INFO] default - 9
+[2020-05-14T22:29:24.592] [INFO] default - 1719762
+[2020-05-14T22:29:24.592] [INFO] default - 1719762
+[2020-05-14T22:29:25.306] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: {
+    currency: 'TMT',
+    balance: 1719762,
+    i18n: 'tr',
+    playerId: '22136_34',
+    userName: 'Sdfsdf  Sdfdf',
+    oid: 34,
+    cid: '-53'
+  },
+  settings: {
+    width: 3,
+    height: 3,
+    rtp: 95,
+    type: 'ultraHot',
+    bets: [
+        6,   8,  10,  12,   16,
+       20,  40,  60,  80,  100,
+      200, 400, 600, 800, 1000
+    ],
+    autoplay: { count: [Array], limits: [Object] },
+    reels: [ [Array], [Array], [Array] ],
+    lines: {
+      '1': [Array],
+      '2': [Array],
+      '3': [Array],
+      '4': [Array],
+      '5': [Array]
+    },
+    paytable: {
+      A: [Object],
+      B: [Object],
+      C: [Object],
+      D: [Object],
+      E: [Object],
+      F: [Object],
+      G: [Object],
+      H: [Object]
+    }
+  },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array] ],
+    bet: 5,
+    lines: 5
+  }
+}
+[2020-05-14T22:29:26.794] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1719732, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array] ],
+    bet: 6,
+    lines: 5
+  }
+}
+[2020-05-14T22:29:26.794] [INFO] default - 6
+[2020-05-14T22:29:26.794] [INFO] default - 10
+[2020-05-14T22:29:26.796] [INFO] default - 1719732
+[2020-05-14T22:29:26.796] [INFO] default - 1719732
+[2020-05-14T22:29:27.753] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1719692, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array] ],
+    bet: 8,
+    lines: 5
+  }
+}
+[2020-05-14T22:29:27.754] [INFO] default - 8
+[2020-05-14T22:29:27.754] [INFO] default - 10
+[2020-05-14T22:29:27.757] [INFO] default - 1719692
+[2020-05-14T22:29:27.757] [INFO] default - 1719692
+[2020-05-14T22:29:28.685] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1719642, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array] ],
+    bet: 10,
+    lines: 5
+  }
+}
+[2020-05-14T22:29:28.685] [INFO] default - 10
+[2020-05-14T22:29:28.686] [INFO] default - 10
+[2020-05-14T22:29:28.688] [INFO] default - 1719642
+[2020-05-14T22:29:28.688] [INFO] default - 1719642
+[2020-05-14T22:29:29.710] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1719582, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array] ],
+    bet: 12,
+    lines: 5
+  }
+}
+[2020-05-14T22:29:29.711] [INFO] default - 12
+[2020-05-14T22:29:29.711] [INFO] default - 10
+[2020-05-14T22:29:29.713] [INFO] default - 1719582
+[2020-05-14T22:29:29.713] [INFO] default - 1719582
+[2020-05-14T22:29:30.675] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1719502, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array] ],
+    bet: 16,
+    lines: 5
+  }
+}
+[2020-05-14T22:29:30.675] [INFO] default - 16
+[2020-05-14T22:29:30.676] [INFO] default - 10
+[2020-05-14T22:29:30.678] [INFO] default - 1719502
+[2020-05-14T22:29:30.678] [INFO] default - 1719502
+[2020-05-14T22:29:32.371] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1719402, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array] ],
+    bet: 20,
+    lines: 5
+  }
+}
+[2020-05-14T22:29:32.371] [INFO] default - 20
+[2020-05-14T22:29:32.371] [INFO] default - 10
+[2020-05-14T22:29:32.373] [INFO] default - 1719402
+[2020-05-14T22:29:32.374] [INFO] default - 1719402
+[2020-05-14T22:29:34.138] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1719202, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array] ],
+    bet: 40,
+    lines: 5
+  }
+}
+[2020-05-14T22:29:34.138] [INFO] default - 40
+[2020-05-14T22:29:34.138] [INFO] default - 10
+[2020-05-14T22:29:34.140] [INFO] default - 1719202
+[2020-05-14T22:29:34.140] [INFO] default - 1719202
+[2020-05-14T22:29:35.043] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1718902, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array] ],
+    bet: 60,
+    lines: 5
+  }
+}
+[2020-05-14T22:29:35.043] [INFO] default - 60
+[2020-05-14T22:29:35.044] [INFO] default - 10
+[2020-05-14T22:29:35.044] [INFO] default - 1718902
+[2020-05-14T22:29:35.044] [INFO] default - 1718902
+[2020-05-14T22:29:36.745] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1718502, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array] ],
+    bet: 80,
+    lines: 5
+  }
+}
+[2020-05-14T22:29:36.745] [INFO] default - 80
+[2020-05-14T22:29:36.745] [INFO] default - 10
+[2020-05-14T22:29:36.747] [INFO] default - 1718502
+[2020-05-14T22:29:36.747] [INFO] default - 1718502
+[2020-05-14T22:29:38.201] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1718002, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array] ],
+    bet: 100,
+    lines: 5
+  }
+}
+[2020-05-14T22:29:38.204] [INFO] default - 100
+[2020-05-14T22:29:38.204] [INFO] default - 10
+[2020-05-14T22:29:38.206] [INFO] default - 1718002
+[2020-05-14T22:29:38.206] [INFO] default - 1718002
+[2020-05-14T22:29:39.309] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1717002, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array] ],
+    bet: 200,
+    lines: 5
+  }
+}
+[2020-05-14T22:29:39.309] [INFO] default - 200
+[2020-05-14T22:29:39.309] [INFO] default - 10
+[2020-05-14T22:29:39.312] [INFO] default - 1717002
+[2020-05-14T22:29:39.312] [INFO] default - 1717002
+[2020-05-14T22:29:40.670] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1715002, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array] ],
+    bet: 400,
+    lines: 5
+  }
+}
+[2020-05-14T22:29:40.670] [INFO] default - 400
+[2020-05-14T22:29:40.670] [INFO] default - 10
+[2020-05-14T22:29:40.672] [INFO] default - 1715002
+[2020-05-14T22:29:40.672] [INFO] default - 1715002
+[2020-05-14T22:29:41.497] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1712002, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array] ],
+    bet: 600,
+    lines: 5
+  }
+}
+[2020-05-14T22:29:41.498] [INFO] default - 600
+[2020-05-14T22:29:41.498] [INFO] default - 10
+[2020-05-14T22:29:41.499] [INFO] default - 1712002
+[2020-05-14T22:29:41.499] [INFO] default - 1712002
+[2020-05-14T22:29:42.508] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1868002, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array] ],
+    bet: 800,
+    lines: 5,
+    win: { total: 160000, type: 'big', lines: [Array] }
+  }
+}
+[2020-05-14T22:29:42.509] [INFO] default - 800
+[2020-05-14T22:29:42.509] [INFO] default - 10
+[2020-05-14T22:29:42.511] [INFO] default - 1868002
+[2020-05-14T22:29:42.511] [INFO] default - 1868002
+[2020-05-14T22:29:43.327] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1863002, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array] ],
+    bet: 1000,
+    lines: 5
+  }
+}
+[2020-05-14T22:29:43.328] [INFO] default - 1000
+[2020-05-14T22:29:43.328] [INFO] default - 10
+[2020-05-14T22:29:43.329] [INFO] default - 1863002
+[2020-05-14T22:29:43.329] [INFO] default - 1863002
+[2020-05-14T22:29:43.842] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: {
+    currency: 'TMT',
+    balance: 1863002,
+    i18n: 'tr',
+    playerId: '22136_34',
+    userName: 'Sdfsdf  Sdfdf',
+    oid: 34,
+    cid: '-53'
+  },
+  settings: {
+    width: 5,
+    height: 3,
+    rtp: 95.6,
+    type: 'pioneer',
+    bets: [
+        6,   8,  10,  12,   16,
+       20,  40,  60,  80,  100,
+      200, 400, 600, 800, 1000
+    ],
+    autoplay: { count: [Array], limits: [Object] },
+    reels: [ [Array], [Array], [Array], [Array], [Array] ],
+    lines: {
+      '1': [Array],
+      '2': [Array],
+      '3': [Array],
+      '4': [Array],
+      '5': [Array],
+      '6': [Array],
+      '7': [Array],
+      '8': [Array],
+      '9': [Array],
+      '10': [Array]
+    },
+    paytable: {
+      '1': [Object],
+      '2': [Object],
+      A: [Object],
+      B: [Object],
+      C: [Object],
+      D: [Object],
+      E: [Object],
+      F: [Object],
+      G: [Object],
+      H: [Object],
+      I: [Object],
+      J: [Object]
+    }
+  },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 10,
+    lines: 10
+  }
+}
+[2020-05-14T22:29:44.981] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1863062, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 6,
+    lines: 10,
+    win: { total: 120, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:29:44.982] [INFO] default - 6
+[2020-05-14T22:29:44.982] [INFO] default - 11
+[2020-05-14T22:29:44.984] [INFO] default - 1863062
+[2020-05-14T22:29:44.984] [INFO] default - 1863062
+[2020-05-14T22:29:46.615] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1863022, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 8,
+    lines: 10,
+    win: { total: 40, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:29:46.616] [INFO] default - 8
+[2020-05-14T22:29:46.616] [INFO] default - 11
+[2020-05-14T22:29:46.618] [INFO] default - 1863022
+[2020-05-14T22:29:46.618] [INFO] default - 1863022
+[2020-05-14T22:29:47.935] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1862962, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 10,
+    lines: 10,
+    win: { total: 40, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:29:47.935] [INFO] default - 10
+[2020-05-14T22:29:47.935] [INFO] default - 11
+[2020-05-14T22:29:47.936] [INFO] default - 1862962
+[2020-05-14T22:29:47.936] [INFO] default - 1862962
+[2020-05-14T22:29:48.672] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1862842, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 12,
+    lines: 10
+  }
+}
+[2020-05-14T22:29:48.672] [INFO] default - 12
+[2020-05-14T22:29:48.672] [INFO] default - 11
+[2020-05-14T22:29:48.674] [INFO] default - 1862842
+[2020-05-14T22:29:48.675] [INFO] default - 1862842
+[2020-05-14T22:29:49.883] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1862778, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 16,
+    lines: 10,
+    win: { total: 96, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:29:49.883] [INFO] default - 16
+[2020-05-14T22:29:49.883] [INFO] default - 11
+[2020-05-14T22:29:49.885] [INFO] default - 1862778
+[2020-05-14T22:29:49.885] [INFO] default - 1862778
+[2020-05-14T22:29:50.905] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1862578, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 20,
+    lines: 10
+  }
+}
+[2020-05-14T22:29:50.905] [INFO] default - 20
+[2020-05-14T22:29:50.906] [INFO] default - 11
+[2020-05-14T22:29:50.907] [INFO] default - 1862578
+[2020-05-14T22:29:50.907] [INFO] default - 1862578
+[2020-05-14T22:29:52.030] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1862178, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 40,
+    lines: 10
+  }
+}
+[2020-05-14T22:29:52.030] [INFO] default - 40
+[2020-05-14T22:29:52.030] [INFO] default - 11
+[2020-05-14T22:29:52.031] [INFO] default - 1862178
+[2020-05-14T22:29:52.031] [INFO] default - 1862178
+[2020-05-14T22:29:53.833] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1861818, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 60,
+    lines: 10,
+    win: { total: 240, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:29:53.833] [INFO] default - 60
+[2020-05-14T22:29:53.833] [INFO] default - 11
+[2020-05-14T22:29:53.834] [INFO] default - 1861818
+[2020-05-14T22:29:53.835] [INFO] default - 1861818
+[2020-05-14T22:29:54.670] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1861018, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 80,
+    lines: 10
+  }
+}
+[2020-05-14T22:29:54.670] [INFO] default - 80
+[2020-05-14T22:29:54.670] [INFO] default - 11
+[2020-05-14T22:29:54.672] [INFO] default - 1861018
+[2020-05-14T22:29:54.672] [INFO] default - 1861018
+[2020-05-14T22:29:55.493] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1860018, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 100,
+    lines: 10
+  }
+}
+[2020-05-14T22:29:55.493] [INFO] default - 100
+[2020-05-14T22:29:55.493] [INFO] default - 11
+[2020-05-14T22:29:55.495] [INFO] default - 1860018
+[2020-05-14T22:29:55.495] [INFO] default - 1860018
+[2020-05-14T22:29:56.863] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1858018, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 200,
+    lines: 10
+  }
+}
+[2020-05-14T22:29:56.863] [INFO] default - 200
+[2020-05-14T22:29:56.863] [INFO] default - 11
+[2020-05-14T22:29:56.865] [INFO] default - 1858018
+[2020-05-14T22:29:56.865] [INFO] default - 1858018
+[2020-05-14T22:29:57.806] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1857218, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 400,
+    lines: 10,
+    win: { total: 3200, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:29:57.806] [INFO] default - 400
+[2020-05-14T22:29:57.807] [INFO] default - 11
+[2020-05-14T22:29:57.810] [INFO] default - 1857218
+[2020-05-14T22:29:57.810] [INFO] default - 1857218
+[2020-05-14T22:30:00.119] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1851218, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 600,
+    lines: 10
+  }
+}
+[2020-05-14T22:30:00.119] [INFO] default - 600
+[2020-05-14T22:30:00.119] [INFO] default - 11
+[2020-05-14T22:30:00.121] [INFO] default - 1851218
+[2020-05-14T22:30:00.121] [INFO] default - 1851218
+[2020-05-14T22:30:00.966] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1843218, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 800,
+    lines: 10
+  }
+}
+[2020-05-14T22:30:00.966] [INFO] default - 800
+[2020-05-14T22:30:00.967] [INFO] default - 11
+[2020-05-14T22:30:00.969] [INFO] default - 1843218
+[2020-05-14T22:30:00.969] [INFO] default - 1843218
+[2020-05-14T22:30:05.854] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1833218, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 1000,
+    lines: 10
+  }
+}
+[2020-05-14T22:30:05.854] [INFO] default - 1000
+[2020-05-14T22:30:05.854] [INFO] default - 11
+[2020-05-14T22:30:05.856] [INFO] default - 1833218
+[2020-05-14T22:30:05.856] [INFO] default - 1833218
+[2020-05-14T22:30:06.880] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: {
+    currency: 'TMT',
+    balance: 1833218,
+    i18n: 'tr',
+    playerId: '22136_34',
+    userName: 'Sdfsdf  Sdfdf',
+    oid: 34,
+    cid: '-53'
+  },
+  settings: {
+    width: 5,
+    height: 3,
+    rtp: 95.6,
+    type: 'pioneer',
+    bets: [
+        6,   8,  10,  12,   16,
+       20,  40,  60,  80,  100,
+      200, 400, 600, 800, 1000
+    ],
+    autoplay: { count: [Array], limits: [Object] },
+    reels: [ [Array], [Array], [Array], [Array], [Array] ],
+    lines: {
+      '1': [Array],
+      '2': [Array],
+      '3': [Array],
+      '4': [Array],
+      '5': [Array],
+      '6': [Array],
+      '7': [Array],
+      '8': [Array],
+      '9': [Array],
+      '10': [Array]
+    },
+    paytable: {
+      '1': [Object],
+      '2': [Object],
+      A: [Object],
+      B: [Object],
+      C: [Object],
+      D: [Object],
+      E: [Object],
+      F: [Object],
+      G: [Object],
+      H: [Object],
+      I: [Object],
+      J: [Object]
+    }
+  },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 10,
+    lines: 10,
+    win: { total: 720, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:30:10.873] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1833158, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 6,
+    lines: 10
+  }
+}
+[2020-05-14T22:30:10.874] [INFO] default - 6
+[2020-05-14T22:30:10.874] [INFO] default - 12
+[2020-05-14T22:30:10.876] [INFO] default - 1833158
+[2020-05-14T22:30:10.876] [INFO] default - 1833158
+[2020-05-14T22:30:12.036] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1833142, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 8,
+    lines: 10,
+    win: { total: 64, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:30:12.036] [INFO] default - 8
+[2020-05-14T22:30:12.036] [INFO] default - 12
+[2020-05-14T22:30:12.037] [INFO] default - 1833142
+[2020-05-14T22:30:12.038] [INFO] default - 1833142
+[2020-05-14T22:30:13.239] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1833082, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 10,
+    lines: 10,
+    win: { total: 40, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:30:13.239] [INFO] default - 10
+[2020-05-14T22:30:13.239] [INFO] default - 12
+[2020-05-14T22:30:13.241] [INFO] default - 1833082
+[2020-05-14T22:30:13.241] [INFO] default - 1833082
+[2020-05-14T22:30:14.457] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1833010, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 12,
+    lines: 10,
+    win: { total: 48, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:30:14.457] [INFO] default - 12
+[2020-05-14T22:30:14.457] [INFO] default - 12
+[2020-05-14T22:30:14.460] [INFO] default - 1833010
+[2020-05-14T22:30:14.460] [INFO] default - 1833010
+[2020-05-14T22:30:15.582] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1833090, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 16,
+    lines: 10,
+    win: { total: 240, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:30:15.582] [INFO] default - 16
+[2020-05-14T22:30:15.582] [INFO] default - 12
+[2020-05-14T22:30:15.583] [INFO] default - 1833090
+[2020-05-14T22:30:15.583] [INFO] default - 1833090
+[2020-05-14T22:30:16.914] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1832890, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 20,
+    lines: 10
+  }
+}
+[2020-05-14T22:30:16.914] [INFO] default - 20
+[2020-05-14T22:30:16.914] [INFO] default - 12
+[2020-05-14T22:30:16.915] [INFO] default - 1832890
+[2020-05-14T22:30:16.915] [INFO] default - 1832890
+[2020-05-14T22:30:18.039] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1832490, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 40,
+    lines: 10
+  }
+}
+[2020-05-14T22:30:18.040] [INFO] default - 40
+[2020-05-14T22:30:18.040] [INFO] default - 12
+[2020-05-14T22:30:18.041] [INFO] default - 1832490
+[2020-05-14T22:30:18.041] [INFO] default - 1832490
+[2020-05-14T22:30:19.168] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1831890, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 60,
+    lines: 10
+  }
+}
+[2020-05-14T22:30:19.168] [INFO] default - 60
+[2020-05-14T22:30:19.168] [INFO] default - 12
+[2020-05-14T22:30:19.170] [INFO] default - 1831890
+[2020-05-14T22:30:19.170] [INFO] default - 1831890
+[2020-05-14T22:30:21.318] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1831410, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 80,
+    lines: 10,
+    win: { total: 320, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:30:21.318] [INFO] default - 80
+[2020-05-14T22:30:21.319] [INFO] default - 12
+[2020-05-14T22:30:21.321] [INFO] default - 1831410
+[2020-05-14T22:30:21.321] [INFO] default - 1831410
+[2020-05-14T22:30:25.001] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1832810, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 100,
+    lines: 10,
+    win: { total: 2400, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:30:25.001] [INFO] default - 100
+[2020-05-14T22:30:25.001] [INFO] default - 12
+[2020-05-14T22:30:25.002] [INFO] default - 1832810
+[2020-05-14T22:30:25.002] [INFO] default - 1832810
+[2020-05-14T22:30:26.130] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1830810, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 200,
+    lines: 10
+  }
+}
+[2020-05-14T22:30:26.130] [INFO] default - 200
+[2020-05-14T22:30:26.130] [INFO] default - 12
+[2020-05-14T22:30:26.131] [INFO] default - 1830810
+[2020-05-14T22:30:26.131] [INFO] default - 1830810
+[2020-05-14T22:30:27.255] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1826810, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 400,
+    lines: 10
+  }
+}
+[2020-05-14T22:30:27.255] [INFO] default - 400
+[2020-05-14T22:30:27.255] [INFO] default - 12
+[2020-05-14T22:30:27.256] [INFO] default - 1826810
+[2020-05-14T22:30:27.256] [INFO] default - 1826810
+[2020-05-14T22:30:28.484] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1823210, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 600,
+    lines: 10,
+    win: { total: 2400, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:30:28.485] [INFO] default - 600
+[2020-05-14T22:30:28.485] [INFO] default - 12
+[2020-05-14T22:30:28.486] [INFO] default - 1823210
+[2020-05-14T22:30:28.486] [INFO] default - 1823210
+[2020-05-14T22:30:29.817] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1816810, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 800,
+    lines: 10,
+    win: { total: 1600, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:30:29.818] [INFO] default - 800
+[2020-05-14T22:30:29.818] [INFO] default - 12
+[2020-05-14T22:30:29.820] [INFO] default - 1816810
+[2020-05-14T22:30:29.820] [INFO] default - 1816810
+[2020-05-14T22:30:31.150] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1808810, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 1000,
+    lines: 10,
+    win: { total: 2000, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:30:31.150] [INFO] default - 1000
+[2020-05-14T22:30:31.150] [INFO] default - 12
+[2020-05-14T22:30:31.152] [INFO] default - 1808810
+[2020-05-14T22:30:31.152] [INFO] default - 1808810
+[2020-05-14T22:30:31.764] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: {
+    currency: 'TMT',
+    balance: 1808810,
+    i18n: 'tr',
+    playerId: '22136_34',
+    userName: 'Sdfsdf  Sdfdf',
+    oid: 34,
+    cid: '-53'
+  },
+  settings: {
+    width: 5,
+    height: 3,
+    rtp: 95.6,
+    type: 'expendingWild',
+    bets: [
+        6,   8,  10,  12,   16,
+       20,  40,  60,  80,  100,
+      200, 400, 600, 800, 1000
+    ],
+    autoplay: { count: [Array], limits: [Object] },
+    reels: [ [Array], [Array], [Array], [Array], [Array] ],
+    lines: {
+      '1': [Array],
+      '2': [Array],
+      '3': [Array],
+      '4': [Array],
+      '5': [Array],
+      '6': [Array],
+      '7': [Array],
+      '8': [Array],
+      '9': [Array],
+      '10': [Array],
+      '11': [Array],
+      '12': [Array],
+      '13': [Array],
+      '14': [Array],
+      '15': [Array],
+      '16': [Array],
+      '17': [Array],
+      '18': [Array],
+      '19': [Array],
+      '20': [Array]
+    },
+    paytable: {
+      '1': [Object],
+      '2': [Object],
+      A: [Object],
+      B: [Object],
+      C: [Object],
+      D: [Object],
+      E: [Object],
+      F: [Object],
+      G: [Object],
+      H: [Object],
+      I: [Object],
+      J: [Object]
+    }
+  },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 20,
+    lines: 20,
+    win: { total: 33000, type: 'regular', lines: [Array] },
+    feature: { expendingWild: [Object] }
+  }
+}
+[2020-05-14T22:30:32.643] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1808690, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 6,
+    lines: 20
+  }
+}
+[2020-05-14T22:30:32.644] [INFO] default - 6
+[2020-05-14T22:30:32.644] [INFO] default - 14
+[2020-05-14T22:30:32.646] [INFO] default - 1808690
+[2020-05-14T22:30:32.646] [INFO] default - 1808690
+[2020-05-14T22:30:33.810] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1808530, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 8,
+    lines: 20
+  }
+}
+[2020-05-14T22:30:33.811] [INFO] default - 8
+[2020-05-14T22:30:33.811] [INFO] default - 14
+[2020-05-14T22:30:33.813] [INFO] default - 1808530
+[2020-05-14T22:30:33.813] [INFO] default - 1808530
+[2020-05-14T22:30:34.835] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1808330, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 10,
+    lines: 20,
+    feature: { expendingWild: [Object] }
+  }
+}
+[2020-05-14T22:30:34.835] [INFO] default - 10
+[2020-05-14T22:30:34.835] [INFO] default - 14
+[2020-05-14T22:30:34.838] [INFO] default - 1808330
+[2020-05-14T22:30:34.838] [INFO] default - 1808330
+[2020-05-14T22:30:35.776] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1808090, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 12,
+    lines: 20
+  }
+}
+[2020-05-14T22:30:35.777] [INFO] default - 12
+[2020-05-14T22:30:35.777] [INFO] default - 14
+[2020-05-14T22:30:35.778] [INFO] default - 1808090
+[2020-05-14T22:30:35.778] [INFO] default - 1808090
+[2020-05-14T22:30:37.168] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1808570, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 16,
+    lines: 20,
+    win: { total: 800, type: 'regular', lines: [Array] },
+    feature: { expendingWild: [Object] }
+  }
+}
+[2020-05-14T22:30:37.169] [INFO] default - 16
+[2020-05-14T22:30:37.169] [INFO] default - 14
+[2020-05-14T22:30:37.172] [INFO] default - 1808570
+[2020-05-14T22:30:37.172] [INFO] default - 1808570
+[2020-05-14T22:30:39.024] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1808170, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 20,
+    lines: 20
+  }
+}
+[2020-05-14T22:30:39.024] [INFO] default - 20
+[2020-05-14T22:30:39.024] [INFO] default - 14
+[2020-05-14T22:30:39.025] [INFO] default - 1808170
+[2020-05-14T22:30:39.025] [INFO] default - 1808170
+[2020-05-14T22:30:40.056] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1807370, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 40,
+    lines: 20
+  }
+}
+[2020-05-14T22:30:40.056] [INFO] default - 40
+[2020-05-14T22:30:40.056] [INFO] default - 14
+[2020-05-14T22:30:40.057] [INFO] default - 1807370
+[2020-05-14T22:30:40.057] [INFO] default - 1807370
+[2020-05-14T22:30:41.207] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1806470, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 60,
+    lines: 20,
+    win: { total: 300, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:30:41.207] [INFO] default - 60
+[2020-05-14T22:30:41.207] [INFO] default - 14
+[2020-05-14T22:30:41.208] [INFO] default - 1806470
+[2020-05-14T22:30:41.208] [INFO] default - 1806470
+[2020-05-14T22:30:42.160] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1804870, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 80,
+    lines: 20
+  }
+}
+[2020-05-14T22:30:42.161] [INFO] default - 80
+[2020-05-14T22:30:42.161] [INFO] default - 14
+[2020-05-14T22:30:42.163] [INFO] default - 1804870
+[2020-05-14T22:30:42.163] [INFO] default - 1804870
+[2020-05-14T22:30:43.048] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1802870, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 100,
+    lines: 20
+  }
+}
+[2020-05-14T22:30:43.048] [INFO] default - 100
+[2020-05-14T22:30:43.048] [INFO] default - 14
+[2020-05-14T22:30:43.049] [INFO] default - 1802870
+[2020-05-14T22:30:43.049] [INFO] default - 1802870
+[2020-05-14T22:30:45.145] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1800070, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 200,
+    lines: 20,
+    win: { total: 1200, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:30:45.145] [INFO] default - 200
+[2020-05-14T22:30:45.145] [INFO] default - 14
+[2020-05-14T22:30:45.146] [INFO] default - 1800070
+[2020-05-14T22:30:45.146] [INFO] default - 1800070
+[2020-05-14T22:30:46.172] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1792070, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 400,
+    lines: 20,
+    feature: { expendingWild: [Object] }
+  }
+}
+[2020-05-14T22:30:46.172] [INFO] default - 400
+[2020-05-14T22:30:46.172] [INFO] default - 14
+[2020-05-14T22:30:46.174] [INFO] default - 1792070
+[2020-05-14T22:30:46.174] [INFO] default - 1792070
+[2020-05-14T22:30:47.329] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1780070, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 600,
+    lines: 20
+  }
+}
+[2020-05-14T22:30:47.329] [INFO] default - 600
+[2020-05-14T22:30:47.329] [INFO] default - 14
+[2020-05-14T22:30:47.330] [INFO] default - 1780070
+[2020-05-14T22:30:47.330] [INFO] default - 1780070
+[2020-05-14T22:30:48.362] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1764070, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 800,
+    lines: 20
+  }
+}
+[2020-05-14T22:30:48.362] [INFO] default - 800
+[2020-05-14T22:30:48.362] [INFO] default - 14
+[2020-05-14T22:30:48.363] [INFO] default - 1764070
+[2020-05-14T22:30:48.363] [INFO] default - 1764070
+[2020-05-14T22:30:49.396] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1744070, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 1000,
+    lines: 20
+  }
+}
+[2020-05-14T22:30:49.396] [INFO] default - 1000
+[2020-05-14T22:30:49.396] [INFO] default - 14
+[2020-05-14T22:30:49.397] [INFO] default - 1744070
+[2020-05-14T22:30:49.397] [INFO] default - 1744070
+[2020-05-14T22:35:32.267] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: {
+    currency: 'TMT',
+    balance: 1744070,
+    i18n: 'tr',
+    playerId: '22136_34',
+    userName: 'Sdfsdf  Sdfdf',
+    oid: 34,
+    cid: '-53'
+  },
+  settings: {
+    width: 5,
+    height: 3,
+    rtp: 95.6,
+    type: 'pioneer',
+    bets: [
+        6,   8,  10,  12,   16,
+       20,  40,  60,  80,  100,
+      200, 400, 600, 800, 1000
+    ],
+    autoplay: { count: [Array], limits: [Object] },
+    reels: [ [Array], [Array], [Array], [Array], [Array] ],
+    lines: {
+      '1': [Array],
+      '2': [Array],
+      '3': [Array],
+      '4': [Array],
+      '5': [Array],
+      '6': [Array],
+      '7': [Array],
+      '8': [Array],
+      '9': [Array],
+      '10': [Array]
+    },
+    paytable: {
+      '1': [Object],
+      '2': [Object],
+      A: [Object],
+      B: [Object],
+      C: [Object],
+      D: [Object],
+      E: [Object],
+      F: [Object],
+      G: [Object],
+      H: [Object],
+      I: [Object],
+      J: [Object]
+    }
+  },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 10,
+    lines: 10
+  }
+}
+[2020-05-14T22:35:33.537] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1744010, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 6,
+    lines: 10
+  }
+}
+[2020-05-14T22:35:33.537] [INFO] default - 6
+[2020-05-14T22:35:33.537] [INFO] default - 2
+[2020-05-14T22:35:33.540] [INFO] default - 1744010
+[2020-05-14T22:35:33.540] [INFO] default - 1744010
+[2020-05-14T22:35:34.560] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1743930, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 8,
+    lines: 10
+  }
+}
+[2020-05-14T22:35:34.561] [INFO] default - 8
+[2020-05-14T22:35:34.561] [INFO] default - 2
+[2020-05-14T22:35:34.562] [INFO] default - 1743930
+[2020-05-14T22:35:34.562] [INFO] default - 1743930
+[2020-05-14T22:35:39.471] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1743830, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 10,
+    lines: 10
+  }
+}
+[2020-05-14T22:35:39.471] [INFO] default - 10
+[2020-05-14T22:35:39.471] [INFO] default - 2
+[2020-05-14T22:35:39.472] [INFO] default - 1743830
+[2020-05-14T22:35:39.472] [INFO] default - 1743830
+[2020-05-14T22:35:40.720] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1743770, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 12,
+    lines: 10,
+    win: { total: 60, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:35:40.721] [INFO] default - 12
+[2020-05-14T22:35:40.721] [INFO] default - 2
+[2020-05-14T22:35:40.722] [INFO] default - 1743770
+[2020-05-14T22:35:40.722] [INFO] default - 1743770
+[2020-05-14T22:35:41.759] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1743770, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 16,
+    lines: 10,
+    win: { total: 160, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:35:41.760] [INFO] default - 16
+[2020-05-14T22:35:41.760] [INFO] default - 2
+[2020-05-14T22:35:41.762] [INFO] default - 1743770
+[2020-05-14T22:35:41.763] [INFO] default - 1743770
+[2020-05-14T22:35:43.058] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1743570, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 20,
+    lines: 10
+  }
+}
+[2020-05-14T22:35:43.059] [INFO] default - 20
+[2020-05-14T22:35:43.059] [INFO] default - 2
+[2020-05-14T22:35:43.059] [INFO] default - 1743570
+[2020-05-14T22:35:43.059] [INFO] default - 1743570
+[2020-05-14T22:35:44.085] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1743170, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 40,
+    lines: 10
+  }
+}
+[2020-05-14T22:35:44.086] [INFO] default - 40
+[2020-05-14T22:35:44.086] [INFO] default - 2
+[2020-05-14T22:35:44.088] [INFO] default - 1743170
+[2020-05-14T22:35:44.088] [INFO] default - 1743170
+[2020-05-14T22:35:45.006] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1742570, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 60,
+    lines: 10
+  }
+}
+[2020-05-14T22:35:45.007] [INFO] default - 60
+[2020-05-14T22:35:45.007] [INFO] default - 2
+[2020-05-14T22:35:45.008] [INFO] default - 1742570
+[2020-05-14T22:35:45.008] [INFO] default - 1742570
+[2020-05-14T22:35:46.381] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1742090, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 80,
+    lines: 10,
+    win: { total: 320, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:35:46.381] [INFO] default - 80
+[2020-05-14T22:35:46.381] [INFO] default - 2
+[2020-05-14T22:35:46.383] [INFO] default - 1742090
+[2020-05-14T22:35:46.383] [INFO] default - 1742090
+[2020-05-14T22:35:47.460] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1741090, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 100,
+    lines: 10
+  }
+}
+[2020-05-14T22:35:47.460] [INFO] default - 100
+[2020-05-14T22:35:47.461] [INFO] default - 2
+[2020-05-14T22:35:47.462] [INFO] default - 1741090
+[2020-05-14T22:35:47.462] [INFO] default - 1741090
+[2020-05-14T22:35:48.488] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1739090, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 200,
+    lines: 10
+  }
+}
+[2020-05-14T22:35:48.488] [INFO] default - 200
+[2020-05-14T22:35:48.488] [INFO] default - 2
+[2020-05-14T22:35:48.491] [INFO] default - 1739090
+[2020-05-14T22:35:48.491] [INFO] default - 1739090
+[2020-05-14T22:35:49.614] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1735090, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 400,
+    lines: 10
+  }
+}
+[2020-05-14T22:35:49.614] [INFO] default - 400
+[2020-05-14T22:35:49.614] [INFO] default - 2
+[2020-05-14T22:35:49.617] [INFO] default - 1735090
+[2020-05-14T22:35:49.617] [INFO] default - 1735090
+[2020-05-14T22:35:50.639] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1729090, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 600,
+    lines: 10
+  }
+}
+[2020-05-14T22:35:50.639] [INFO] default - 600
+[2020-05-14T22:35:50.639] [INFO] default - 2
+[2020-05-14T22:35:50.642] [INFO] default - 1729090
+[2020-05-14T22:35:50.642] [INFO] default - 1729090
+[2020-05-14T22:35:51.744] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1721090, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 800,
+    lines: 10
+  }
+}
+[2020-05-14T22:35:51.744] [INFO] default - 800
+[2020-05-14T22:35:51.744] [INFO] default - 2
+[2020-05-14T22:35:51.746] [INFO] default - 1721090
+[2020-05-14T22:35:51.748] [INFO] default - 1721090
+[2020-05-14T22:35:53.054] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1721090, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 1000,
+    lines: 10,
+    win: { total: 10000, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:35:53.054] [INFO] default - 1000
+[2020-05-14T22:35:53.054] [INFO] default - 2
+[2020-05-14T22:35:53.056] [INFO] default - 1721090
+[2020-05-14T22:35:53.056] [INFO] default - 1721090
+[2020-05-14T22:36:58.060] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: {
+    currency: 'TMT',
+    balance: 1721090,
+    i18n: 'tr',
+    playerId: '22136_34',
+    userName: 'Sdfsdf  Sdfdf',
+    oid: 34,
+    cid: '-53'
+  },
+  settings: {
+    width: 5,
+    height: 3,
+    rtp: 95.6,
+    type: 'pioneer',
+    bets: [
+        6,   8,  10,  12,   16,
+       20,  40,  60,  80,  100,
+      200, 400, 600, 800, 1000
+    ],
+    autoplay: { count: [Array], limits: [Object] },
+    reels: [ [Array], [Array], [Array], [Array], [Array] ],
+    lines: {
+      '1': [Array],
+      '2': [Array],
+      '3': [Array],
+      '4': [Array],
+      '5': [Array],
+      '6': [Array],
+      '7': [Array],
+      '8': [Array],
+      '9': [Array],
+      '10': [Array]
+    },
+    paytable: {
+      '1': [Object],
+      '2': [Object],
+      A: [Object],
+      B: [Object],
+      C: [Object],
+      D: [Object],
+      E: [Object],
+      F: [Object],
+      G: [Object],
+      H: [Object],
+      I: [Object],
+      J: [Object]
+    }
+  },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 10,
+    lines: 10,
+    win: { total: 10000, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:36:59.347] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1721060, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 6,
+    lines: 10,
+    win: { total: 30, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:36:59.347] [INFO] default - bet 6
+[2020-05-14T22:36:59.347] [INFO] default - bet 2
+[2020-05-14T22:36:59.349] [INFO] default - 1721060
+[2020-05-14T22:36:59.349] [INFO] default - 1721060
+[2020-05-14T22:37:00.715] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1721460, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 8,
+    lines: 10,
+    win: { total: 480, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:37:00.715] [INFO] default - bet 8
+[2020-05-14T22:37:00.715] [INFO] default - bet 2
+[2020-05-14T22:37:00.716] [INFO] default - 1721460
+[2020-05-14T22:37:00.716] [INFO] default - 1721460
+[2020-05-14T22:37:03.224] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1721700, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 10,
+    lines: 10,
+    win: { total: 340, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:37:03.224] [INFO] default - bet 10
+[2020-05-14T22:37:03.224] [INFO] default - bet 2
+[2020-05-14T22:37:03.225] [INFO] default - 1721700
+[2020-05-14T22:37:03.226] [INFO] default - 1721700
+[2020-05-14T22:37:04.468] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1721580, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 12,
+    lines: 10
+  }
+}
+[2020-05-14T22:37:04.468] [INFO] default - bet 12
+[2020-05-14T22:37:04.468] [INFO] default - bet 2
+[2020-05-14T22:37:04.469] [INFO] default - 1721580
+[2020-05-14T22:37:04.469] [INFO] default - 1721580
+[2020-05-14T22:37:05.724] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1721548, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 16,
+    lines: 10,
+    win: { total: 128, type: 'regular', lines: [Array] }
+  }
+}
+[2020-05-14T22:37:05.724] [INFO] default - bet 16
+[2020-05-14T22:37:05.724] [INFO] default - bet 2
+[2020-05-14T22:37:05.726] [INFO] default - 1721548
+[2020-05-14T22:37:05.726] [INFO] default - 1721548
+[2020-05-14T22:37:06.720] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1721348, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 20,
+    lines: 10
+  }
+}
+[2020-05-14T22:37:06.720] [INFO] default - bet 20
+[2020-05-14T22:37:06.720] [INFO] default - bet 2
+[2020-05-14T22:37:06.721] [INFO] default - 1721348
+[2020-05-14T22:37:06.721] [INFO] default - 1721348
+[2020-05-14T22:37:07.642] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1720948, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 40,
+    lines: 10
+  }
+}
+[2020-05-14T22:37:07.642] [INFO] default - bet 40
+[2020-05-14T22:37:07.642] [INFO] default - bet 2
+[2020-05-14T22:37:07.643] [INFO] default - 1720948
+[2020-05-14T22:37:07.643] [INFO] default - 1720948
+[2020-05-14T22:37:08.565] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1720348, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'spin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 60,
+    lines: 10
+  }
+}
+[2020-05-14T22:37:08.566] [INFO] default - bet 60
+[2020-05-14T22:37:08.566] [INFO] default - bet 2
+[2020-05-14T22:37:08.568] [INFO] default - 1720348
+[2020-05-14T22:37:08.568] [INFO] default - 1720348
+[2020-05-14T22:37:09.588] [INFO] default - {
+  status: { ok: true, status: 200, message: '' },
+  user: { currency: 'TMT', balance: 1719548, i18n: 'tr' },
+  context: {
+    current: 'spin',
+    actions: [ 'freespin' ],
+    matrix: [ [Array], [Array], [Array], [Array], [Array] ],
+    bet: 80,
+    lines: 10,
+    win: { total: 4320, type: 'regular', lines: [Array] },
+    freespins: { count: [Object], win: 4320 }
+  }
+}
+[2020-05-14T22:37:09.588] [INFO] default - bet 80
+[2020-05-14T22:37:09.588] [INFO] default - bet 2

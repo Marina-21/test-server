@@ -5,12 +5,12 @@ const expect = chai.expect;
 const _ = require('lodash');
 
 
-const { lines10 } = require('../const/lines10');
-const { spin } = require('../const/spin');
+const { lines10 } = require('../../const/lines10');
+const { spin } = require('../../const/spin');
 
 chai.use(chaiHttp);
 
-for (let i = 0; i < 500; i++) {
+for (let i = 0; i < 5; i++) {
     describe.skip('Test wining lines', () => {
 
         it('spin', async() => {
