@@ -127,4 +127,31 @@ const paytable20LinesEW = {
     }
 };
 
-module.exports = { paytable };
+const paytable5Lines = {
+    "A": {
+        "3": 5
+    },
+    "B": {
+        "3": 40
+    },
+    "C": {
+        "3": 40
+    },
+    "D": {
+        "3": 40
+    },
+    "E": {
+        "3": 40
+    },
+    "F": {
+        "3": 60
+    },
+    "G": {
+        "3": 200
+    },
+    "H": {
+        "3": 750
+    }
+};
+
+module.exports = { paytable, paytable20LinesEW, paytable5Lines };

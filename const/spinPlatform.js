@@ -6,7 +6,7 @@ const fetch = require('node-fetch');
 const fs = require('fs').promises;
 
 
-
+const { checkError } = require('../const/function');
 
 chai.use(chaiHttp);
 
@@ -38,6 +38,9 @@ async function init(urlInit, token, id) {
             }),
         });
         let res = await response.json();
+
+        checkError(res);
+
         actionSpin = chekActionSpin(res);
 
         await fs.writeFile('db.txt', actionSpin);
@@ -65,9 +68,14 @@ async function spin(urlSpin, token, id, elbet, lines) {
                     bet: elbet,
                 },
                 action: actionSpin
+                    // cheats: "BBBBBBBBB"
             }),
         });
         let res = await response.json();
+
+
+        checkError(res);
+
         actionSpin = chekActionSpin(res);
 
         await fs.writeFile('db.txt', actionSpin);

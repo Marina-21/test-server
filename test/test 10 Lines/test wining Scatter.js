@@ -9,91 +9,71 @@ const { spin } = require('../../const/spin');
 const { paytable } = require('../../const/Paytable');
 const { PaytableCoef } = require('../../const/function');
 const { betLines } = require('../../const/function');
+const { checkWin1 } = require('../../const/function');
 
 
 chai.use(chaiHttp);
 
-function checkWin(res) {
-    if (res.context.hasOwnProperty('win')) {
 
-        const winLine = res.context.win.lines[0];
-        const winingId = res.context.win.lines[0].id;
-        console.log((winingId) + "  winingId");
-
-        if (winingId === null) {
-
-            const symbol = 1;
-            const winAmount = res.context.win.lines[0].amount;
-            console.log("winAmount  " + (winAmount));
-            return {
-                symbol,
-                winAmount,
-                winLine
-            };
-        } else {
-            console.log('the scatter did not fall out');
-            return null;
-        }
-    } else {
-        console.log("spin without wining");
-        return null;
-    }
-}
-
-for (let i = 0; i < 50; i++) {
+for (let i = 0; i < 5; i++) {
     describe.skip('Spin', () => {
-        let res = null;
-        let isRun = false;
-        let symbol = 1;
-        let winAmount = null;
-        let winLine = null;
+
+        let data = {
+            res: null,
+            isWinScatter: false,
+            symbol: 1,
+            winAmount: null,
+            winLinesScatter: null
+        };
 
 
 
         before("Spin", async() => {
             try {
-                res = await spin();
+                let response = await spin();
+                let { res } = response;
 
-                expect(res.status.status).to.be.equal(200);
+                const funcResultWin = checkWin1(res);
 
-                const funcResult = checkWin(res);
-
-                if (funcResult !== null) {
-                    symbol = funcResult.symbol;
-                    winAmount = funcResult.winAmount;
-                    winLine = funcResult.winLine;
-                    isRun = true;
+                if (funcResultWin !== null && funcResultWin.allWinLines[0].id == null) {
+                    let isWinScatter = true;
+                    let winLinesScatter = funcResultWin.allWinLines[0];
+                    let winAmount = winLinesScatter.amount;
+                    data = {...data, isWinScatter, winAmount, res, winLinesScatter };
                 }
             } catch (error) {
-                let { code, message } = res.status;
-                console.log(code + "  code");
-                console.log(message + "  message");
                 console.log('!!!!!!ERROR in before block!!!!!! ' + error);
             }
         });
-        it('check correct accrual Scatter', function() {
-            if (isRun) {
+        it('check correct accrual Scatter in main game', function() {
+            let { isWinScatter, res, symbol, winLinesScatter, winAmount } = data;
+
+            if (isWinScatter) {
 
                 console.log("symbol in IT " + symbol);
-                let winPositions = winLine.positions;
+                let winPositions = winLinesScatter.positions;
                 console.log(winPositions);
 
                 const bet = betLines(res);
                 const winRightNull = PaytableCoef(winPositions, paytable, symbol) * bet;
-
+                console.log(`${winAmount} - amount`);
+                console.log(`${winRightNull} - winRightNull`);
                 expect(winAmount).to.be.equal(winRightNull);
                 console.log("scatter is accrualed correct");
             }
         });
 
         it('check correct position Scatter', function() {
-            if (isRun) {
-                const positionSymbols = res.context.win.lines[0].positions;
-                const matrixSymbols = res.context.matrix;
+            let { isWinScatter, res, symbol, winLinesScatter } = data;
+
+            if (isWinScatter) {
+                const positionSymbols = winLinesScatter.positions;
+                const matrix = res.context.matrix;
 
                 positionSymbols.forEach((el) => {
                     const coordinate = el; // [0, 0] coordinate[0] coordinate[1]
-                    const tempSymbols = matrixSymbols[coordinate[0]][coordinate[1]];
+                    const tempSymbols = matrix[coordinate[0]][coordinate[1]];
+                    console.log(tempSymbols);
                     expect(symbol).to.be.equal(Number(tempSymbols));
                 });
 

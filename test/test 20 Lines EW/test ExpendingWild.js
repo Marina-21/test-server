@@ -8,9 +8,10 @@ const _ = require('lodash');
 const { spinEW } = require('../../const/SpinExpendingWild');
 const { checkWin1 } = require('../../const/function');
 const { PaytableCoef } = require('../../const/function');
-const { paytable } = require('../../const/Paytable');
+const { paytable20LinesEW } = require('../../const/Paytable');
 const { winRight } = require('../../const/function');
 const { lines20 } = require('../../const/lines20');
+const { betLines } = require('../../const/function');
 // const { chekActionSpin } = require('../const/function');
 function chekExpendingWild(matrix) {
 
@@ -46,32 +47,32 @@ function chekExpendingWild(matrix) {
 
 
 for (let i = 0; i < 500; i++) {
-    describe.skip('Test EW', function() {
+    describe.only('Test EW', function() {
         let data = {
             matrix: null,
             wild: 2,
             newMatrix: null,
-            type: null,
-            winAmount: 0,
-            positions: null,
             featureEW: false,
             ExpWild: false,
-            funcResult: false,
-            isWinRun: false,
-            winLinesWithoutNull: null,
+            funcResultWin: false,
+            isWinScater: false,
+            winLinesWithoutScatter: null,
             indexWild: null,
             allWinLines: null,
-            oldBalance: 0
+            oldBalance: 0,
+            actionSpin: null
         };
         before("Spin", async() => {
             try {
-                const res = await spinEW();
+                const responce = await spinEW();
+                let { actionSpin, res } = responce;
                 console.log(res);
-                expect(res.status.status).to.be.equal(200);
+                console.log(`actionSpin  ${actionSpin}`);
+
                 let matrix = res.context.matrix;
                 let funcResultExpW = chekExpendingWild(matrix);
-                const funcResult = checkWin1(res);
-                data = {...data, res, matrix, ...funcResultExpW, funcResult };
+                const funcResultWin = checkWin1(res);
+                data = {...data, res, matrix, ...funcResultExpW, funcResultWin };
 
                 if (res.context.hasOwnProperty("feature")) {
                     if (res.context.feature.hasOwnProperty("expendingWild")) {
@@ -81,20 +82,20 @@ for (let i = 0; i < 500; i++) {
                     }
                 }
 
-                if (funcResult !== null) {
-                    let winLinesWithoutNull = funcResult.allWinLines.filter(winLines => winLines.id !== null);
+                if (funcResultWin !== null) {
+                    let winLinesWithoutScatter = funcResultWin.allWinLines.filter(winLines => winLines.id !== null);
 
-                    if (funcResult.allWinLines[0].id == null) {
-                        let isWinRun = true;
-                        let winLinesNull = funcResult.allWinLines[0];
-                        data = {...data, isWinRun, winLinesNull };
+                    if (funcResultWin.allWinLines[0].id == null) {
+                        let isWinScatter = true;
+                        let winLinesScatter = funcResultWin.allWinLines[0];
+                        data = {...data, isWinScatter, winLinesScatter };
                     }
-                    data = {...data, winLinesWithoutNull, ...funcResult };
+                    data = {...data, winLinesWithoutScatter, ...funcResultWin };
                 }
 
 
             } catch (error) {
-                let { code, message } = data.res.status;
+                let { code, message } = error;
                 console.log(code + "  code");
                 console.log(message + "  message");
                 console.log('!!!!!!ERROR in before block!!!!!! ' + error);
@@ -102,7 +103,7 @@ for (let i = 0; i < 500; i++) {
 
         });
         it('check wild is expending', function() {
-            let { newMatrix, wild } = data;
+            let { newMatrix, wild, } = data;
             let arrWild = [];
 
             newMatrix.forEach((el, index) => {
@@ -168,10 +169,10 @@ for (let i = 0; i < 500; i++) {
             }
         });
         it('check correct accrual of winnings', () => {
-            let { res, winLinesWithoutNull, funcResult } = data;
-            if (funcResult !== null) {
+            let { res, winLinesWithoutScatter, funcResultWin } = data;
+            if (funcResultWin !== null) {
                 let bet = res.context.bet;
-                winLinesWithoutNull.forEach((el) => {
+                winLinesWithoutScatter.forEach((el) => {
                     const winPositions = el.positions;
                     const winSymbol = el.symbol;
                     console.log(winPositions);
@@ -179,7 +180,7 @@ for (let i = 0; i < 500; i++) {
                     const amount = el.amount;
 
                     function winRight() {
-                        return PaytableCoef(winPositions, paytable, winSymbol) * bet;
+                        return PaytableCoef(winPositions, paytable20LinesEW, winSymbol) * bet;
                     }
                     let rightAmount = winRight();
 
@@ -188,10 +189,24 @@ for (let i = 0; i < 500; i++) {
                 });
             }
         });
+        it('check correct accrual Scatter', function() {
+            let { res, winLinesScatter, isWinScatter, funcResultWin, } = data;
+            if (funcResultWin !== null && isWinScatter == true) {
+                const bet = betLines(res);
+                const symbol = 1;
+                const amount = winLinesScatter.amount;
+                const winPositions = winLinesScatter.positions;
+                console.log(winLinesScatter);
+                const winRightNull = PaytableCoef(winPositions, paytable20LinesEW, symbol) * bet;
+
+                expect(amount).to.be.equal(winRightNull);
+                console.log("scatter is accrualed correct" + amount + " amount" + winRightNull + "winRightNull");
+            }
+        });
         it('check correct wining symbol position', function() {
-            let { newMatrix, winLinesWithoutNull, funcResult } = data;
-            if (funcResult !== null) {
-                winLinesWithoutNull.forEach((el) => {
+            let { newMatrix, winLinesWithoutScatter, funcResultWin } = data;
+            if (funcResultWin !== null) {
+                winLinesWithoutScatter.forEach((el) => {
                     const winPositions = el.positions;
                     const winSymbol = el.symbol;
 
@@ -206,10 +221,25 @@ for (let i = 0; i < 500; i++) {
                 });
             }
         });
-        it('check wining line', async() => {
-            let { newmatrix, winLinesWithoutNull, funcResult } = data;
-            if (funcResult !== null) {
-                winLinesWithoutNull.forEach((el) => {
+        it('check correct wining symbol position Scatter', function() {
+            let { newMatrix, winLinesScatter, isWinScatter, funcResultWin, } = data;
+            if (funcResultWin !== null && isWinScatter == true) {
+                console.log(funcResultWin);
+
+                const positionSymbols = winLinesScatter.positions;
+                const symbol = 1;
+                positionSymbols.forEach((el) => {
+                    const coordinate = el; // [0, 0] coordinate[0] coordinate[1]
+                    const tempSymbols = newMatrix[coordinate[0]][coordinate[1]];
+                    expect(symbol).to.be.equal(Number(tempSymbols));
+                });
+                console.log("position of wining Scatter is corect");
+            }
+        });
+        it('Winning Line coordinates from response is correct', async() => {
+            let { winLinesWithoutScatter, funcResultWin } = data;
+            if (funcResultWin !== null) {
+                winLinesWithoutScatter.forEach((el) => {
                     const winPositions = el.positions;
                     const idLines = el.id;
                     const numberLines = lines20[idLines];
@@ -221,25 +251,12 @@ for (let i = 0; i < 500; i++) {
             }
         });
         it('check total amount is correct', () => {
-            let { allWinLines, funcResult, res } = data;
-            if (funcResult !== null) {
-                let rightTotalAvount = allWinLines.reduce((total, lines) => total + lines.amount, 0);
-                expect(rightTotalAvount).to.be.equal(res.context.win.total);
+            let { allWinLines, funcResultWin, res } = data;
+            if (funcResultWin !== null) {
+                let rightTotalAmount = allWinLines.reduce((total, lines) => total + lines.amount, 0);
+                expect(rightTotalAmount).to.be.equal(res.context.win.total);
             }
         });
-        // it('check correct add win to balanc', () => {
-        //     let { res, oldBalance, funcResult } = data;
-        //     let balance = res.user.balance;
-        //     let bet = res.context.bet;
-        //     if (funcResult !== null) {
-        //         let win = res.context.win.total;
-        //         data = {...data, oldBalance: balance };
-        //         expect(oldBalance + win - bet).to.be.equal(balance);
-        //         console.log(oldBalance + " oldBalance " + win + " win " + " - " + bet + " bet " + balance + " balance ");
-        //     } else {
-        //         expect(oldBalance - bet).to.be.equal(balance);
-        //         console.log(oldBalance + " oldBalance " + " - " + bet + " bet " + balance + " balance ");
-        //     }
-        // });
+
     });
 }

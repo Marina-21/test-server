@@ -27,13 +27,13 @@ logger.level = 'debug';
 
 chai.use(chaiHttp);
 
-let { urlSpin, token } = DevSpin;
-let gameObj = gamesDate[0];
+let { urlSpin, token } = DevSpin; // меняем окружение
+let gameObj = gamesDate[0]; // выбираем игру
 let { id, lines } = gameObj;
 let elbet = devBets[4];
 
 for (let i = 0; i < 200; i++) {
-    describe.only('Test win', () => {
+    describe.skip('Test win', () => {
 
         let date = {
             funcResult: null,
@@ -50,6 +50,7 @@ for (let i = 0; i < 200; i++) {
                 let { res, actionSpin } = responce;
                 let actionNow = res.context.current;
                 console.log(res);
+                logger.info(res);
                 logger.info(`actionSpin ${actionSpin}`);
                 let newBalance = res.user.balance;
                 const funcResult = checkWin1(res);

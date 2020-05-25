@@ -6,6 +6,7 @@ const fetch = require('node-fetch');
 const fs = require('fs').promises;
 
 const { chekActionSpin } = require('../const/function');
+const { checkError } = require('../const/function');
 
 chai.use(chaiHttp);
 
@@ -24,7 +25,7 @@ async function spinEW() {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                token: "805cd546883792db1fabe79440fe440c",
+                token: "1c9a4fdb22d9445962da5f8fa7fee023",
                 gameId: 14,
                 params: {
                     lines: 20,
@@ -36,11 +37,14 @@ async function spinEW() {
         });
 
         let res = await response.json();
+
+        checkError(res);
+
         actionSpin = chekActionSpin(res);
 
         await fs.writeFile('db.txt', actionSpin);
 
-        return res;
+        return { res, actionSpin };
     } catch (err) {
         console.log('!!!!!!ERROR!!!!!! ' + err);
 
@@ -54,7 +58,7 @@ async function spinbeforFSEW() {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                token: "805cd546883792db1fabe79440fe440c",
+                token: "1c9a4fdb22d9445962da5f8fa7fee023",
                 gameId: 14,
                 params: {
                     lines: 20,
@@ -67,7 +71,9 @@ async function spinbeforFSEW() {
 
         let res = await response.json();
 
-        return res;
+        checkError(res);
+
+        return { res, actionSpin };
     } catch (err) {
         console.log('!!!!!!ERROR!!!!!! ' + err);
 
@@ -81,7 +87,7 @@ async function freespinEW() {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                token: "805cd546883792db1fabe79440fe440c",
+                token: "1c9a4fdb22d9445962da5f8fa7fee023",
                 gameId: 14,
                 params: {
                     lines: 20,
@@ -93,7 +99,9 @@ async function freespinEW() {
 
         let res = await response.json();
 
-        return res;
+        checkError(res);
+
+        return { res, actionSpin };
     } catch (err) {
         console.log('!!!!!!ERROR!!!!!! ' + err);
 

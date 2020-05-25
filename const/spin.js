@@ -5,7 +5,7 @@ const expect = chai.expect;
 const fetch = require('node-fetch');
 const fs = require('fs').promises;
 
-const { serverUrl } = require('../const/list');
+const { checkError } = require('../const/function');
 
 chai.use(chaiHttp);
 
@@ -28,14 +28,14 @@ async function spin() {
     actionSpin = data;
 
     try {
-        let response = await fetch('https://cg-gw01.live132.com/v1/client/spin', {
+        let response = await fetch('https://dev-gw01.betslots.cf/v1/client/spin', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                token: "3720debe54f2205e9274459b6d9cbd4d",
-                gameId: 12,
+                token: "1c9a4fdb22d9445962da5f8fa7fee023",
+                gameId: 1,
                 params: {
                     lines: 10,
                     bet: 20
@@ -46,11 +46,15 @@ async function spin() {
         });
 
         let res = await response.json();
+
+        checkError(res);
+
         actionSpin = chekActionSpin(res);
+
 
         await fs.writeFile('db.txt', actionSpin);
 
-        return res;
+        return { res, actionSpin };
     } catch (err) {
         console.log('!!!!!!ERROR!!!!!! ' + err);
     }
@@ -58,26 +62,29 @@ async function spin() {
 
 async function spinbeforFS() {
     try {
-        let response = await fetch('https://cg-gw01.live132.com/v1/client/spin', {
+        let response = await fetch('https://dev-gw01.betslots.cf/v1/client/spin', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                token: "3720debe54f2205e9274459b6d9cbd4d",
-                gameId: 5,
+                token: "1c9a4fdb22d9445962da5f8fa7fee023",
+                gameId: 1,
                 params: {
                     lines: 10,
-                    bet: 20
+                    bet: 200
                 },
-                action: "spin"
-                    // cheats: "1GABG12IGJDH1HC"
+                action: "spin",
+                cheats: "1GABG12IGJDH1HC"
             }),
         });
 
         let res = await response.json();
+        actionSpin = chekActionSpin(res);
 
-        return res;
+        checkError(res);
+
+        return { res, actionSpin };
     } catch (err) {
         console.log('!!!!!!ERROR!!!!!! ' + err);
 
@@ -92,19 +99,22 @@ async function freespin() {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                token: "805cd546883792db1fabe79440fe440c",
-                gameId: 5,
+                token: "1c9a4fdb22d9445962da5f8fa7fee023",
+                gameId: 1,
                 params: {
                     lines: 10,
-                    bet: 20
+                    bet: 200
                 },
                 action: "freespin"
             }),
         });
 
         let res = await response.json();
+        actionSpin = chekActionSpin(res);
 
-        return res;
+        checkError(res);
+
+        return { res, actionSpin };
     } catch (err) {
         console.log('!!!!!!ERROR!!!!!! ' + err);
     }

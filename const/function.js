@@ -12,7 +12,7 @@ function betLines(res) {
     return bet * counLines;
 }
 
-function winRight() {
+function winRight(winPositions, paytable, winSymbol, bet) {
     return PaytableCoef(winPositions, paytable, winSymbol) * bet;
 }
 
@@ -75,4 +75,35 @@ function chekExpendingWild(matrix) {
     return { newMatrix, ExpWild, indexWild };
 }
 
-module.exports = { PaytableCoef, betLines, winRight, checkWin1, chekActionSpin, chekExpendingWild };
+let checkError = function(res, urlSpin) {
+    if (res.status.ok == false) {
+        let { ok, message, code } = res.status;
+        throw new Error(`Could not fetch ${urlSpin}, 
+    status: ${ok},
+    message: ${message}, 
+    code: ${code}`);
+    }
+};
+
+let checkSymbolMultiplier = function(winSymbol) {
+    let symbolB = winSymbol.includes("B");
+    let symbolC = winSymbol.includes("C");
+    let symbolD = winSymbol.includes("D");
+    let symbolE = winSymbol.includes("E");
+    if (symbolB || symbolC || symbolD || symbolE) {
+        return true;
+    } else {
+        return false;
+    }
+};
+
+module.exports = {
+    PaytableCoef,
+    betLines,
+    winRight,
+    checkWin1,
+    chekActionSpin,
+    chekExpendingWild,
+    checkError,
+    checkSymbolMultiplier
+};

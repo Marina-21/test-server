@@ -1,129 +1,159 @@
-const mocha = require('mocha');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const expect = chai.expect;
+const _ = require('lodash');
 
-const { paytable } = require('../const/Paytable');
-const { PaytableCoef } = require('../const/function');
-const { spin } = require('../const/spin');
+const log4js = require('log4js');
+log4js.configure({
+    appenders: { cheese: { type: 'file', filename: 'cheese.log' } },
+    categories: { default: { appenders: ['cheese'], level: 'error' } }
+});
+const logger = log4js.getLogger();
+logger.level = 'debug';
+
+
 const { betLines } = require('../const/function');
-const { winRight } = require('../const/function');
-
-
-
+const { spin } = require('../const/spinPlatform');
+const { Dev } = require('../const/platforms');
+const { favorit } = require('../const/platforms');
+const { checkWin1 } = require('../const/function');
 
 chai.use(chaiHttp);
 
+let { urlSpin, token, gamesDate, bets } = Dev;
+let { id, lines } = gamesDate[10];
+let elbet = bets[2];
 
-function checkWin1(res) {
-    if (res.context.hasOwnProperty('win')) {
-        const allWinLines = res.context.win.lines;
-        console.log('allWinLines  ' + allWinLines.length);
+chai.use(chaiHttp);
 
-        const matrixSymbols = res.context.matrix;
-        return {
-            allWinLines,
-            matrixSymbols
+for (let i = 0; i < 100; i++) {
+    describe.skip('Test type of win', () => {
+        let data = {
+            funcResultWin: false,
+            actionNow: null,
+            isWinScatter: false,
+            winLinesScatter: null,
+            gameTypeWin: null,
+            res: null,
+            isWinWild: false
         };
 
-    } else {
-        console.log('spin without win');
-        return null;
-    }
-}
-
-for (let i = 0; i < 1; i++) {
-    describe.skip('Test win', () => {
-        let res = null;
-        let isRun = false;
-
         before("Spin", async() => {
-
             try {
-                res = await spin();
+                const responce = await spin(urlSpin, token, id, elbet, lines);
+                let { res, actionSpin } = responce;
+                console.log(res);
+                console.log(actionSpin);
 
-                expect(res.status.status).to.be.equal(200);
+                const funcResultWin = checkWin1(res);
+                let actionNow = res.context.current;
 
-                const funcResult = checkWin1(res);
+                data = { res, actionSpin, funcResultWin, actionNow };
 
+                if (funcResultWin !== null) {
+                    const gameTypeWin = res.context.win.type;
+                    console.log((gameTypeWin) + '  - gameTypeWin');
 
-                if (funcResult !== null) {
-                    winLines = funcResult.allWinLines.filter(winLines => winLines.id !== null);
+                    let winLinesWithoutScatter = funcResultWin.allWinLines.filter(winLines => winLines.id !== null);
+                    let winLinesWithoutFeature = [];
+                    let winLinesWild = [];
+                    winLinesWithoutScatter.forEach(line => {
+                        let winSymbol = line.symbol;
+                        if (winSymbol == 2) {
+                            winLinesWild.push(line);
+                            let isWinWild = true;
+                            data = {...data, isWinWild };
+                        } else {
+                            winLinesWithoutFeature.push(line);
+                        }
+                    });
 
-                    matrixSymbols = funcResult.matrixSymbols;
-                    console.log(matrixSymbols);
+                    if (funcResultWin.allWinLines[0].id == null) {
+                        let isWinScatter = true;
+                        let winLinesScatter = funcResultWin.allWinLines[0];
+                        data = {...data, isWinScatter, winLinesScatter };
+                    }
 
-                    isRun = true;
+                    data = {...data, winLinesWithoutFeature, ...funcResultWin, gameTypeWin, winLinesWild };
                 }
             } catch (error) {
-                let { code, message } = res.status;
-                console.log(code + "  code");
-                console.log(message + "  message");
                 console.log('!!!!!!ERROR in before block!!!!!! ' + error);
             }
+
         });
+        it("check type of win", () => {
+            let {
+                actionNow,
+                funcResultWin,
+                winLinesWithoutFeature,
+                isWinWild,
+                res,
+                gameTypeWin,
+                winLinesScatter,
+                winLinesWild,
+                isWinScatter
+            } = data;
 
-        it('check correct wining symbol position', function() {
-            if (isRun) {
+            if (funcResultWin !== null && actionNow == "spin") {
+                const bet = betLines(res);
+                let betLine = res.context.bet;
+                let arrRightTypeWin = [];
 
-                console.log((winLines.length) + "winLines");
+                if (winLinesWithoutFeature !== null) {
+                    console.log(winLinesWithoutFeature);
 
-                winLines.forEach((el) => {
-                    console.log(el.id);
-                    const winPositions = el.positions;
-                    console.log(winPositions);
-                    const winSymbol = el.symbol;
-
-                    winPositions.forEach((el) => {
-                        const tempSymbols = matrixSymbols[el[0]][el[1]];
-                        if (tempSymbols !== "2") {
-                            expect(winSymbol).to.be.equal(tempSymbols)
-                        } else {
-                            expect("2").to.be.equal(tempSymbols)
-                            console.log('there is a wild in the pay line');
-                        };
-                    });
-                    console.log([winSymbol] + " is correct position");
-
-                });
-            };
-        });
-
-        it('check correct accrual of winnings without wild', function() {
-            if (isRun) {
-                let bet = betLines(res);
-                winLines.forEach((el) => {
-                    const winPositions = el.positions;
-                    const winSymbol = el.symbol;
-                    const amount = el.amount;
-                    const getingSymbols = [];
-                    winPositions.forEach((el) => {
-                        const tempSymbols = matrixSymbols[el[0]][el[1]];
-                        getingSymbols.push(tempSymbols);
-                    });
-                    const arrWithWild = getingSymbols.filter((value) => {
-                        return value === "2";
-                    });
-                    if (arrWithWild.length === 0 || winSymbol === 2) {
-                        expect(amount).to.be.equal(winRight());
-                        console.log(winRight());
-                        console.log(amount);
-                    }
-                    console.log('there is a wild in the pay line');
-                });
-            };
-        });
-
-        it('check correct accrual of winnings with wild', function() {
-            if (isRun) {
-
-                if (winLines.winPositions.arrWithWild.length > 0) {
-                    expect(amount).to.be.equal(winRight() * 2);
-                    console.log(winRight());
-                    console.log(amount);
+                    let totalWin = winLinesWithoutFeature.reduce((total, line) => total + line.amount, 0);
+                    const typeCoef = totalWin / bet;
+                    arrRightTypeWin.push(typeCoef);
                 }
-            };
-
+                if (isWinWild) {
+                    console.log(winLinesWild);
+                    winLinesWild.forEach(line => {
+                        let amount = line.amount;
+                        const typeCoef = amount / betLine;
+                        arrRightTypeWin.push(typeCoef);
+                    });
+                }
+                if (isWinScatter) {
+                    console.log(winLinesScatter);
+                    let amount = winLinesScatter.amount;
+                    const typeCoef = amount / bet;
+                    arrRightTypeWin.push(typeCoef);
+                }
+                let typeCoef = arrRightTypeWin.reduce((total, coef) => total + coef, 0);
+                let rightTypeWin;
+                console.log((typeCoef) + " - typeCoef");
+                if (typeCoef < 12.5) {
+                    rightTypeWin = "regular";
+                } else if (typeCoef >= 12.5 && typeCoef < 100) {
+                    rightTypeWin = "big";
+                } else if (typeCoef >= 100 && typeCoef < 500) {
+                    rightTypeWin = "ultra";
+                } else if (typeCoef >= 500 && typeCoef <= 1500) {
+                    rightTypeWin = "mega";
+                }
+                expect(gameTypeWin).to.be.eq(rightTypeWin);
+            }
         });
     });
-};
+}
+
+
+// status: { ok: true, code: 200, message: '' },
+//     user: { currency: 'EUR', balance: 169136767, i18n: 'en' },
+//     context: {
+//         current: 'spin',
+//         actions: ['spin'],
+//         matrix: [
+//             [Array],
+//             [Array],
+//             [Array],
+//             [Array],
+//             [Array]
+//         ],
+//         bet: 6,
+//         lines: 20,
+//         win: { total: 1080, type: 'regular', lines: [Array] },
+//         feature: { expendingWild: [Object] }
+//     }
+// }

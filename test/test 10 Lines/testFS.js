@@ -3,18 +3,16 @@ const chaiHttp = require('chai-http');
 const expect = chai.expect;
 const fs = require('fs').promises;
 
-
+const { winRight } = require('../../const/function');
 const { freespin } = require('../../const/spin');
 const { spinbeforFS } = require('../../const/spin');
 const { checkWin1 } = require('../../const/function');
-const { PaytableCoef } = require('../../const/function');
 const { paytable } = require('../../const/Paytable');
-const { chekActionSpin } = require('../../const/function');
 const { betLines } = require('../../const/function');
 
 chai.use(chaiHttp);
 
-let nameAction = "spin";
+let actionSpin = "spin";
 
 for (let i = 15; i >= 0; i--) {
     describe.skip('Test FS', () => {
@@ -27,70 +25,94 @@ for (let i = 15; i >= 0; i--) {
         let data = {
             res: null,
             matrix: null,
-            oldTotal: 15,
             total: 0,
             add: 0,
             rest: 0,
             balance: 0,
-            isWinNull: false,
-            winLinesNull: null,
-            winLinesWithoutNull: null,
+            isWinScatter: false,
+            winLinesScatter: null,
+            winLinesWithoutScatter: null,
             allWinLines: null,
             fsWin: 0,
-            action: false
+            actionSpin: null,
+            arrScatter: null,
+            funcResultWin: null,
+            actionNow: null
         };
 
         before("Spin", async() => {
-            if (i >= 15 && nameAction == "spin") {
+            if (i >= 15 && actionSpin == "spin") {
                 try {
-                    const res = await spinbeforFS();
+                    const response = await spinbeforFS();
+                    let { res, actionSpin } = response;
+                    console.log(res);
+
                     const obj = res.context.freespins.count;
-                    let action = false;
-                    nameAction = "freespin";
-                    data = {...data, ...obj, res, action };
+                    let { rest, total } = obj;
+                    const fsWin = res.context.freespins.win;
+                    const balance = res.user.balance;
+                    const funcResultWin = checkWin1(res);
+                    const matrix = res.context.matrix;
+
+                    data = {...data, ...obj, res, actionSpin, funcResultWin, matrix };
+
+                    globalDate = {...globalDate, oldRest: rest, oldTotal: total, oldFsWin: fsWin, oldBalance: balance };
+                    await fs.writeFile('db.json', JSON.stringify(globalDate));
+
+                    if (funcResultWin !== null) {
+                        let winLinesWithoutScatter = funcResultWin.allWinLines.filter(winLines => winLines.id !== null);
+
+                        if (funcResultWin.allWinLines[0].id == null) {
+                            let isWinScatter = true;
+                            let winLinesScatter = funcResultWin.allWinLines[0];
+                            data = {...data, isWinScatter, winLinesScatter };
+                        }
+                        data = {...data, winLinesWithoutScatter, ...funcResultWin };
+                    }
+
                 } catch (error) {
-                    let { code, message } = data.res.status;
-                    console.log(code + "  code");
-                    console.log(message + "  message");
                     console.log('!!!!!!ERROR in before block!!!!!! ' + error);
                 }
             } else {
                 try {
-                    const res = await freespin();
-
+                    const response = await freespin();
+                    let { res, actionSpin } = response;
+                    console.log(res);
                     const obj = res.context.freespins.count;
+                    let actionNow = res.context.current;
                     console.log(obj.rest);
                     const fsWin = res.context.freespins.win;
                     const matrix = res.context.matrix;
                     const balance = res.user.balance;
-                    const action = true;
-                    nameAction = chekActionSpin(res);
-                    const funcResult = checkWin1(res);
 
-                    data = {...data, ...obj, res, matrix, balance, fsWin, action, funcResult };
-                    if (funcResult !== null) {
-                        let winLinesWithoutNull = funcResult.allWinLines.filter(winLines => winLines.id !== null);
+                    const funcResultWin = checkWin1(res);
 
-                        if (funcResult.allWinLines[0].id == null) {
-                            let isWinNull = true;
-                            let winLinesNull = funcResult.allWinLines[0];
-                            data = {...data, isWinNull, winLinesNull };
+                    data = {...data, ...obj, res, matrix, balance, fsWin, actionSpin, funcResultWin, actionNow };
+
+                    if (funcResultWin !== null) {
+                        let winLinesWithoutScatter = funcResultWin.allWinLines.filter(winLines => winLines.id !== null);
+
+                        if (funcResultWin.allWinLines[0].id == null) {
+                            let isWinScatter = true;
+                            let winLinesScatter = funcResultWin.allWinLines[0];
+                            data = {...data, isWinScatter, winLinesScatter };
                         }
-                        data = {...data, winLinesWithoutNull, ...funcResult };
+                        data = {...data, winLinesWithoutScatter, ...funcResultWin };
                     }
 
                     const file = await fs.readFile('db.json', 'utf8');
                     const fileData = JSON.parse(file);
                     globalDate = {...fileData };
+
                 } catch (error) {
                     console.log('!!!!!!ERROR in before block!!!!!! ' + error);
                 }
             }
         });
         it('check correct add count of FS', function() {
-            let { action } = data;
-            if (action == true) {
-                let { matrix, add, total, oldTotal } = data;
+            let { actionSpin, matrix, add, total, actionNow } = data;
+            if (actionNow == "freespin") {
+
                 const arrScatter = [];
                 //     let matrixTEst = [
                 //         ["1", "B", "A"],
@@ -106,10 +128,11 @@ for (let i = 15; i >= 0; i--) {
                         arrScatter.push(...getScatter);
                     }
                 });
+                data = {...data, arrScatter };
 
                 if (arrScatter.length > 2) {
-                    oldTotal = total + 15;
-                    add = 15;
+                    let oldTotal = total + 15;
+
                     data = {...data, add, oldTotal };
                     i = i + 15;
                     console.log(add + " add ");
@@ -121,49 +144,54 @@ for (let i = 15; i >= 0; i--) {
             }
         });
         it('check correct total FS', function() {
-            const { rest, add, total, action } = data;
-            if (action == true) {
+            const { add, total, arrScatter, actionNow } = data;
+
+            if (actionNow == "freespin") {
                 const { oldTotal } = globalDate;
-                if (add == 15 && rest != 15) {
-                    console.log(oldTotal + add + " oldTotal FS + rest Fs  " + total + " total FS");
+                if (arrScatter.length > 2) {
+                    console.log(`${oldTotal+add} oldTotal FS +rest Fs ${total}- total FS`);
                     expect(oldTotal + add).to.equal(total);
                 } else {
-                    console.log(oldTotal + " oldTotal FS  " + total + " total FS");
+                    console.log(`${oldTotal} - oldTotal FS ${total}-total FS`);
                     expect(+oldTotal).to.equal(+total);
                 }
             }
         });
 
         it('check rest FS', function() {
-            const { add, rest, action } = data;
-            const oldRest = globalDate.oldRest;
-            if (action == true) {
-                let rightRest = null;
+            const { add, rest, actionSpin, actionNow } = data;
+            const { oldRest } = globalDate;
+
+            if (actionNow == "freespin") {
+                let rightRest = 0;
                 if (add > 0) {
                     rightRest = oldRest - 1 + 15;
                 } else {
                     rightRest = oldRest - 1;
                 }
-                expect(rest).to.be.equal(rightRest);
+                console.log(`${rightRest}  - rightRest`);
+
+                expect(rest).to.be.equal(+rightRest);
             }
         });
         it('balance is not change', function() {
-            const { rest, balance, action } = data;
+            const { rest, balance, actionSpin, actionNow } = data;
             let { oldBalance } = globalDate;
 
-            if (action) {
+            if (actionNow == "freespin") {
                 if (rest > 0) {
-                    console.log(balance + " balance" + oldBalance + " oldBalance");
+                    console.log(`${balance} - balance/ ${oldBalance}- oldBalance`);
                     expect(balance).to.be.equal(oldBalance);
                 }
             }
         });
         it('check correct wining symbol position in FS', function() {
-            let { matrix, winLinesWithoutNull, funcResult, action } = data;
-            if (action == true) {
-                if (funcResult !== null) {
-                    console.log(winLinesWithoutNull.id + " winLinesWithoutNull.id");
-                    winLinesWithoutNull.forEach((el) => {
+            let { matrix, winLinesWithoutScatter, actionSpin, funcResultWin, actionNow } = data;
+
+            if (actionSpin == "freespin" || actionNow == "freespin") {
+                if (funcResultWin !== null) {
+
+                    winLinesWithoutScatter.forEach((el) => {
                         console.log(el.id);
                         const winPositions = el.positions;
                         console.log(winPositions);
@@ -183,12 +211,13 @@ for (let i = 15; i >= 0; i--) {
                 }
             }
         });
-        it('check correct wining symbol position null in FS', function() {
-            let { matrix, winLinesNull, isWinNull, funcResult, action } = data;
-            if (action == true) {
-                if (funcResult !== null && isWinNull == true) {
-                    console.log(`winLinesNull ` + winLinesNull);
-                    const positionSymbols = winLinesNull.positions;
+        it('check correct wining symbol position Scatter in FS', function() {
+            let { matrix, winLinesScatter, isWinScatter, actionSpin, actionNow } = data;
+
+            if (actionSpin == "freespin" || actionNow == "freespin") {
+                if (isWinScatter == true) {
+                    console.log(`winLinesNull ` + winLinesScatter);
+                    const positionSymbols = winLinesScatter.positions;
                     const symbol = 1;
                     positionSymbols.forEach((el) => {
                         const coordinate = el; // [0, 0] coordinate[0] coordinate[1]
@@ -201,11 +230,12 @@ for (let i = 15; i >= 0; i--) {
             }
         });
         it('check correct accrual of winnings in FS * 3', () => {
-            let { res, matrix, winLinesWithoutNull, funcResult, action } = data;
-            if (action == true && funcResult !== null) {
-                console.log(matrix);
+            let { res, matrix, winLinesWithoutScatter, funcResultWin, actionSpin, actionNow } = data;
+
+            if (actionNow == "freespin" && funcResultWin !== null) {
                 let bet = res.context.bet;
-                winLinesWithoutNull.forEach((el) => {
+
+                winLinesWithoutScatter.forEach((el) => {
                     const winPositions = el.positions;
                     console.log(winPositions);
                     const winSymbol = el.symbol;
@@ -218,63 +248,60 @@ for (let i = 15; i >= 0; i--) {
                     });
                     const arrWithWild = getingSymbols.filter((value) => value == 2);
 
-                    function winRight() {
-                        return PaytableCoef(winPositions, paytable, winSymbol) * bet;
-                    }
+                    let rightAmount = winRight(winPositions, paytable, winSymbol, bet);
 
                     if (arrWithWild.length > 0 && winSymbol !== "2") {
-                        let fsWinRigt = (winRight() * 2 * 3);
-                        expect(amount).to.be.equal(fsWinRigt);
+                        let fsWinRigt = (rightAmount * 2 * 3);
                         console.log(fsWinRigt);
                         console.log(amount);
 
+                        expect(+amount).to.be.equal(fsWinRigt);
+
                     } else {
-                        let fsWinRigt = (winRight() * 3);
-                        expect(amount).to.be.equal(fsWinRigt);
+                        let fsWinRigt = (rightAmount * 3);
                         console.log(fsWinRigt);
                         console.log(amount);
+
+                        expect(+amount).to.be.equal(fsWinRigt);
                     }
+
                 });
             }
         });
         it('check correct accrual Scatter in FS * 3', function() {
-            let { res, winLinesNull, isWinNull, funcResult, action } = data;
-            if (action == true) {
-                if (funcResult !== null && isWinNull == true) {
+            let { res, winLinesScatter, isWinScatter, actionNow } = data;
 
-                    const bet = betLines(res);
-                    const symbol = 1;
-                    const amount = winLinesNull.amount;
-                    const winPositions = winLinesNull.positions;
-                    console.log(winLinesNull);
-                    const winRightNull = PaytableCoef(winPositions, paytable, symbol) * bet * 3;
+            if (actionNow == "freespin" && isWinScatter == true) {
+                const bet = betLines(res);
+                const symbol = 1;
+                const amount = winLinesScatter.amount;
+                const winPositions = winLinesScatter.positions;
+                console.log(winLinesScatter);
 
-                    expect(amount).to.be.equal(winRightNull);
-                    console.log("scatter is accrualed correct" + amount + " amount" + winRightNull + "winRightNull");
-                }
+                let rightAmount = winRight(winPositions, paytable, symbol, bet) * 3;
+                console.log(`scatter is accrualed correct ${amount} - amount/ ${rightAmount} - rightAmount`);
+
+                expect(amount).to.be.equal(rightAmount);
             }
         });
         it('check correct accrual fsWin', function() {
-            let { fsWin, funcResult, allWinLines, action } = data;
+            let { fsWin, allWinLines, actionSpin, funcResultWin, actionNow } = data;
             let { oldFsWin } = globalDate;
-            if (action == true) {
-                if (funcResult !== null) {
 
-                    let sum = 0;
-                    allWinLines.forEach((el) => {
-                        let amount = el.amount;
-                        return sum += amount;
-                    });
-                    console.log(fsWin + " fsWin" + oldFsWin + " " + sum + " oldFsWin + sum");
-                    expect(fsWin).to.be.equal(oldFsWin + sum);
-                }
+            if (actionNow == "freespin" && funcResultWin !== null) {
+
+                let totalAmount = allWinLines.reduce((total, lines) => total + lines.amount, 0);
+
+                console.log(`${fsWin} - fsWin /${oldFsWin}+${totalAmount} - oldFsWin + totalAmount`);
+                expect(fsWin).to.be.equal(oldFsWin + totalAmount);
             }
         });
         it('check correct add fsWin to balance', function() {
-            let { action } = data;
-            if (action == true) {
-                const { add, rest, fsWin, balance } = data;
-                let { oldBalance } = globalDate;
+            let { actionSpin, add, rest, fsWin, balance, actionNow } = data;
+            let { oldBalance } = globalDate;
+
+            if (actionNow == "freespin") {
+
                 if (rest == 0 && add == 0) {
                     const rightBalance = oldBalance + fsWin;
                     console.log("!!! balance " + balance);

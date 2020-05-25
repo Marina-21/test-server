@@ -6,75 +6,57 @@ const expect = chai.expect;
 const { paytable } = require('../../const/Paytable');
 const { PaytableCoef } = require('../../const/function');
 const { spin } = require('../../const/spin');
-const { spinFavbet } = require('../../const/spinFavbet');
+const { checkWin1 } = require('../../const/function');
 
 
 chai.use(chaiHttp);
 
-
-const checkWin1 = (res) => {
-    if (res.context.hasOwnProperty('win')) {
-
-        const allWinLines = res.context.win.lines;
-        let matrixSymbols = res.context.matrix;
-
-        return {
-            allWinLines,
-            matrixSymbols
-        };
-
-    } else {
-        console.log('spin without win');
-        return null;
-    }
-};
-
-for (let i = 0; i < 500; i++) {
+for (let i = 0; i < 1; i++) {
     describe.skip('Test win', () => {
-        let res = null;
-        let isRun = false;
-        let winLines = null;
-        let matrixSymbols = null;
+
+        let data = {
+            res: null,
+            winLinesWithoutScatter: null,
+            matrix: null,
+            actionSpin: null
+        };
 
         before("Spin", async() => {
             try {
-                res = await spin();
-                console.log(res.context.current + "   type of Spin");
+                let response = await spin();
+                let { res, actionSpin } = response;
 
-                expect(res.status.status).to.be.equal(200);
+                console.log(`${actionSpin} - type of Spin`);
 
                 const funcResult = checkWin1(res);
 
-
                 if (funcResult !== null) {
-                    winLines = funcResult.allWinLines.filter(winLines => winLines.id !== null);
+                    let winLinesWithoutScatter = funcResult.allWinLines.filter(winLines => winLines.id !== null);
+                    const matrix = res.context.matrix;
 
-                    matrixSymbols = funcResult.matrixSymbols;
-                    console.log(matrixSymbols);
+                    data = {...data, res, matrix, winLinesWithoutScatter, actionSpin };
 
-                    isRun = true;
                 }
             } catch (error) {
-                let { code, message } = res.status;
-                console.log(code + "  code");
-                console.log(message + "  message");
                 console.log('!!!!!!ERROR in before block!!!!!! ' + error);
             }
         });
 
-        it('check correct wining symbol position', function() {
-            if (isRun) {
+        it('check correct winning symbol position', function() {
+            let { winLinesWithoutScatter, matrix } = data;
 
-                console.log((winLines.length) + "winLines");
+            if (winLinesWithoutScatter != null) {
 
-                winLines.forEach((el) => {
+                console.log(`${winLinesWithoutScatter.length} - winLines.length`);
+
+                winLinesWithoutScatter.forEach((el) => {
                     console.log(el.id);
                     const winPositions = el.positions;
                     console.log(winPositions);
                     const winSymbol = el.symbol;
 
                     winPositions.forEach((el) => {
-                        const tempSymbols = matrixSymbols[el[0]][el[1]];
+                        const tempSymbols = matrix[el[0]][el[1]];
                         if (tempSymbols !== "2") {
                             expect(winSymbol).to.be.equal(tempSymbols);
                         } else {
@@ -89,35 +71,35 @@ for (let i = 0; i < 500; i++) {
         });
 
         it('check correct accrual of winnings', function() {
-            if (isRun) {
+            let { winLinesWithoutScatter, matrix, actionSpin, res } = data;
+
+            if (winLinesWithoutScatter != null && actionSpin == "spin") {
+
                 let bet = res.context.bet;
-                winLines.forEach((el) => {
+                winLinesWithoutScatter.forEach((el) => {
                     const winPositions = el.positions;
                     const winSymbol = el.symbol;
                     const amount = el.amount;
                     console.log(amount);
                     const getingSymbols = [];
                     winPositions.forEach((el) => {
-                        const tempSymbols = matrixSymbols[el[0]][el[1]];
+                        const tempSymbols = matrix[el[0]][el[1]];
                         getingSymbols.push(tempSymbols);
                     });
-                    const arrWithWild = getingSymbols.filter((value) => {
-                        return value === "2";
-                    });
+                    const arrWithWild = getingSymbols.filter((value) => value === "2");
 
-                    function winRight() {
+                    let winRight = function() {
                         return PaytableCoef(winPositions, paytable, winSymbol) * bet;
-                    }
+                    };
+                    let rightAmount = winRight();
+
 
                     if (arrWithWild.length > 0 && winSymbol !== "2") {
-                        expect(amount).to.be.equal(winRight() * 2);
-                        console.log(winRight());
-
-
+                        expect(amount).to.be.equal(rightAmount * 2);
+                        console.log(rightAmount * 2);
                     } else {
-                        expect(amount).to.be.equal(winRight());
-                        console.log(winRight());
-                        console.log(amount);
+                        expect(amount).to.be.equal(rightAmount);
+                        console.log(rightAmount);
                     }
 
                 });

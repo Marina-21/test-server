@@ -1,5 +1,5 @@
 let FavoritSpin = {
-    urlSpin: "https://www.favorit.com.ua/bigames/cg-gw01/v1/client/clien",
+    urlSpin: "https://www.favorit.com.ua/bigames/cg-gw01/v1/client/spin",
     token: "ceb2175d67eda63301d8a57c4d063adb"
 };
 let FavoritInit = {
@@ -8,19 +8,19 @@ let FavoritInit = {
 };
 let GizilSpin = {
     urlSpin: "https://cg-gw01.live132.com/v1/client/spin",
-    token: "3720debe54f2205e9274459b6d9cbd4d"
+    token: "3fee3225b6403a6a0eaf8d979971cfd7"
 };
 let GizilInit = {
     urlInit: "https://cg-gw01.live132.com/v1/client/init",
-    tokrn: "3720debe54f2205e9274459b6d9cbd4d"
+    tokrn: "3fee3225b6403a6a0eaf8d979971cfd7"
 };
 let DevSpin = {
     urlSpin: "https://dev-gw01.betslots.cf/v1/client/spin",
-    token: "a31e6412d32d1d27af5f2f20d254b08c"
+    token: "1c9a4fdb22d9445962da5f8fa7fee023"
 };
 let DevInit = {
     urlInit: "https://dev-gw01.betslots.cf/v1/client/init",
-    token: "a31e6412d32d1d27af5f2f20d254b08c"
+    token: "1c9a4fdb22d9445962da5f8fa7fee023"
 };
 
 let favoritBets = [
@@ -64,7 +64,7 @@ let gamesDate = [{
     },
     {
         name: "food",
-        id: 45,
+        id: 5,
         lines: 10
     },
     {
@@ -142,6 +142,51 @@ let GizilBets = [
     1000
 ];
 
+class Platforms {
+    constructor(urlSpin, urlInit, token, bets, gamesDate, params) {
+            this.urlSpin = urlSpin;
+            this.urlInit = urlInit;
+            this.token = token;
+            this.bets = bets;
+            this.gamesDate = gamesDate;
+            this.params = params;
+
+        }
+        // gamesDate() {
+        //     if (this.params != '') {
+        //         return this.games.shift(this.params);
+        //     } else {
+        //         return this.games;
+        //     }
+        // }
+}
+
+let Favorit = new Platforms(
+    "https://www.favorit.com.ua/bigames/cg-gw01/v1/client/clien/spin",
+    "https://www.favorit.com.ua/bigames/cg-gw01/v1/client/clien/init",
+    "ceb2175d67eda63301d8a57c4d063adb",
+    favoritBets,
+    gamesDate,
+);
+
+let Gizil = new Platforms(
+    "https://cg-gw01.live132.com/v1/client/spin",
+    "https://cg-gw01.live132.com/v1/client/init",
+    "3fee3225b6403a6a0eaf8d979971cfd7",
+    GizilBets,
+    gamesDate,
+    0
+);
+
+
+let Dev = new Platforms(
+    "https://dev-gw01.betslots.cf/v1/client/spin",
+    "https://dev-gw01.betslots.cf/v1/client/init",
+    "1c9a4fdb22d9445962da5f8fa7fee023",
+    devBets,
+    gamesDate
+);
+
 
 module.exports = {
     favoritBets,
@@ -153,5 +198,8 @@ module.exports = {
     GizilInit,
     DevSpin,
     DevInit,
-    GizilBets
+    GizilBets,
+    Favorit,
+    Gizil,
+    Dev
 };
