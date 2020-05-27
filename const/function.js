@@ -1,3 +1,12 @@
+const log4js = require('log4js');
+log4js.configure({
+    appenders: { cheese: { type: 'file', filename: 'cheese.log' } },
+    categories: { default: { appenders: ['cheese'], level: 'error' } }
+});
+const logger = log4js.getLogger();
+logger.level = 'debug';
+logger.error();
+
 function PaytableCoef(winPositions, paytable, winSymbol) {
     const countSymbol = winPositions.length;
     const coef = paytable[winSymbol];
@@ -29,6 +38,7 @@ const checkWin1 = (res) => {
 
     } else {
         console.log('spin without win');
+        logger.info('spin without win');
         return null;
     }
 };
@@ -97,6 +107,27 @@ let checkSymbolMultiplier = function(winSymbol) {
     }
 };
 
+let checkTypeWin = function(res) {
+    const totalWin = res.context.win.total;
+    const matrix = res.context.matrix;
+    console.log(matrix);
+    logger.info(matrix);
+    const bet = betLines(res);
+    const typeCoef = totalWin / bet;
+    console.log((typeCoef) + " - typeCoef");
+    logger.info(`${typeCoef} - typeCoef`);
+
+    if (typeCoef < 10) {
+        return "regular";
+    } else if (typeCoef >= 10 && typeCoef < 100) {
+        return "big";
+    } else if (typeCoef >= 100 && typeCoef < 500) {
+        return "ultra";
+    } else if (typeCoef >= 500 && typeCoef <= 1500) {
+        return "mega";
+    }
+}
+
 module.exports = {
     PaytableCoef,
     betLines,
@@ -105,5 +136,6 @@ module.exports = {
     chekActionSpin,
     chekExpendingWild,
     checkError,
-    checkSymbolMultiplier
+    checkSymbolMultiplier,
+    checkTypeWin
 };

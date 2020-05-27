@@ -43,67 +43,78 @@ let favoritBets = [
 let gamesDate = [{
         name: "football",
         id: 1,
-        lines: 10
-
+        lines: 10,
+        number: 0
     },
     {
         name: "neon",
         id: 2,
-        lines: 10
+        lines: 10,
+        number: 1
     },
     {
         name: "dzen",
         id: 3,
-        lines: 10
-
+        lines: 10,
+        number: 2
     },
     {
         name: "halloween",
         id: 4,
-        lines: 10
+        lines: 10,
+        number: 3
     },
     {
         name: "food",
         id: 5,
-        lines: 10
+        lines: 10,
+        number: 4
     },
     {
         name: "pixelact",
         id: 6,
-        lines: 10
+        lines: 10,
+        number: 5
     },
     {
         name: "steam",
         id: 8,
-        lines: 10
+        lines: 10,
+        number: 6
     },
     {
         name: "viking",
         id: 9,
-        lines: 10
+        lines: 10,
+        number: 7
     },
     {
         name: "fruit3",
         id: 10,
-        lines: 5
+        lines: 5,
+        number: 8
     },
     {
         name: "fruit5",
         id: 11,
-        lines: 10
+        lines: 10,
+        number: 9
     },
     {
         name: "covid",
         id: 12,
-        lines: 10
+        lines: 10,
+        number: 10
     },
     {
         name: "volcan",
         id: 14,
-        lines: 20
+        lines: 20,
+        number: 11
     }
 
 ];
+let gamesDateGizil = gamesDate.shift();
 
 let devBets = [
     2,
@@ -143,13 +154,13 @@ let GizilBets = [
 ];
 
 class Platforms {
-    constructor(urlSpin, urlInit, token, bets, gamesDate, params) {
+    constructor(urlSpin, urlInit, token, bets, gamesDate) {
             this.urlSpin = urlSpin;
             this.urlInit = urlInit;
             this.token = token;
             this.bets = bets;
             this.gamesDate = gamesDate;
-            this.params = params;
+
 
         }
         // gamesDate() {
@@ -174,8 +185,7 @@ let Gizil = new Platforms(
     "https://cg-gw01.live132.com/v1/client/init",
     "3fee3225b6403a6a0eaf8d979971cfd7",
     GizilBets,
-    gamesDate,
-    0
+    gamesDateGizil,
 );
 
 
@@ -184,6 +194,14 @@ let Dev = new Platforms(
     "https://dev-gw01.betslots.cf/v1/client/init",
     "1c9a4fdb22d9445962da5f8fa7fee023",
     devBets,
+    gamesDate
+);
+
+let OMG = new Platforms(
+    "https://omg.bet/bigames/cg-gw01/v1/client/spin",
+    "https://omg.bet/bigames/cg-gw01/v1/client/init",
+    "3771d5d41beb45b5a4bbd303ff735db5",
+    favoritBets,
     gamesDate
 );
 

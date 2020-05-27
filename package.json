@@ -4,7 +4,10 @@
     "main": "index.js",
     "scripts": {
         "start": "node index.js",
-        "test": "mocha --timeout 30000 --reporter mochawesome"
+        "test": "mocha --timeout 30000 --reporter mochawesome",
+        "test_Dev": "mocha test/test_Dev --timeout 30000 --reporter mochawesome",
+        "testOMG": "mocha test/testOMG --timeout 30000 --reporter mochawesome",
+        "testFavorit": "mocha test/test_Favorit --timeout 30000 --reporter mochawesome"
     },
     "author": "",
     "license": "ISC",

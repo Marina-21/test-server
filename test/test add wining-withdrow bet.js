@@ -33,7 +33,7 @@ let { id, lines } = gameObj;
 let elbet = devBets[4];
 
 for (let i = 0; i < 200; i++) {
-    describe.skip('Test win', () => {
+    describe.skip(`test add wining-withdrow bet - ${i}`, () => {
 
         let date = {
             funcResult: null,
@@ -50,8 +50,12 @@ for (let i = 0; i < 200; i++) {
                 let { res, actionSpin } = responce;
                 let actionNow = res.context.current;
                 console.log(res);
+                logger.info(`test add wining-withdrow bet: ${id}, -  ${i}`);
                 logger.info(res);
-                logger.info(`actionSpin ${actionSpin}`);
+
+                console.log(`actionSpin  ${actionSpin}`);
+                logger.info(`actionSpin  ${actionSpin}`);
+
                 let newBalance = res.user.balance;
                 const funcResult = checkWin1(res);
                 let bet = res.context.bet * lines;
@@ -63,16 +67,14 @@ for (let i = 0; i < 200; i++) {
                 date = { funcResult, res, ...obj, actionSpin, actionNow, newBalance, bet };
 
             } catch (error) {
-
+                logger.error('!!!!!!ERROR in before block!!!!!! ' + error);
                 console.log('!!!!!!ERROR in before block!!!!!! ' + error);
             }
-
         });
-
         it(' check add winning to balance  and withdrawing bet in Spin', async() => {
             let { res, funcResult, balance, actionSpin, actionNow, newBalance, bet } = date;
             if (actionNow == "spin" && actionSpin == "spin") {
-
+                logger.info(' check add winning to balance  and withdrawing bet in Spin');
 
                 if (funcResult !== null) {
                     let win = res.context.win.total;
@@ -105,8 +107,10 @@ for (let i = 0; i < 200; i++) {
         it(' check add winning to balance  and withdrawing bet in start FS', async() => {
             let { balance, actionSpin, actionNow, newBalance, bet } = date;
             if (actionSpin == "freespin" && actionNow == "spin") {
+                logger.info(' check add winning to balance  and withdrawing bet in start FS');
 
                 let rightBalance = balance - bet;
+                logger.info(`rightBalance- &{rightBalance}`);
 
                 let file = { balance: newBalance };
                 await fs.writeFile('db1.json', JSON.stringify(file));
@@ -117,6 +121,7 @@ for (let i = 0; i < 200; i++) {
         it(' check add winning to balance  and withdrawing bet in end FS', async() => {
             let { res, balance, actionSpin, actionNow, newBalance } = date;
             if (actionSpin == "spin" && actionNow == "freespin") {
+                logger.info('check add winning to balance and withdrawing bet in end FS ');
                 let totalWinFS = res.context.freespins.win;
                 let rightBalance = totalWinFS + balance;
 
@@ -133,6 +138,7 @@ for (let i = 0; i < 200; i++) {
         it(' check add winning to balance  and withdrawing bet in Freespin', async() => {
             let { balance, actionSpin, actionNow, newBalance } = date;
             if (actionSpin == "freespin" && actionNow == "freespin") {
+                logger.info(' check add winning to balance  and withdrawing bet in Freespin');
 
                 expect(balance).to.equal(Number(newBalance));
 
