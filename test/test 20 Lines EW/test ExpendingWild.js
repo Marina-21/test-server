@@ -1,24 +1,38 @@
 const chai = require('chai');
 const expect = chai.expect;
 const _ = require('lodash');
+require('dotenv').config();
 
 
 
 // const { freespin } = require('../const/spin');
-const { spinEW } = require('../../const/SpinExpendingWild');
-const { checkWin1 } = require('../../const/function');
-const { PaytableCoef } = require('../../const/function');
+const { spin } = require('../../const/spinPlatform');
+const { checkWin1, PaytableCoef, readToken, betLines } = require('../../const/function');
 const { paytable20LinesEW } = require('../../const/Paytable');
-const { winRight } = require('../../const/function');
-const { lines20 } = require('../../const/lines20');
-const { betLines } = require('../../const/function');
-// const { chekActionSpin } = require('../const/function');
+const { lines20 } = require('../../const/lines');
+const { Favorit, Gizil, Dev, OMG, Favoritsport, FavBet } = require('../../const/platforms');
+
+const platform = {
+    Favorit: Favorit,
+    Gizil: Gizil,
+    Dev: Dev,
+    OMG: OMG,
+    Favoritsport: Favoritsport,
+    FavBet: FavBet
+};
+
+let { urlSpin, gamesDate, bet, nameToken } = platform[process.env.PLATFORM];
+let { id, lines, name, betUkr, betTR } = gamesDate[11];
+
+let elbet = gamesDate[11][bet][2];
+let token;
+
+
 function chekExpendingWild(matrix) {
 
     const newMatrix = [];
     let ExpWild = false;
     let indexWild = [];
-
     // let matrixTest = [
     //     ["2", "B", "A"],
     //     ["1", "2", "A"],
@@ -46,7 +60,7 @@ function chekExpendingWild(matrix) {
 
 
 
-for (let i = 0; i < 500; i++) {
+for (let i = 0; i < 5; i++) {
     describe.only('Test EW', function() {
         let data = {
             matrix: null,
@@ -64,8 +78,9 @@ for (let i = 0; i < 500; i++) {
         };
         before("Spin", async() => {
             try {
-                const responce = await spinEW();
-                let { actionSpin, res } = responce;
+                token = await readToken(nameToken);
+                const response = await spin(urlSpin, token, id, elbet, lines);
+                let { actionSpin, res } = response;
                 console.log(res);
                 console.log(`actionSpin  ${actionSpin}`);
 

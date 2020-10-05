@@ -8,7 +8,8 @@ const { winRight, readToken, checkWin1, betLines, checkTypeWin } = require('../.
 const { paytable } = require('../../const/Paytable');
 const { Favorit, Gizil, Dev, OMG, Favoritsport, FavBet } = require('../../const/platforms');
 const { spin } = require('../../const/spinPlatform');
-const { lines10 } = require('../../const/lines');
+const { lines30Sailor } = require('../../const/lines');
+// const { counter } = require('../global');
 
 
 const log4js = require('log4js');
@@ -30,18 +31,31 @@ const platform = {
 
 let { urlSpin, gamesDate, bet, nameToken } = platform[process.env.PLATFORM];
 const [nameGame] = [process.env.GAME];
+
+
 console.log(nameGame);
 
 const indexGame = gamesDate.findIndex((el) => { return el.name === nameGame; });
+
+
 console.log(indexGame);
 
 const game = gamesDate[indexGame];
 
+
 let { id, lines, name } = gamesDate[game.number];
-let elbet = gamesDate[game.number][bet][7];
+let elbet = gamesDate[game.number][bet][2];
+
+// let counter = 0;
+// console.log(counter);
 
 for (let i = 0; i < 1; i++) {
-    describe.only(`Test 10Lines game: ${name}, ${id} -  ${i}`, () => {
+    // if (counter > 3) {
+    //     console.log(counter);
+    //     break;
+    // }
+
+    describe.only(`Test 30Lines game: ${name}, ${id} -  ${i}`, () => {
 
         let globalDate = {
             oldBalance: 0,
@@ -73,7 +87,7 @@ for (let i = 0; i < 1; i++) {
                 const response = await spin(urlSpin, token, id, elbet, lines);
                 let { actionSpin, res } = response;
                 console.log(res);
-                logger.info(`Test 10Lines game: ${name}, ${id} -  ${i}`);
+                logger.info(`Test 30Lines game: ${name}, ${id} -  ${i}`);
                 logger.info(res);
 
                 console.log(`actionSpin ${ actionSpin }`);
@@ -111,8 +125,9 @@ for (let i = 0; i < 1; i++) {
             } catch (error) {
                 console.log('!!!!!!ERROR in before block!!!!!! ' + error);
                 logger.error('!!!!!!ERROR in before block!!!!!! ' + error);
-            }
+                // counter++;
 
+            }
         });
         it('Winning Line coordinates from response is correct', () => {
             let { funcResultWin, winLinesWithoutScatter } = data;
@@ -125,7 +140,7 @@ for (let i = 0; i < 1; i++) {
                     console.log(winPositions);
                     logger.info(`winPositions - ${ winPositions }`);
                     const idLines = el.id;
-                    const numberLines = lines10[idLines];
+                    const numberLines = lines30Sailor[idLines];
                     const coordinatesLines = numberLines.slice(0, winPositions.length);
                     const value = _.isEqual(winPositions, coordinatesLines);
                     console.log(coordinatesLines);
@@ -392,9 +407,9 @@ for (let i = 0; i < 1; i++) {
                 logger.info(winLinesScatter);
 
                 let rightAmount = winRight(winPositions, paytable, symbol, bet) * 3;
-                console.log(`scatter is accrualed correct ${amount } - amount
+                console.log(`scatter is accrualed correct ${ amount } - amount
                  /${ rightAmount } - rightAmount `);
-                logger.info(`scatter is accrualed correct ${amount } - amount 
+                logger.info(`scatter is accrualed correct ${ amount } - amount 
                 /${ rightAmount } - rightAmount `);
 
                 expect(amount).to.be.equal(rightAmount);
@@ -441,15 +456,15 @@ for (let i = 0; i < 1; i++) {
                 }
             }
         });
-        it("check type of win 10 Lines", () => {
+        it("check type of win 30 Lines", () => {
             let { funcResultWin, res } = data;
             if (funcResultWin !== null) {
-                logger.info("check type of win 10 Lines");
+                logger.info("check type of win 30 Lines");
                 const gameTypeWin = res.context.win.type;
 
                 let rightTypeWin = checkTypeWin(res);
 
-                logger.info(`${ rightTypeWin } - rightTypeWin `);
+                logger.info(` ${ rightTypeWin } - rightTypeWin `);
 
                 expect(gameTypeWin).to.eql(rightTypeWin);
                 logger.info("Type of win is correct");
@@ -468,4 +483,5 @@ for (let i = 0; i < 1; i++) {
             }
         });
     });
+
 }

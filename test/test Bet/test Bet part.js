@@ -7,7 +7,7 @@ const { Gizil } = require('../../const/platforms');
 const { favorit } = require('../../const/platforms');
 const { spin } = require('../../const/spinPlatform');
 const { init } = require('../../const/spinPlatform');
-const { checkWin1 } = require('../../const/function');
+const { checkWin1, readToken } = require('../../const/function');
 const { Dev } = require('../../const/platforms');
 
 chai.use(chaiHttp);
@@ -21,22 +21,24 @@ const logger = log4js.getLogger();
 logger.level = 'debug';
 
 
-let { urlSpin, urlInit, token, gamesDate, bets } = Dev;
+let { urlSpin, urlInit, gamesDate, nameToken } = Gizil;
 
+let { id, lines, betTR } = gamesDate[15];
+let token;
 
-describe.skip('Test win', () => {
+describe.only('Test win', () => {
 
-    let { id, lines } = gamesDate[0];
 
     before("Init", async() => {
         try {
+            token = await readToken(nameToken);
             let responce = await init(urlInit, token, id);
             let { res, actionSpin } = responce;
             console.log(res.context.current + "   type of Init");
             logger.info(res);
 
             let file = { balance: res.user.balance, actionSpin };
-            await fs.writeFile('db1.json', JSON.stringify(file));
+            await fs.writeFile('db.json', JSON.stringify(file));
             logger.info("Type of win is correct");
 
         } catch (error) {
@@ -48,10 +50,10 @@ describe.skip('Test win', () => {
         }
     });
 
-    bets.forEach((elbet) => {
+    betTR.forEach((elbet) => {
         it('check withdraw a different bets from the balance, check all bets in platform',
             async() => {
-                const file = await fs.readFile('db1.json', 'utf8');
+                const file = await fs.readFile('db.json', 'utf8');
                 const obj = JSON.parse(file);
                 let { actionSpin } = obj;
 
@@ -69,7 +71,7 @@ describe.skip('Test win', () => {
                             console.log(`actionSpin ${actionSpin}`);
                             console.log(`action ${action}`);
                             let file = { balance: res.user.balance, actionSpin };
-                            await fs.writeFile('db1.json', JSON.stringify(file));
+                            await fs.writeFile('db.json', JSON.stringify(file));
                         } catch (error) {
                             console.log('!!!!!!ERROR in before block!!!!!! ' + error);
                             logger.info('!!!!!!ERROR in before block!!!!!! ' + error);
@@ -91,7 +93,7 @@ describe.skip('Test win', () => {
                         let newBalance = user.balance;
                         let totalBet = context.bet * lines;
 
-                        const file = await fs.readFile('db1.json', 'utf8');
+                        const file = await fs.readFile('db.json', 'utf8');
                         const obj = JSON.parse(file);
                         let { balance } = obj;
 
@@ -101,7 +103,7 @@ describe.skip('Test win', () => {
                             expect(rightBalance).to.equal(Number(newBalance));
 
                             let file = { balance: newBalance, actionSpin };
-                            await fs.writeFile('db1.json', JSON.stringify(file));
+                            await fs.writeFile('db.json', JSON.stringify(file));
                             logger.info(`rightBalans ${rightBalance}`);
                             logger.info(`newBalance ${newBalance}`);
                             console.log(`rightBalans ${rightBalance}`);
@@ -112,7 +114,7 @@ describe.skip('Test win', () => {
                             expect(rightBalance).to.equal(newBalance);
 
                             let file = { balance: newBalance, actionSpin };
-                            await fs.writeFile('db1.json', JSON.stringify(file));
+                            await fs.writeFile('db.json', JSON.stringify(file));
                             logger.info(`rightBalans ${rightBalance}`);
                             logger.info(`newBalance ${newBalance}`);
                             console.log(`rightBalans ${rightBalance}`);

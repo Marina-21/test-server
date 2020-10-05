@@ -4,11 +4,11 @@ const _ = require('lodash');
 const fs = require('fs').promises;
 require('dotenv').config();
 
-const { winRight, readToken, checkWin1, betLines, checkTypeWin } = require('../../const/function');
-const { paytable } = require('../../const/Paytable');
-const { Favorit, Gizil, Dev, OMG, Favoritsport, FavBet } = require('../../const/platforms');
-const { spin } = require('../../const/spinPlatform');
-const { lines10 } = require('../../const/lines');
+const { winRight, checkWin1, betLines, checkTypeWin, readToken } = require('../../const/function');
+const { paytable50Lines } = require('../../const/Paytable');
+const { lines50 } = require('../../const/lines');
+const { Favorit, Gizil, Dev, OMG, Favoritsport, FavBet } = require('../const/platforms');
+const { spin } = require('../const/spinPlatform');
 
 
 const log4js = require('log4js');
@@ -38,11 +38,10 @@ console.log(indexGame);
 const game = gamesDate[indexGame];
 
 let { id, lines, name } = gamesDate[game.number];
-let elbet = gamesDate[game.number][bet][7];
+let elbet = gamesDate[game.number][bet][2];
 
 for (let i = 0; i < 1; i++) {
-    describe.only(`Test 10Lines game: ${name}, ${id} -  ${i}`, () => {
-
+    describe.skip(`Test 10Lines game: ${name}, ${id} -  ${i}`, () => {
         let globalDate = {
             oldBalance: 0,
             oldFsWin: 0,
@@ -95,7 +94,6 @@ for (let i = 0; i < 1; i++) {
                     }
                     data = {...data, winLinesWithoutScatter, ...funcResultWin };
                 }
-
                 if (actionSpin == "freespin" || actionNow == "freespin") {
                     const obj = res.context.freespins.count;
                     console.log(obj.rest);
@@ -125,7 +123,7 @@ for (let i = 0; i < 1; i++) {
                     console.log(winPositions);
                     logger.info(`winPositions - ${ winPositions }`);
                     const idLines = el.id;
-                    const numberLines = lines10[idLines];
+                    const numberLines = lines50[idLines];
                     const coordinatesLines = numberLines.slice(0, winPositions.length);
                     const value = _.isEqual(winPositions, coordinatesLines);
                     console.log(coordinatesLines);
@@ -147,7 +145,7 @@ for (let i = 0; i < 1; i++) {
                 const winPositions = winLinesScatter.positions;
                 console.log(winLinesScatter);
                 logger.info(winLinesScatter);
-                const winRightNull = winRight(winPositions, paytable, symbol, bet);
+                const winRightNull = winRight(winPositions, paytable50Lines, symbol, bet);
 
                 console.log(` ${ amount } - amount `);
                 logger.info(`${ amount } - amount `);
@@ -157,7 +155,6 @@ for (let i = 0; i < 1; i++) {
                 expect(amount).to.be.equal(winRightNull);
             }
         });
-
         it('check correct position Scatter', () => {
             let { winLinesScatter, isWinScatter, matrix } = data;
 
@@ -209,7 +206,6 @@ for (let i = 0; i < 1; i++) {
                 });
             }
         });
-
         it('check correct accrual of winnings', () => {
             let { funcResultWin, winLinesWithoutScatter, actionNow, matrix, res } = data;
 
@@ -223,24 +219,12 @@ for (let i = 0; i < 1; i++) {
                     const amount = el.amount;
                     console.log(amount);
                     logger.info(`${ amount } - amount in game `);
-                    const getingSymbols = [];
-                    winPositions.forEach((el) => {
-                        const tempSymbols = matrix[el[0]][el[1]];
-                        getingSymbols.push(tempSymbols);
-                    });
-                    const arrWithWild = getingSymbols.filter((value) => value === "2");
 
-                    let rightAmount = winRight(winPositions, paytable, winSymbol, bet);
+                    let rightAmount = winRight(winPositions, paytable50Lines, winSymbol, bet);
 
-                    if (arrWithWild.length > 0 && winSymbol !== "2") {
-                        console.log(rightAmount * 2);
-                        logger.info(rightAmount * 2);
-                        expect(amount).to.be.equal((rightAmount * 2));
-                    } else {
-                        console.log(rightAmount);
-                        logger.info(rightAmount);
-                        expect(amount).to.be.equal(+rightAmount);
-                    }
+                    console.log(rightAmount);
+                    logger.info(rightAmount);
+                    expect(amount).to.be.equal(+rightAmount);
                 });
             }
         });
@@ -335,7 +319,7 @@ for (let i = 0; i < 1; i++) {
                 }
             }
         });
-        it('check correct accrual of winnings in FS * 3', () => {
+        it('check correct accrual of winnings in FS', () => {
             let { res, matrix, winLinesWithoutScatter, funcResultWin, actionNow } = data;
 
             if (actionNow == "freespin" && funcResultWin !== null) {
@@ -355,12 +339,12 @@ for (let i = 0; i < 1; i++) {
                         const tempSymbols = matrix[el[0]][el[1]];
                         getingSymbols.push(tempSymbols);
                     });
-                    const arrWithWild = getingSymbols.filter((value) => value == 2);
+                    const arrWithWild = getingSymbols.filter((value) => value == 3);
 
-                    let rightAmount = winRight(winPositions, paytable, winSymbol, bet);
+                    let rightAmount = winRight(winPositions, paytable50Lines, winSymbol, bet);
 
-                    if (arrWithWild.length > 0 && winSymbol !== "2") {
-                        let fsWinRigt = (rightAmount * 2 * 3);
+                    if (arrWithWild.length > 0 && winSymbol !== "3") {
+                        let fsWinRigt = (rightAmount * 2);
                         console.log(fsWinRigt);
                         console.log(amount);
                         logger.info(`fsWinRigt - ${ fsWinRigt }`);
@@ -369,7 +353,7 @@ for (let i = 0; i < 1; i++) {
                         expect(amount).to.be.equal(fsWinRigt);
 
                     } else {
-                        let fsWinRigt = (rightAmount * 3);
+                        let fsWinRigt = (rightAmount);
                         console.log(fsWinRigt);
                         console.log(amount);
                         logger.info(`fsWinRigt - ${ fsWinRigt }`);
@@ -380,7 +364,7 @@ for (let i = 0; i < 1; i++) {
                 });
             }
         });
-        it('check correct accrual Scatter in FS * 3', function() {
+        it('check correct accrual Scatter in FS', function() {
             let { res, winLinesScatter, actionNow, isWinScatter } = data;
             if (actionNow == 'freespin' && isWinScatter == true) {
                 logger.info('check correct accrual Scatter in FS * 3');
@@ -391,11 +375,11 @@ for (let i = 0; i < 1; i++) {
                 console.log(winLinesScatter);
                 logger.info(winLinesScatter);
 
-                let rightAmount = winRight(winPositions, paytable, symbol, bet) * 3;
-                console.log(`scatter is accrualed correct ${amount } - amount
-                 /${ rightAmount } - rightAmount `);
-                logger.info(`scatter is accrualed correct ${amount } - amount 
-                /${ rightAmount } - rightAmount `);
+                let rightAmount = winRight(winPositions, paytable50Lines, symbol, bet);
+                console.log(`scatter is accrualed correct ${ amount } - amount
+                         /${ rightAmount } - rightAmount `);
+                logger.info(`scatter is accrualed correct ${ amount } - amount 
+                        /${ rightAmount } - rightAmount `);
 
                 expect(amount).to.be.equal(rightAmount);
             }
@@ -410,9 +394,9 @@ for (let i = 0; i < 1; i++) {
                     let totalAmount = allWinLines.reduce((total, elLines) => total + elLines.amount, 0);
 
                     console.log(`${ fsWin } - fsWin
-                / ${ oldFsWin } + ${ totalAmount } - oldFsWin + totalAmount `);
+                        / ${ oldFsWin } + ${ totalAmount } - oldFsWin + totalAmount `);
                     logger.info(`${ fsWin } - fsWin 
-                /${ oldFsWin } + ${ totalAmount } - oldFsWin + totalAmount `);
+                        /${ oldFsWin } + ${ totalAmount } - oldFsWin + totalAmount `);
 
                     expect(fsWin).to.be.equal(oldFsWin + totalAmount);
                 } else {
@@ -443,6 +427,7 @@ for (let i = 0; i < 1; i++) {
         });
         it("check type of win 10 Lines", () => {
             let { funcResultWin, res } = data;
+
             if (funcResultWin !== null) {
                 logger.info("check type of win 10 Lines");
                 const gameTypeWin = res.context.win.type;

@@ -2,26 +2,38 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 const expect = chai.expect;
 const fs = require('fs').promises;
+require('dotenv').config();
 
-const { winRight } = require('../../const/function');
-const { freespin } = require('../../const/spin');
-const { spinbeforFS } = require('../../const/spin');
-const { checkWin1 } = require('../../const/function');
+const { winRight, checkWin1, betLines, readToken } = require('../../const/function');
+const { freespin, spinbeforFS } = require('../../const/spinPlatform');
+const { Favorit, Gizil, Dev, OMG, Favoritsport, FavBet } = require('../../const/platforms');
 const { paytable } = require('../../const/Paytable');
-const { betLines } = require('../../const/function');
+
 
 
 chai.use(chaiHttp);
 
-// let { urlSpin, token, gamesDate, bets } = favorit;
-// let { id, lines, name } = gamesDate[12];
-// let elbet = bets[2];
+const platform = {
+    Favorit: Favorit,
+    Gizil: Gizil,
+    Dev: Dev,
+    OMG: OMG,
+    Favoritsport: Favoritsport,
+    FavBet: FavBet
+};
+
+let { urlSpin, gamesDate, bet, nameToken } = platform[process.env.PLATFORM];
+let { id, lines, name, betUkr, betTR } = gamesDate[14];
+
+let elbet = gamesDate[14][bet][2];
+let token;
+let cheat = "1ADA1CBFCAIDD1A";
 
 let actionSpin = "spin";
 
 
 for (let i = 15; i >= 0; i--) {
-    describe.skip('Test FS', () => {
+    describe.only('Test FS', () => {
         let globalDate = {
             oldBalance: 0,
             oldFsWin: 0,
@@ -49,7 +61,8 @@ for (let i = 15; i >= 0; i--) {
         before("Spin", async() => {
             if (i >= 15 && actionSpin == "spin") {
                 try {
-                    const response = await spinbeforFS();
+                    token = await readToken(nameToken);
+                    const response = await spinbeforFS(urlSpin, token, id, elbet, lines, cheat);
                     let { res, actionSpin } = response;
                     console.log(res);
 
@@ -81,8 +94,10 @@ for (let i = 15; i >= 0; i--) {
                 }
             } else {
                 try {
-                    const response = await freespin();
+                    token = await readToken(nameToken);
+                    const response = await freespin(urlSpin, token, id, elbet, lines);
                     let { res, actionSpin } = response;
+                    console.log(urlSpin);
                     console.log(res);
                     const obj = res.context.freespins.count;
                     let actionNow = res.context.current;

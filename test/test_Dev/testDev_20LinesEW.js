@@ -2,35 +2,47 @@ const chai = require('chai');
 const expect = chai.expect;
 const _ = require('lodash');
 const fs = require('fs').promises;
+require('dotenv').config();
 
 
-const { chekExpendingWild } = require('../../const/function');
-const { checkWin1 } = require('../../const/function');
-const { PaytableCoef } = require('../../const/function');
+const { chekExpendingWild, checkWin1, PaytableCoef, betLines, checkTypeWin, readToken } = require('../../const/function');
 const { paytable20LinesEW } = require('../../const/Paytable');
-const { lines20 } = require('../../const/lines20');
-const { betLines } = require('../../const/function');
-const { OMG } = require('../../const/platforms');
+const { lines20 } = require('../../const/lines');
+const { Favorit, Gizil, Dev, OMG, Favoritsport, FavBet } = require('../../const/platforms');
 const { spin } = require('../../const/spinPlatform');
-const { checkTypeWin } = require('../../const/function');
 
 const log4js = require('log4js');
 log4js.configure({
-    appenders: { cheese: { type: 'file', filename: 'cheeseOMG.log' } },
+    appenders: { cheese: { type: 'file', filename: 'cheese.log' } },
     categories: { default: { appenders: ['cheese'], level: 'error' } }
 });
 const logger = log4js.getLogger();
 logger.level = 'debug';
 
+const platform = {
+    Favorit: Favorit,
+    Gizil: Gizil,
+    Dev: Dev,
+    OMG: OMG,
+    Favoritsport: Favoritsport,
+    FavBet: FavBet
+};
 
-let { urlSpin, token, gamesDate, bets } = OMG;
-let { id, lines, name } = gamesDate[11];
-let elbet = bets[2];
+let { urlSpin, gamesDate, bet, nameToken } = platform[process.env.PLATFORM];
+const [nameGame] = [process.env.GAME];
+console.log(nameGame);
+
+const indexGame = gamesDate.findIndex((el) => { return el.name === nameGame; });
+console.log(indexGame);
+
+const game = gamesDate[indexGame];
+
+let { id, lines, name } = gamesDate[game.number];
+let elbet = gamesDate[game.number][bet][2];
 
 
-
-for (let i = 0; i < 100; i++) {
-    describe(`Test EW game: ${name} - ${i}`, function() {
+for (let i = 0; i < 500; i++) {
+    describe.only(`Test EW game: ${name} - ${i}`, function() {
         let globalDate = {
             oldBalance: 0,
             oldFsWin: 0,
@@ -58,13 +70,15 @@ for (let i = 0; i < 100; i++) {
         };
         before("Spin", async() => {
             try {
+                let token = await readToken(nameToken);
                 const responce = await spin(urlSpin, token, id, elbet, lines);
+                console.log(`${urlSpin}`);
                 let { actionSpin, res } = responce;
                 logger.info(`Test 20 Lines:game: ${name}, ${id} - ${i}`);
                 console.log(res);
-                console.log(`actionSpin $ { actionSpin }`);
+                console.log(`actionSpin ${ actionSpin }`);
                 logger.info(res);
-                logger.info(`actionSpin $ { actionSpin }`);
+                logger.info(`actionSpin ${ actionSpin }`);
 
                 let matrix = res.context.matrix;
                 let funcResultExpW = chekExpendingWild(matrix);
@@ -118,7 +132,7 @@ for (let i = 0; i < 100; i++) {
                 let tempSymbol = el.filter(symbol => symbol == wild);
                 if (tempSymbol.length == 3) {
                     console.log("matrix has expending wild " + (index + 1));
-                    logger.info("matrix has expending wild " + (index + 1))
+                    logger.info("matrix has expending wild " + (index + 1));
                 } else {
                     arrWild.push(...tempSymbol);
                 }
@@ -127,12 +141,12 @@ for (let i = 0; i < 100; i++) {
         });
         it('check the wild is not appeared in 1 and 5 reels', () => {
             let { ExpWild, indexWild } = data;
-            if (ExpWild == true) {
+            if (ExpWild) {
                 logger.info('check the wild is not appeared in 1 and 5 reels');
                 let fistReels = indexWild.includes(0);
                 let lastReels = indexWild.includes(4);
-                logger.info(`fistReels - $ { fistReels }`);
-                logger.info(`lastReels - $ { lastReels }`);
+                logger.info(`fistReels - ${ fistReels }`);
+                logger.info(`lastReels - ${ lastReels }`);
                 expect(fistReels).to.be.equal(false);
                 expect(lastReels).to.be.equal(false);
             }
@@ -141,7 +155,7 @@ for (let i = 0; i < 100; i++) {
             let { featureEW, ExpWild } = data;
             if (featureEW == true) {
                 logger.info('check response has "expending Wild" if there is "feature');
-                logger.info(`ExpWild - $ { ExpWild }`);
+                logger.info(`ExpWild - ${ ExpWild }`);
 
                 expect(ExpWild).to.be.equal(true);
             }
@@ -150,7 +164,7 @@ for (let i = 0; i < 100; i++) {
             let { featureEW, ExpWild } = data;
             if (ExpWild == true) {
                 logger.info('check response has "feature" if there is "expending Wild"');
-                logger.info(`featureEW - $ { featureEW }`);
+                logger.info(`featureEW - ${ featureEW }`);
 
                 expect(featureEW).to.be.equal(true);
             }
@@ -171,7 +185,7 @@ for (let i = 0; i < 100; i++) {
             }
         });
         it('check correct position of expending Wild', () => {
-            let { featureEW, matrix, positions, wild } = data;
+            let { featureEW, matrix, positions } = data;
             if (featureEW == true) {
                 logger.info('check correct position of expending Wild');
                 let wildPositions = [];
@@ -274,7 +288,7 @@ for (let i = 0; i < 100; i++) {
             }
         });
         it('Winning Line coordinates from response is correct', async() => {
-            let { newmatrix, winLinesWithoutScatter, allWinLines } = data;
+            let { winLinesWithoutScatter, allWinLines } = data;
             if (allWinLines !== null) {
                 logger.info('Winning Line coordinates from response is correct');
                 winLinesWithoutScatter.forEach((el) => {
@@ -287,7 +301,7 @@ for (let i = 0; i < 100; i++) {
                     const value = _.isEqual(winPositions, coordinatesLines);
                     expect(coordinatesLines.length).to.be.equal(winPositions.length);
                     expect(value).to.be.true;
-                    expect(numberLines.id).to.be.equal(idLines);
+                    // expect(numberLines.id).to.be.equal(idLines);
                 });
             }
         });
@@ -335,12 +349,12 @@ for (let i = 0; i < 100; i++) {
                 logger.info('check correct total FS ');
                 const { oldTotal } = globalDate;
                 if (add == 15) {
-                    console.log(`$ { oldTotal + add } - oldTotal FS + rest Fs $ { total } - total FS `);
-                    logger.info(`$ { oldTotal + add } - oldTotal FS + rest Fs $ { total } - total FS `);
+                    console.log(`${ oldTotal + add } - oldTotal FS + rest Fs ${ total } - total FS `);
+                    logger.info(`${ oldTotal + add } - oldTotal FS + rest Fs ${ total } - total FS `);
                     expect(oldTotal + add).to.equal(total);
                 } else {
-                    console.log(` $ { oldTotal } - oldTotal FS $ { total } - total FS `);
-                    logger.info(` $ { oldTotal } - oldTotal FS $ { total } - total FS `);
+                    console.log(` ${ oldTotal } - oldTotal FS ${ total } - total FS `);
+                    logger.info(` ${ oldTotal } - oldTotal FS ${ total } - total FS `);
                     expect(+oldTotal).to.equal(+total);
                 }
             }
@@ -357,8 +371,8 @@ for (let i = 0; i < 100; i++) {
                 } else {
                     rightRest = oldRest - 1;
                 }
-                console.log(` $ { rightRest } - rightRest `);
-                logger.info(` $ { rightRest } - rightRest `);
+                console.log(` ${ rightRest } - rightRest `);
+                logger.info(` ${ rightRest } - rightRest `);
 
                 expect(rest).to.be.equal(rightRest);
             }
@@ -370,8 +384,8 @@ for (let i = 0; i < 100; i++) {
             if (actionNow == "freespin") {
                 logger.info('balance is not change');
                 if (rest > 0) {
-                    console.log(` $ { balance } - balance / $ { oldBalance } - oldBalance `);
-                    logger.info(` $ { balance } - balance / $ { oldBalance } - oldBalance `);
+                    console.log(` ${ balance } - balance / ${ oldBalance } - oldBalance `);
+                    logger.info(` ${ balance } - balance / ${ oldBalance } - oldBalance `);
 
                     expect(balance).to.be.equal(oldBalance);
                 }
@@ -381,15 +395,15 @@ for (let i = 0; i < 100; i++) {
             let { fsWin, allWinLines, actionNow } = data;
             let { oldFsWin } = globalDate;
 
-            if (actionNow == "freespin") {
+            if (actionNow === "freespin") {
                 logger.info('check correct accrual fsWin');
                 if (allWinLines !== null) {
 
                     let totalAmount = allWinLines.reduce((total, lines) => total + lines.amount, 0);
-                    console.log(`$ { fsWin } - fsWin
-                    / $ { oldFsWin } + $ { totalAmount } - oldFsWin + totalAmount `);
-                    logger.info(`$ { fsWin } - fsWin
-                    / $ { oldFsWin } + $ { totalAmount } - oldFsWin + totalAmount `);
+                    console.log(`${fsWin } - fsWin
+                    / ${oldFsWin } + ${ totalAmount } - oldFsWin + totalAmount `);
+                    logger.info(`${ fsWin } - fsWin
+                    / ${ oldFsWin } + ${ totalAmount } - oldFsWin + totalAmount `);
 
                     expect(fsWin).to.be.equal(oldFsWin + totalAmount);
                 } else {

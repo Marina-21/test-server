@@ -2,18 +2,14 @@ const chai = require('chai');
 const expect = chai.expect;
 const _ = require('lodash');
 const fs = require('fs').promises;
+require('dotenv').config();
 
-const { winRight } = require('../../const/function');
-const { checkWin1 } = require('../../const/function');
-const { checkSymbolMultiplier } = require('../../const/function');
-const { PaytableCoef } = require('../../const/function');
+const { winRight, checkWin1, checkSymbolMultiplier, checkTypeWin, readToken } = require('../../const/function');
 const { paytable5Lines } = require('../../const/Paytable');
-const { betLines } = require('../../const/function');
-const { Dev } = require('../../const/platforms');
-const { favorit } = require('../../const/platforms');
+const { Favorit, Gizil, Dev, OMG, Favoritsport, FavBet } = require('../../const/platforms');
 const { spin } = require('../../const/spinPlatform');
-const { lines5 } = require('../../const/lines5');
-const { checkTypeWin } = require('../../const/function');
+const { lines5 } = require('../../const/lines');
+
 
 const log4js = require('log4js');
 log4js.configure({
@@ -23,12 +19,29 @@ log4js.configure({
 const logger = log4js.getLogger();
 logger.level = 'debug';
 
-let { urlSpin, token, gamesDate, bets } = Dev;
-let { id, lines, name } = gamesDate[8];
-let elbet = bets[2];
+const platform = {
+    Favorit: Favorit,
+    Gizil: Gizil,
+    Dev: Dev,
+    OMG: OMG,
+    Favoritsport: Favoritsport,
+    FavBet: FavBet
+};
 
-for (let i = 0; i < 100; i++) {
-    describe(`Test 5 Lines ${name} - ${i}`, () => {
+let { urlSpin, gamesDate, bet, nameToken } = platform[process.env.PLATFORM];
+const [nameGame] = [process.env.GAME];
+console.log(nameGame);
+
+const indexGame = gamesDate.findIndex((el) => { return el.name === nameGame; });
+console.log(indexGame);
+
+const game = gamesDate[indexGame];
+
+let { id, lines, name } = gamesDate[game.number];
+let elbet = gamesDate[game.number][bet][2];
+
+for (let i = 0; i < 1000; i++) {
+    describe.only(`Test 5 Lines ${name} - ${i}`, () => {
         let data = {
             allWinLines: null,
             res: null,
@@ -47,6 +60,7 @@ for (let i = 0; i < 100; i++) {
 
         before("Spin", async() => {
             try {
+                let token = await readToken(nameToken);
                 const response = await spin(urlSpin, token, id, elbet, lines);
                 let { res } = response;
                 console.log(res);

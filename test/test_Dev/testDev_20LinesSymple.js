@@ -4,11 +4,11 @@ const _ = require('lodash');
 const fs = require('fs').promises;
 require('dotenv').config();
 
-const { winRight, readToken, checkWin1, betLines, checkTypeWin } = require('../../const/function');
+const { winRight, betLines, checkWin1, checkTypeWin, readToken } = require('../../const/function');
 const { paytable } = require('../../const/Paytable');
 const { Favorit, Gizil, Dev, OMG, Favoritsport, FavBet } = require('../../const/platforms');
 const { spin } = require('../../const/spinPlatform');
-const { lines10 } = require('../../const/lines');
+const { lines20 } = require('../../const/lines');
 
 
 const log4js = require('log4js');
@@ -38,10 +38,10 @@ console.log(indexGame);
 const game = gamesDate[indexGame];
 
 let { id, lines, name } = gamesDate[game.number];
-let elbet = gamesDate[game.number][bet][7];
+let elbet = gamesDate[game.number][bet][2];
 
-for (let i = 0; i < 1; i++) {
-    describe.only(`Test 10Lines game: ${name}, ${id} -  ${i}`, () => {
+for (let i = 0; i < 50; i++) {
+    describe.only(`Test 20LinesSymple game: ${name}, ${id} -  ${i}`, () => {
 
         let globalDate = {
             oldBalance: 0,
@@ -73,7 +73,7 @@ for (let i = 0; i < 1; i++) {
                 const response = await spin(urlSpin, token, id, elbet, lines);
                 let { actionSpin, res } = response;
                 console.log(res);
-                logger.info(`Test 10Lines game: ${name}, ${id} -  ${i}`);
+                logger.info(`Test 20LinesSymple game: ${name}, ${id} -  ${i}`);
                 logger.info(res);
 
                 console.log(`actionSpin ${ actionSpin }`);
@@ -125,7 +125,7 @@ for (let i = 0; i < 1; i++) {
                     console.log(winPositions);
                     logger.info(`winPositions - ${ winPositions }`);
                     const idLines = el.id;
-                    const numberLines = lines10[idLines];
+                    const numberLines = lines20[idLines];
                     const coordinatesLines = numberLines.slice(0, winPositions.length);
                     const value = _.isEqual(winPositions, coordinatesLines);
                     console.log(coordinatesLines);
@@ -392,9 +392,9 @@ for (let i = 0; i < 1; i++) {
                 logger.info(winLinesScatter);
 
                 let rightAmount = winRight(winPositions, paytable, symbol, bet) * 3;
-                console.log(`scatter is accrualed correct ${amount } - amount
+                console.log(`scatter is accrualed correct ${ amount } - amount
                  /${ rightAmount } - rightAmount `);
-                logger.info(`scatter is accrualed correct ${amount } - amount 
+                logger.info(`scatter is accrualed correct ${ amount } - amount 
                 /${ rightAmount } - rightAmount `);
 
                 expect(amount).to.be.equal(rightAmount);
@@ -443,6 +443,7 @@ for (let i = 0; i < 1; i++) {
         });
         it("check type of win 10 Lines", () => {
             let { funcResultWin, res } = data;
+
             if (funcResultWin !== null) {
                 logger.info("check type of win 10 Lines");
                 const gameTypeWin = res.context.win.type;

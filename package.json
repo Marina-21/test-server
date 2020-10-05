@@ -4,10 +4,9 @@
     "main": "index.js",
     "scripts": {
         "start": "node index.js",
-        "test": "mocha --timeout 30000 --reporter mochawesome",
-        "test_Dev": "mocha test/test_Dev --timeout 30000 --reporter mochawesome",
-        "testOMG": "mocha test/testOMG --timeout 30000 --reporter mochawesome",
-        "testFavorit": "mocha test/test_Favorit --timeout 30000 --reporter mochawesome"
+        "test": "cross-env mocha --timeout 300000 --reporter mochawesome",
+        "testDev": "mocha test/test_Dev --timeout 30000 --reporter mochawesome",
+        "init": "mocha test/init --timeout 30000 --reporter mochawesome"
     },
     "author": "",
     "license": "ISC",
@@ -25,6 +24,8 @@
     "devDependencies": {
         "chai": "^4.2.0",
         "chai-http": "^4.3.0",
+        "cross-env": "^7.0.2",
+        "dotenv": "^8.2.0",
         "mocha": "^7.1.2",
         "mochawesome": "^6.1.1"
     },

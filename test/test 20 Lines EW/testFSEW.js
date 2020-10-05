@@ -2,18 +2,40 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 const expect = chai.expect;
 const fs = require('fs').promises;
-
-
-const { freespinEW } = require('../../const/SpinExpendingWild');
-const { spinbeforFSEW } = require('../../const/SpinExpendingWild');
-const { checkWin1 } = require('../../const/function');
-const { PaytableCoef } = require('../../const/function');
-const { paytable20LinesEW } = require('../../const/Paytable');
-const { betLines } = require('../../const/function');
-const { chekExpendingWild } = require('../../const/function');
 const _ = require('lodash');
+require('dotenv').config();
+
+
+const { freespin, spinbeforFS } = require('../../const/spinPlatform');
+const { checkWin1, PaytableCoef, betLines, chekExpendingWild, readToken } = require('../../const/function');
+const { paytable20LinesEW } = require('../../const/Paytable');
+const { Favorit, Gizil, Dev, OMG, Favoritsport, FavBet } = require('../../const/platforms');
+
 
 chai.use(chaiHttp);
+
+const platform = {
+    Favorit: Favorit,
+    Gizil: Gizil,
+    Dev: Dev,
+    OMG: OMG,
+    Favoritsport: Favoritsport,
+    FavBet: FavBet
+};
+
+let { urlSpin, gamesDate, bet, nameToken } = platform[process.env.PLATFORM];
+const [nameGame] = [process.env.GAME];
+console.log(nameGame);
+
+const indexGame = gamesDate.findIndex((el) => { return el.name === nameGame; });
+console.log(indexGame);
+
+const game = gamesDate[indexGame];
+
+let { id, lines, name } = gamesDate[game.number];
+let elbet = gamesDate[game.number][bet][2];
+let token;
+let cheat = "1ADA1C1FCAIDD1A";
 
 let actionSpin = "spin"; //spin - FS
 console.log(actionSpin);
@@ -50,8 +72,9 @@ for (let i = 15; i >= 0; i--) {
         before("Spin", async() => {
             if (i >= 15 && actionSpin == "spin") {
                 try {
-                    const responce = await spinbeforFSEW();
-                    let { res } = responce;
+                    token = await readToken(nameToken);
+                    const response = await spinbeforFS(urlSpin, token, id, lines, elbet, cheat);
+                    let { res } = response;
                     console.log(res);
                     const obj = res.context.freespins.count;
                     console.log(obj.rest);
@@ -91,8 +114,9 @@ for (let i = 15; i >= 0; i--) {
                 }
             } else {
                 try {
-                    const responce = await freespinEW();
-                    let { actionSpin, res } = responce;
+                    token = await readToken(nameToken);
+                    const response = await freespin(urlSpin, token, id, lines, elbet, );
+                    let { actionSpin, res } = response;
                     console.log(actionSpin);
 
                     const obj = res.context.freespins.count;

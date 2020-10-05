@@ -2,23 +2,33 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 const expect = chai.expect;
 const fs = require('fs').promises;
+require('dotenv').config();
 
-const { winRight } = require('../../const/function');
-const { freespin } = require('../../const/spin');
-const { spinbeforFS } = require('../../const/spin');
-const { checkWin1 } = require('../../const/function');
-const { paytable } = require('../../const/Paytable');
-const { betLines } = require('../../const/function');
+const { winRight, betLines, checkWin1, readToken } = require('../../const/function');
+const { freespin, spinbeforFS } = require('../../const/spinPlatform');
+const { paytable50Lines } = require('../../const/Paytable');
+const { Favorit, Gizil, Dev, OMG, Favoritsport, FavBet } = require('../../const/platforms');
 
 
 chai.use(chaiHttp);
 
-// let { urlSpin, token, gamesDate, bets } = favorit;
-// let { id, lines, name } = gamesDate[12];
-// let elbet = bets[2];
+const platform = {
+    Favorit: Favorit,
+    Gizil: Gizil,
+    Dev: Dev,
+    OMG: OMG,
+    Favoritsport: Favoritsport,
+    FavBet: FavBet
+};
+
+let { urlSpin, gamesDate, bet, nameToken } = platform[process.env.PLATFORM];
+let { id, lines, name, betUkr, betTR } = gamesDate[13];
+
+let elbet = gamesDate[13][bet];
+let token;
+let cheat = "1CGFFC1DDDHHH1ECFFFFEEEGG";
 
 let actionSpin = "spin";
-
 
 for (let i = 15; i >= 0; i--) {
     describe.skip('Test FS', () => {
@@ -45,11 +55,11 @@ for (let i = 15; i >= 0; i--) {
             funcResultWin: null,
             actionNow: null
         };
-
         before("Spin", async() => {
             if (i >= 15 && actionSpin == "spin") {
                 try {
-                    const response = await spinbeforFS();
+                    token = await readToken(nameToken);
+                    const response = await spinbeforFS(urlSpin, token, id, elbet, lines, cheat);
                     let { res, actionSpin } = response;
                     console.log(res);
 
@@ -81,7 +91,8 @@ for (let i = 15; i >= 0; i--) {
                 }
             } else {
                 try {
-                    const response = await freespin();
+                    token = await readToken(nameToken);
+                    const response = await freespin(urlSpin, token, id, elbet, lines);
                     let { res, actionSpin } = response;
                     console.log(res);
                     const obj = res.context.freespins.count;
@@ -163,9 +174,8 @@ for (let i = 15; i >= 0; i--) {
                 }
             }
         });
-
         it('check rest FS', function() {
-            const { add, rest, actionSpin, actionNow } = data;
+            const { add, rest, actionNow } = data;
             const { oldRest } = globalDate;
 
             if (actionNow == "freespin") {
@@ -205,10 +215,10 @@ for (let i = 15; i >= 0; i--) {
 
                         winPositions.forEach((el) => {
                             const tempSymbols = matrix[el[0]][el[1]];
-                            if (tempSymbols !== "2") {
+                            if (tempSymbols !== "3") {
                                 expect(winSymbol).to.be.equal(tempSymbols);
                             } else {
-                                expect("2").to.be.equal(tempSymbols);
+                                expect("3").to.be.equal(tempSymbols);
                                 console.log('there is a wild in the pay line');
                             }
                         });
@@ -235,14 +245,15 @@ for (let i = 15; i >= 0; i--) {
                 }
             }
         });
-        it('check correct accrual of winnings in FS * 3', () => {
-            let { res, matrix, winLinesWithoutScatter, funcResultWin, actionSpin, actionNow } = data;
+        it('check correct accrual of winnings in FS', () => {
+            let { res, matrix, winLinesWithoutScatter, funcResultWin, actionNow } = data;
 
             if (actionNow == "freespin" && funcResultWin !== null) {
                 let bet = res.context.bet;
 
                 winLinesWithoutScatter.forEach((el) => {
                     const winPositions = el.positions;
+                    console.log(matrix);
                     console.log(winPositions);
                     const winSymbol = el.symbol;
                     console.log(winSymbol);
@@ -252,19 +263,19 @@ for (let i = 15; i >= 0; i--) {
                         const tempSymbols = matrix[el[0]][el[1]];
                         getingSymbols.push(tempSymbols);
                     });
-                    const arrWithWild = getingSymbols.filter((value) => value == 2);
+                    const arrWithWild = getingSymbols.filter((value) => value == 3);
 
-                    let rightAmount = winRight(winPositions, paytable, winSymbol, bet);
+                    let rightAmount = winRight(winPositions, paytable50Lines, winSymbol, bet);
 
-                    if (arrWithWild.length > 0 && winSymbol !== "2") {
-                        let fsWinRigt = (rightAmount * 2 * 3);
+                    if (arrWithWild.length > 0 && winSymbol !== "3") {
+                        let fsWinRigt = (rightAmount * 2);
                         console.log(fsWinRigt);
                         console.log(amount);
 
                         expect(+amount).to.be.equal(fsWinRigt);
 
                     } else {
-                        let fsWinRigt = (rightAmount * 3);
+                        let fsWinRigt = (rightAmount);
                         console.log(fsWinRigt);
                         console.log(amount);
 
@@ -274,7 +285,7 @@ for (let i = 15; i >= 0; i--) {
                 });
             }
         });
-        it('check correct accrual Scatter in FS * 3', function() {
+        it('check correct accrual Scatter in FS ', function() {
             let { res, winLinesScatter, isWinScatter, actionNow } = data;
 
             if (actionNow == "freespin" && isWinScatter == true) {
@@ -284,7 +295,7 @@ for (let i = 15; i >= 0; i--) {
                 const winPositions = winLinesScatter.positions;
                 console.log(winLinesScatter);
 
-                let rightAmount = winRight(winPositions, paytable, symbol, bet) * 3;
+                let rightAmount = winRight(winPositions, paytable50Lines, symbol, bet);
                 console.log(`scatter is accrualed correct ${amount} - amount/ ${rightAmount} - rightAmount`);
 
                 expect(amount).to.be.equal(rightAmount);
