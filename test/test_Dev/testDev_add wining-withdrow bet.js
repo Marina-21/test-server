@@ -40,7 +40,7 @@ let { id, lines, name } = gamesDate[game.number];
 let elbet = gamesDate[game.number][bet][2];
 console.log(elbet);
 
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i < 500; i++) {
     describe.only(`test add wining-withdrow bet game: ${name} - ${i}`, () => {
 
         let date = {

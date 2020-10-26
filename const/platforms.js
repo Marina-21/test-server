@@ -447,6 +447,15 @@ let gamesDate = [{
         betUkr: favoritBets,
         betTR: GizilBets,
         betOMG: OMGBet
+    },
+    {
+        name: "viking20",
+        id: 33,
+        lines: 20,
+        number: 29,
+        betUkr: favoritBets,
+        betTR: GizilBets,
+        betOMG: OMGBet
     }
 ];
 

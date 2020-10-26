@@ -15,9 +15,9 @@ logger.level = 'debug';
 logger.error();
 
 
-const { checkWin1, checkTypeWin, readToken } = require('../const/function');
-const { spin } = require('../const/spinPlatform');
-const { Favorit, Gizil, Dev, OMG, Favoritsport, FavBet } = require('../const/platforms');
+const { checkWin1, checkTypeWin, readToken } = require('../../const/function');
+const { spin } = require('../../const/spinPlatform');
+const { Favorit, Gizil, Dev, OMG, Favoritsport, FavBet } = require('../../const/platforms');
 
 
 chai.use(chaiHttp);
@@ -44,7 +44,7 @@ let { id, lines, name } = gamesDate[game.number];
 let elbet = gamesDate[game.number][bet][2];
 
 
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i < 500; i++) {
     describe.only(`Test type of win  ${name}: ${i}`, () => {
         let data = {
             funcResultWin: false,

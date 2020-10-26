@@ -49,7 +49,7 @@ let elbet = gamesDate[game.number][bet][2];
 // let counter = 0;
 // console.log(counter);
 
-for (let i = 0; i < 1; i++) {
+for (let i = 0; i < 100; i++) {
     // if (counter > 3) {
     //     console.log(counter);
     //     break;

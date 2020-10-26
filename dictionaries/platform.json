@@ -1,0 +1,62 @@
+{
+    "Favorit": {
+        "url": "https://www.favorit.com.ua/bigames/cg-gw01/v1/client/",
+        "nameToken": "favoritToken",
+        "bet": "favoritBets",
+        "icmsName": "ihub",
+        "partnerId": "1",
+        "cashdeskId": "-5",
+        "service": "crazyguysgames",
+        "userId": "3901363"
+    },
+    "Gizil": {
+        "url": "https://cg-gw01.live132.com/v1/client/",
+        "nameToken": "gizilToken",
+        "bet": "betTR",
+        "icmsName": "tm1",
+        "partnerId": "34",
+        "cashdeskId": "-53",
+        "service": "crazyguysgames",
+        "userId": "3082344"
+    },
+    "Favoritsport": {
+        "url": "https://www.favoritsport.info/bigames/cg-gw01/v1/client/",
+        "nameToken": "infoToken",
+        "bet": "betUkr",
+        "icmsName": "en2",
+        "partnerId": "91",
+        "cashdeskId": "135",
+        "service": "betinvestgame",
+        "userId": "140"
+    },
+    "Dev": {
+        "url": "https://www.betinvest.ptst/bigames/cg-gw01/v1/client/",
+        "nameToken": "devToken",
+        "bet": "betUkr",
+        "icmsName": "ptst",
+        "partnerId": "15",
+        "cashdeskId": "16",
+        "service": "betinvestgame",
+        "userId": "1454362"
+    },
+    "OMG": {
+        "url": "https://omg.bet/bigames/cg-gw01/v1/client/",
+        "nameToken": "omgToken",
+        "bet": "betOMG",
+        "icmsName": "ua5",
+        "partnerId": "30136",
+        "cashdeskId": "60",
+        "service": "crazyguysgames",
+        "userId": "3082344"
+    },
+    "FavBet": {
+        "url": "https://www.favorit.com.ua/bigames/cg-gw01/v1/client/",
+        "nameToken": "fabBet",
+        "bet": "betUkr",
+        "icmsName": "ua5",
+        "partnerId": "30136",
+        "cashdeskId": "60",
+        "service": "crazyguysgames",
+        "userId": "3082344"
+    }
+}

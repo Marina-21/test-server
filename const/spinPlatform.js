@@ -19,7 +19,7 @@ const { checkError } = require('../const/function');
 
 chai.use(chaiHttp);
 
-let actionSpin;
+let nextActionsSpin;
 
 function chekActionSpin(res) {
     // let nameAction = 'spin';
@@ -31,8 +31,8 @@ function chekActionSpin(res) {
     // }
 
     // return nameAction;
-    let [nameAction] = res.context.actions;
-    return nameAction;
+    let [nextActionsSpin] = res.context.actions;
+    return nextActionsSpin;
 }
 
 async function init(urlInit, token, id) {
@@ -52,18 +52,18 @@ async function init(urlInit, token, id) {
 
         // checkError(res);
 
-        actionSpin = chekActionSpin(res);
+        nextActionsSpin = chekActionSpin(res);
 
-        await fs.writeFile('db.txt', actionSpin);
+        await fs.writeFile('db.txt', nextActionsSpin);
 
-        return { res, actionSpin };
+        return { res, nextActionsSpin };
     } catch (err) {
         console.log('!!!!!!ERROR!!!!!! ' + err);
     }
 }
 async function spin(urlSpin, token, id, elbet, lines) {
     const data = await fs.readFile('db.txt', 'utf8');
-    actionSpin = data;
+    const actionsSpin = data;
 
     try {
         let response = await fetch(urlSpin, {
@@ -78,7 +78,7 @@ async function spin(urlSpin, token, id, elbet, lines) {
                     lines: lines,
                     bet: elbet,
                 },
-                action: actionSpin
+                action: actionsSpin
                     // cheats: "1ABC1DEDBAADEF1"
             }),
         });
@@ -91,11 +91,11 @@ async function spin(urlSpin, token, id, elbet, lines) {
         // logger.info(res, res.context.matrix, res.context.actions, res.context.win);
         checkError(res);
 
-        actionSpin = chekActionSpin(res);
+        nextActionsSpin = chekActionSpin(res);
 
-        await fs.writeFile('db.txt', actionSpin);
+        await fs.writeFile('db.txt', nextActionsSpin);
 
-        return { res, actionSpin };
+        return { res, nextActionsSpin };
     } catch (err) {
         console.log('!!!!!!ERROR!!!!!! ' + err);
     }
@@ -125,11 +125,11 @@ async function spinbeforeFS(urlSpin, token, id, lines, elbet, cheat) {
         checkError(res);
 
 
-        actionSpin = chekActionSpin(res);
+        nextActionsSpin = chekActionSpin(res);
 
-        await fs.writeFile('db.txt', actionSpin);
+        await fs.writeFile('db.txt', nextActionsSpin);
 
-        return { res, actionSpin };
+        return { res, nextActionsSpin };
     } catch (err) {
         console.log('!!!!!!ERROR!!!!!! ' + err);
     }
@@ -158,11 +158,11 @@ async function freespin(urlSpin, token, id, lines, elbet, cheat) {
 
         checkError(res);
 
-        actionSpin = chekActionSpin(res);
+        nextActionsSpin = chekActionSpin(res);
 
-        await fs.writeFile('db.txt', actionSpin);
+        await fs.writeFile('db.txt', nextActionsSpin);
 
-        return { res, actionSpin };
+        return { res, nextActionsSpin };
     } catch (err) {
         console.log('!!!!!!ERROR!!!!!! ' + err);
     }

@@ -5,11 +5,11 @@ const fs = require('fs').promises;
 require('dotenv').config();
 
 // const { freespin } = require('../const/spin');
-const { spin } = require('../const/spinPlatform');
-const { checkWin1, PaytableCoef, readToken, betLines, checkWild, winRight, checkTypeWin } = require('../const/function');
-const { paytable10LinesBook } = require('../const/Paytable');
-const { lines20 } = require('../const/lines');
-const { Favorit, Gizil, Dev, OMG, Favoritsport, FavBet } = require('../const/platforms');
+const { spin } = require('../../const/spinPlatform');
+const { checkWin1, PaytableCoef, readToken, betLines, checkWild, winRight, checkTypeWin } = require('../../const/function');
+const { paytable10LinesBook } = require('../../const/Paytable');
+const { lines20 } = require('../../const/lines');
+const { Favorit, Gizil, Dev, OMG, Favoritsport, FavBet } = require('../../const/platforms');
 
 const log4js = require('log4js');
 log4js.configure({

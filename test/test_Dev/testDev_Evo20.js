@@ -4,11 +4,11 @@ const _ = require('lodash');
 const fs = require('fs').promises;
 require('dotenv').config();
 
-const { winRight, readToken, checkWin1, betLines, checkTypeWin } = require('../../const/function');
-const { paytable } = require('../../const/Paytable');
+const { winRight, betLines, checkWin1, checkTypeWin, readToken } = require('../../const/function');
+const { evo20 } = require('../../const/Paytable');
 const { Favorit, Gizil, Dev, OMG, Favoritsport, FavBet } = require('../../const/platforms');
 const { spin } = require('../../const/spinPlatform');
-const { lines10 } = require('../../const/lines');
+const { lines20 } = require('../../const/lines');
 
 
 const log4js = require('log4js');
@@ -38,10 +38,10 @@ console.log(indexGame);
 const game = gamesDate[indexGame];
 
 let { id, lines, name } = gamesDate[game.number];
-let elbet = gamesDate[game.number][bet][7];
+let elbet = gamesDate[game.number][bet][2];
 
 for (let i = 0; i < 1; i++) {
-    describe.only(`Test 10Lines game: ${name}, ${id} -  ${i}`, () => {
+    describe.only(`Test 20Evo: ${name}, ${id} -  ${i}`, () => {
 
         let globalDate = {
             oldBalance: 0,
@@ -51,7 +51,7 @@ for (let i = 0; i < 1; i++) {
         let data = {
             isWinScater: false,
             allWinLines: null,
-            actionSpin: null,
+            nextActionsSpin: null,
             res: null,
             matrix: null,
             total: 0,
@@ -71,19 +71,18 @@ for (let i = 0; i < 1; i++) {
             try {
                 let token = await readToken(nameToken);
                 const response = await spin(urlSpin, token, id, elbet, lines);
-                let { actionSpin, res } = response;
+                let { nextActionsSpin, res } = response;
                 console.log(res);
-                logger.info(`Test 10Lines game: ${name}, ${id} -  ${i}`);
+                logger.info(`Test 20Evo: ${name}, ${id} -  ${i}`);
                 logger.info(res);
-
-                console.log(`actionSpin ${ actionSpin }`);
-                logger.info(`actionSpin ${ actionSpin }`);
+                console.log(`actionSpin ${ nextActionsSpin }`);
+                logger.info(`actionSpin ${ nextActionsSpin }`);
 
                 const funcResultWin = checkWin1(res);
                 const matrix = res.context.matrix;
                 let actionNow = res.context.current;
 
-                data = { res, actionSpin, matrix, actionNow, funcResultWin };
+                data = { res, nextActionsSpin, matrix, actionNow, funcResultWin };
 
                 if (funcResultWin !== null) {
                     let winLinesWithoutScatter = funcResultWin.allWinLines.filter(winLines => winLines.id !== null);
@@ -96,7 +95,7 @@ for (let i = 0; i < 1; i++) {
                     data = {...data, winLinesWithoutScatter, ...funcResultWin };
                 }
 
-                if (actionSpin == "freespin" || actionNow == "freespin") {
+                if (nextActionsSpin == "freespin" || actionNow == "freespin") {
                     const obj = res.context.freespins.count;
                     console.log(obj.rest);
                     logger.info(obj.rest);
@@ -125,7 +124,7 @@ for (let i = 0; i < 1; i++) {
                     console.log(winPositions);
                     logger.info(`winPositions - ${ winPositions }`);
                     const idLines = el.id;
-                    const numberLines = lines10[idLines];
+                    const numberLines = lines20[idLines];
                     const coordinatesLines = numberLines.slice(0, winPositions.length);
                     const value = _.isEqual(winPositions, coordinatesLines);
                     console.log(coordinatesLines);
@@ -147,7 +146,7 @@ for (let i = 0; i < 1; i++) {
                 const winPositions = winLinesScatter.positions;
                 console.log(winLinesScatter);
                 logger.info(winLinesScatter);
-                const winRightNull = winRight(winPositions, paytable, symbol, bet);
+                const winRightNull = winRight(winPositions, evo20, symbol, bet);
 
                 console.log(` ${ amount } - amount `);
                 logger.info(`${ amount } - amount `);
@@ -223,24 +222,12 @@ for (let i = 0; i < 1; i++) {
                     const amount = el.amount;
                     console.log(amount);
                     logger.info(`${ amount } - amount in game `);
-                    const getingSymbols = [];
-                    winPositions.forEach((el) => {
-                        const tempSymbols = matrix[el[0]][el[1]];
-                        getingSymbols.push(tempSymbols);
-                    });
-                    const arrWithWild = getingSymbols.filter((value) => value === "2");
 
-                    let rightAmount = winRight(winPositions, paytable, winSymbol, bet);
+                    let rightAmount = winRight(winPositions, evo20, winSymbol, bet);
 
-                    if (arrWithWild.length > 0 && winSymbol !== "2") {
-                        console.log(rightAmount * 2);
-                        logger.info(rightAmount * 2);
-                        expect(amount).to.be.equal((rightAmount * 2));
-                    } else {
-                        console.log(rightAmount);
-                        logger.info(rightAmount);
-                        expect(amount).to.be.equal(+rightAmount);
-                    }
+                    console.log(rightAmount);
+                    logger.info(rightAmount);
+                    expect(amount).to.be.equal(+rightAmount);
                 });
             }
         });
@@ -278,7 +265,7 @@ for (let i = 0; i < 1; i++) {
                 if (arrScatter.length > 2) {
                     console.log(add + " add ");
                     logger.info(add + " add ");
-                    expect(add).to.be.equal(15);
+                    expect(add).to.be.equal(20);
                 } else {
                     console.log(add + " add");
                     logger.info(add + " add ");
@@ -311,7 +298,7 @@ for (let i = 0; i < 1; i++) {
                 logger.info('check rest FS');
                 let rightRest = null;
                 if (add > 0) {
-                    rightRest = oldRest - 1 + 15;
+                    rightRest = oldRest - 1 + 20;
                 } else {
                     rightRest = oldRest - 1;
                 }
@@ -350,33 +337,16 @@ for (let i = 0; i < 1; i++) {
                     console.log(winSymbol);
                     logger.info(`winSymbol - ${ winSymbol }`);
                     const amount = el.amount;
-                    const getingSymbols = [];
-                    winPositions.forEach((el) => {
-                        const tempSymbols = matrix[el[0]][el[1]];
-                        getingSymbols.push(tempSymbols);
-                    });
-                    const arrWithWild = getingSymbols.filter((value) => value == 2);
 
-                    let rightAmount = winRight(winPositions, paytable, winSymbol, bet);
+                    let rightAmount = winRight(winPositions, evo20, winSymbol, bet);
 
-                    if (arrWithWild.length > 0 && winSymbol !== "2") {
-                        let fsWinRigt = (rightAmount * 2 * 3);
-                        console.log(fsWinRigt);
-                        console.log(amount);
-                        logger.info(`fsWinRigt - ${ fsWinRigt }`);
-                        logger.info(`amount - ${ amount }`);
+                    let fsWinRigt = (rightAmount * 3);
+                    console.log(fsWinRigt);
+                    console.log(amount);
+                    logger.info(`fsWinRigt - ${ fsWinRigt }`);
+                    logger.info(`amount - ${ amount }`);
 
-                        expect(amount).to.be.equal(fsWinRigt);
-
-                    } else {
-                        let fsWinRigt = (rightAmount * 3);
-                        console.log(fsWinRigt);
-                        console.log(amount);
-                        logger.info(`fsWinRigt - ${ fsWinRigt }`);
-                        logger.info(`amount - ${ amount }`);
-
-                        expect(amount).to.be.equal(fsWinRigt);
-                    }
+                    expect(amount).to.be.equal(fsWinRigt);
                 });
             }
         });
@@ -391,10 +361,10 @@ for (let i = 0; i < 1; i++) {
                 console.log(winLinesScatter);
                 logger.info(winLinesScatter);
 
-                let rightAmount = winRight(winPositions, paytable, symbol, bet) * 3;
-                console.log(`scatter is accrualed correct ${amount } - amount
+                let rightAmount = winRight(winPositions, evo20, symbol, bet) * 3;
+                console.log(`scatter is accrualed correct ${ amount } - amount
                  /${ rightAmount } - rightAmount `);
-                logger.info(`scatter is accrualed correct ${amount } - amount 
+                logger.info(`scatter is accrualed correct ${ amount } - amount 
                 /${ rightAmount } - rightAmount `);
 
                 expect(amount).to.be.equal(rightAmount);
@@ -443,6 +413,7 @@ for (let i = 0; i < 1; i++) {
         });
         it("check type of win 10 Lines", () => {
             let { funcResultWin, res } = data;
+
             if (funcResultWin !== null) {
                 logger.info("check type of win 10 Lines");
                 const gameTypeWin = res.context.win.type;

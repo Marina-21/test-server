@@ -1,6 +1,8 @@
 const fs = require('fs').promises;
 const fetch = require('node-fetch');
 const { counter } = require('../global');
+const listGame = require('../dictionaries/games.json');
+const listBet = require('../dictionaries/bet');
 
 const log4js = require('log4js');
 log4js.configure({
@@ -32,13 +34,7 @@ const checkWin1 = (res) => {
     if (res.context.hasOwnProperty('win')) {
 
         const allWinLines = res.context.win.lines;
-        let matrixSymbols = res.context.matrix;
-
-        return {
-            allWinLines,
-            matrixSymbols
-        };
-
+        return allWinLines;
     } else {
         console.log('spin without win');
         logger.info('spin without win');
@@ -116,6 +112,8 @@ let checkTypeWin = function(res) {
     const typeCoef = totalWin / bet;
     console.log((typeCoef) + " - typeCoef");
     logger.info(`${typeCoef} - typeCoef`);
+    console.log(res.context.win.type);
+    logger.info(res.context.win.type);
 
     if (typeCoef < 5) {
         return "regular";
@@ -135,34 +133,6 @@ async function readToken(nameToken) {
     return (token);
 }
 
-async function getToken(icmsName, partnerId, cashdeskId, service, userId) {
-
-    try {
-        let response = await fetch(`http://icms.${icmsName}.favorit//internal/v2/bg/generateToken`, {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                "partner_id": partnerId,
-                "cashdesk_id": cashdeskId,
-                "service": service,
-                "locale": "ru",
-                "user_ip": "195.137.167.34",
-                "user_id": userId,
-                "game_idt": "betinvest_games_sailor",
-                "demo": false,
-                "user_country_code": "RU"
-            }),
-        });
-        let res = await response.json();
-        let token = res.token;
-        return (token);
-    } catch (err) {
-        console.log('!!!!!!ERROR!!!!!! ' + err);
-    }
-}
-
 async function checkWild(matrix) {
     let wildInSpin = false;
     let indexWild = [];
@@ -178,6 +148,24 @@ async function checkWild(matrix) {
     return { wildInSpin, indexWild, positionWild };
 }
 
+function getGame(gameName, Useplatform) {
+    const arrGames = Object.values(listGame);
+    const indexGame = arrGames.findIndex((el) => { return el.name === gameName; });
+    console.log(indexGame);
+    const { name } = arrGames[indexGame];
+    const id = parseInt(arrGames[indexGame].id);
+    const lines = parseInt(arrGames[indexGame].lines);
+    const useBet = arrGames[indexGame][Useplatform.bet];
+    const elbet = parseInt(listBet[useBet][7]);
+    return {
+        name,
+        id,
+        lines,
+        elbet
+    };
+}
+
+
 module.exports = {
     PaytableCoef,
     betLines,
@@ -189,6 +177,6 @@ module.exports = {
     checkSymbolMultiplier,
     checkTypeWin,
     readToken,
-    getToken,
+    getGame,
     checkWild
 };
