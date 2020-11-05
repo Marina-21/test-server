@@ -62,6 +62,7 @@ async function init(urlInit, token, id) {
     }
 }
 async function spin(urlSpin, token, id, elbet, lines) {
+    // https://www.betinvest.ptst/bigames/cg-gw01/v1/client/spin
     const data = await fs.readFile('db.txt', 'utf8');
     const actionsSpin = data;
 
@@ -79,7 +80,7 @@ async function spin(urlSpin, token, id, elbet, lines) {
                     bet: elbet,
                 },
                 action: actionsSpin
-                    // cheats: "1ABC1DEDBAADEF1"
+                    // cheats: "1ADAAC1FCAIAD1A"
             }),
         });
 

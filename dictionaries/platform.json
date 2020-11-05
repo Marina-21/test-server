@@ -1,5 +1,6 @@
 {
     "Favorit": {
+        "name": "Favorit",
         "url": "https://www.favorit.com.ua/bigames/cg-gw01/v1/client/",
         "nameToken": "favoritToken",
         "bet": "favoritBets",
@@ -10,6 +11,7 @@
         "userId": "3901363"
     },
     "Gizil": {
+        "name": "Gizil",
         "url": "https://cg-gw01.live132.com/v1/client/",
         "nameToken": "gizilToken",
         "bet": "betTR",
@@ -20,26 +22,29 @@
         "userId": "3082344"
     },
     "Favoritsport": {
+        "name": "Favoritsport",
         "url": "https://www.favoritsport.info/bigames/cg-gw01/v1/client/",
         "nameToken": "infoToken",
         "bet": "betUkr",
         "icmsName": "en2",
         "partnerId": "91",
-        "cashdeskId": "135",
+        "cashdeskId": "-135",
         "service": "betinvestgame",
         "userId": "140"
     },
     "Dev": {
+        "name": "Dev",
         "url": "https://www.betinvest.ptst/bigames/cg-gw01/v1/client/",
         "nameToken": "devToken",
         "bet": "betUkr",
         "icmsName": "ptst",
         "partnerId": "15",
-        "cashdeskId": "16",
+        "cashdeskId": "-16",
         "service": "betinvestgame",
         "userId": "1454362"
     },
     "OMG": {
+        "name": "OMG",
         "url": "https://omg.bet/bigames/cg-gw01/v1/client/",
         "nameToken": "omgToken",
         "bet": "betOMG",
@@ -50,6 +55,7 @@
         "userId": "3082344"
     },
     "FavBet": {
+        "name": "FavBet",
         "url": "https://www.favorit.com.ua/bigames/cg-gw01/v1/client/",
         "nameToken": "fabBet",
         "bet": "betUkr",

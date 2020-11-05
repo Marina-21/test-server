@@ -4,18 +4,25 @@ const _ = require('lodash');
 const fs = require('fs').promises;
 require('dotenv').config();
 
-const { getGame, readToken, checkWin1 } = require('../const/function');
-const { paytable } = require('../const/Paytable');
+const { readToken, checkWin1, chekExpendingWild } = require('../const/function');
 const { spin } = require('../const/spinPlatform');
-const { lines10 } = require('../const/lines');
 const Platform = require('../const/Platform');
+const Game = require('../const/Game');
+const MathModele = require('../const/MathModele');
+const listpaytable = require('../dictionaries/paytable');
+const listMathModele = require('../dictionaries/mathModele');
+const listGame = require('../dictionaries/games.json');
+const listPlatform = require('../dictionaries/platform');
+const listlines = require('../dictionaries/lines');
 
-const CheckWinningLineCoordinates = require('../Module/Common/Common/CheckWinningLineCoordinates');
+
+
+const CheckWinningLineCoordinates = require('../Module/Common/CheckWinningLineCoordinates');
 const CheckCorrectAccrualScatter = require('../Module/Scatter/CheckCorrectAccrualScatter');
 const CheckCorrectPositionScatter = require('../Module/Scatter/CheckCorrectPositionScatter');
-const CheckCorrectPositionOfWinningSymbol = require('../Module/Common/Common/CheckCorrectPositionOfWinningSymbol');
+const CheckCorrectPositionOfWinningSymbol = require('../Module/Common/CheckCorrectPositionOfWinningSymbol');
 const CheckCorrectAccrualOfWinnings = require('../Module/Winning/CheckCorrectAccrualOfWinnings');
-const CheckTotalAmountIsCorrect = require('../Module/Common/Common/CheckTotalAmountIsCorrect');
+const CheckTotalAmountIsCorrect = require('../Module/Common/CheckTotalAmountIsCorrect');
 const CheckCorrectAddCountOfFS = require('../Module/FS/CheckCorrectAddCountOfFS');
 const CheckCorrectTotalFS = require('../Module/FS/CheckCorrectTotalFS');
 const CheckNumberFS = require('../Module/FS/CheckNumberFS');
@@ -23,10 +30,15 @@ const CheckRestFS = require('../Module/FS/CheckRestFS');
 const BalanceIsNotChange = require('../Module/FS/BalanceIsNotChange');
 const CheckCorrectAccrualFSWin = require('../Module/FS/CheckCorrectAccrualFSWin');
 const CheckCorrectAddFSWinToBalance = require('../Module/FS/CheckCorrectAddFSWinToBalance');
-const CheckTypeOfWin = require('../Module/Common/Common/CheckTypeOfWin');
+const CheckTypeOfWin = require('../Module/Common/CheckTypeOfWin');
 const getWinningResult = require('../Module/BeforBlock/getWinningResult');
 const getFSResult = require('../Module/BeforBlock/getFSResult');
 const getLog = require('../Module/BeforBlock/getLog');
+const wrightData = require('../Module/AfterBlock/wrightData');
+const CheckFeatureEW = require('../Module/EW/CheckFeatureEW');
+const EWModule = require('../Module/EW/EWModule');
+const getNewMatrixESymbol = require('../Module/book/getNewMatrixESymbol');
+const BookModule = require('../Module/book/BookModule');
 
 
 const log4js = require('log4js');
@@ -37,15 +49,22 @@ log4js.configure({
 const logger = log4js.getLogger();
 logger.level = 'debug';
 
-const listPlatform = require('../dictionaries/platform');
 const platform = listPlatform[process.env.PLATFORM];
 const Useplatform = new Platform(platform);
 console.log(Useplatform.name);
 
-let { name, id, lines, elbet } = getGame(process.env.GAME, Useplatform);
+const game = listGame[process.env.GAME];
+const Usegame = new Game(game);
 
-for (let i = 0; i < 1; i++) {
-    describe.only(`Test 10Lines game: ${name}, ${id} -  ${i}`, () => {
+const mathModele = listMathModele[Usegame.nameMathModele];
+const UseMathModele = new MathModele(mathModele);
+const Usepaytable = listpaytable[UseMathModele.paytable];
+const UseLines = listlines[UseMathModele.lines];
+let numberErrors = 0;
+
+
+for (let i = 0; i < 100; i++) {
+    describe.only(`Test 10Lines game: ${Usegame.getLines()}, ${Usegame.getId()} -  ${i}`, () => {
 
         let data = {
             winLines: null,
@@ -55,62 +74,62 @@ for (let i = 0; i < 1; i++) {
             actionsSpin: null,
             winLinesScatter: null,
             winLinesWithoutScatter: null,
-            numberFS: 15,
-            FSMultipl: 3,
-            WildMultip: 2,
-            globalDate: null
+            globalDate: null,
+            funcResultExpW: null,
+            featureEW: null,
+            funcResultESymbol: null
         };
-
-        const peoneerConfig = {
-            numberFS: 15,
-            FSMultipl: 3,
-            WildMultip: 2,
-        }
 
         before("Spin", async() => {
             try {
                 let token = await readToken(Useplatform.nameToken);
-                const response = await spin(Useplatform.getUrlSpin(), token, id, elbet, lines);
+                const response = await spin(Useplatform.getUrlSpin(), token, Usegame.getId(), Usegame.getBet(Useplatform), Usegame.getLines());
                 let { nextActionsSpin, res } = response;
-                getLog(res, name, id, i);
+                getLog(res, Usegame.name, Usegame.getId(), i);
 
                 let actionsSpin = res.context.current;
                 const winLines = checkWin1(res);
                 const winningResult = getWinningResult(winLines);
                 const FSResult = await getFSResult(nextActionsSpin, actionsSpin, res);
+                let funcResultExpW = chekExpendingWild(UseMathModele, res);
+                const funcResultESymbol = getNewMatrixESymbol(UseMathModele, res, actionsSpin, Usepaytable);
+                const featureEW = CheckFeatureEW(res);
 
-                data = { res, nextActionsSpin, actionsSpin, winLines, ...winningResult, ...FSResult };
+
+                data = { res, nextActionsSpin, actionsSpin, winLines, funcResultExpW, funcResultESymbol, featureEW, ...winningResult, ...FSResult };
 
             } catch (error) {
+                // numberErrors += 1;
+                // if (numberErrors > 5) {
+                //     break;
+                // };
                 console.log('!!!!!!ERROR in before block!!!!!! ' + error);
                 logger.error('!!!!!!ERROR in before block!!!!!! ' + error);
             }
-
         });
         it('Winning Line coordinates from response is correct', () => {
             const { winLinesWithoutScatter } = data;
-            CheckWinningLineCoordinates(winLinesWithoutScatter, lines10);
+            CheckWinningLineCoordinates(winLinesWithoutScatter, UseLines);
 
         });
         it('check correct accrual Scatter', () => {
             const { winLinesScatter, actionsSpin, res } = data;
-            const { FSMultipl } = peoneerConfig;
-            CheckCorrectAccrualScatter(winLinesScatter, actionsSpin, res, paytable, FSMultipl);
+            CheckCorrectAccrualScatter(winLinesScatter, actionsSpin, res, Usepaytable, UseMathModele.FSMultipl);
 
         });
         it('check correct position Scatter', () => {
             const { winLinesScatter, res } = data;
             CheckCorrectPositionScatter(winLinesScatter, res);
+
         });
         it('check correct position of winning symbol', () => {
-            const { winLinesWithoutScatter, res } = data;
-            CheckCorrectPositionOfWinningSymbol(winLinesWithoutScatter, res);
+            const { res, funcResultExpW, winLinesWithoutScatter } = data;
+            CheckCorrectPositionOfWinningSymbol(UseMathModele, res, funcResultExpW, winLinesWithoutScatter);
 
         });
         it('check correct accrual of winnings', () => {
             const { actionsSpin, res, winLinesWithoutScatter, } = data;
-            const { FSMultipl, WildMultip } = peoneerConfig;
-            CheckCorrectAccrualOfWinnings(actionsSpin, res, winLinesWithoutScatter, FSMultipl, WildMultip, paytable);
+            CheckCorrectAccrualOfWinnings(actionsSpin, res, winLinesWithoutScatter, UseMathModele.FSMultipl, UseMathModele.WildMultip, Usepaytable);
 
         });
         it('check total amount is correct', () => {
@@ -120,8 +139,7 @@ for (let i = 0; i < 1; i++) {
         });
         it('check correct add count of FS', () => {
             const { actionsSpin, res, FSCount } = data;
-            const { numberFS } = peoneerConfig;
-            CheckCorrectAddCountOfFS(actionsSpin, res, FSCount, numberFS);
+            CheckCorrectAddCountOfFS(actionsSpin, res, FSCount, UseMathModele.numberFS);
 
         });
         it('check correct total FS', () => {
@@ -131,13 +149,11 @@ for (let i = 0; i < 1; i++) {
         });
         it('Check the number of free spins', () => {
             const { actionsSpin, nextActionsSpin, FSCount } = data;
-            const { numberFS } = peoneerConfig;
-            CheckNumberFS(actionsSpin, nextActionsSpin, FSCount, numberFS);
+            CheckNumberFS(actionsSpin, nextActionsSpin, FSCount, UseMathModele.numberFS);
         });
         it('check rest FS', () => {
             const { actionsSpin, FSCount, globalDate } = data;
-            const { numberFS } = peoneerConfig;
-            CheckRestFS(actionsSpin, FSCount, globalDate, numberFS);
+            CheckRestFS(actionsSpin, FSCount, globalDate, UseMathModele.numberFS);
 
         });
         it('balance is not change', () => {
@@ -147,7 +163,7 @@ for (let i = 0; i < 1; i++) {
         });
         it('check correct accrual FSWin', function() {
             const { actionsSpin, winLines, res, globalDate } = data;
-            CheckCorrectAccrualFSWin(actionsSpin, winLines, res, globalDate);
+            CheckCorrectAccrualFSWin(actionsSpin, UseMathModele, winLines, res, globalDate);
 
         });
         it('check correct add FSWin to balance', function() {
@@ -155,22 +171,23 @@ for (let i = 0; i < 1; i++) {
             CheckCorrectAddFSWinToBalance(actionsSpin, FSCount, globalDate, res);
 
         });
-        it("check type of win 10 Lines", () => {
-            let { winLines, res } = data;
-            CheckTypeOfWin(winLines, res);
+        it("check type of win Lines", () => {
+            let { res } = data;
+            CheckTypeOfWin(res);
 
         });
+        it("EWModule", () => {
+            EWModule(UseMathModele, data);
+
+        });
+        it("BookModule", () => {
+            BookModule(UseMathModele, data, Usepaytable);
+
+        })
         after("wright", async() => {
             let { FSCount, res, nextActionsSpin } = data;
+            wrightData(nextActionsSpin, FSCount, res, UseMathModele);
 
-            if (nextActionsSpin == "freespin" && FSCount.rest > 0) {
-                let oldRest = res.context.freespins.count.rest;
-                let oldTotal = res.context.freespins.count.total;
-                let oldFsWin = res.context.freespins.win;
-                let oldBalance = res.user.balance;
-                let globalDate = { oldRest, oldTotal, oldFsWin, oldBalance };
-                await fs.writeFile('db.json', JSON.stringify(globalDate));
-            }
         });
     });
 }

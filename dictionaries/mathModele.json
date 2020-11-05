@@ -1,0 +1,83 @@
+{
+    "Pioneer": {
+        "name": "Pioneer",
+        "paytable": "paytable10",
+        "lines": "lines10",
+        "numberFS": "15",
+        "FSMultipl": "3",
+        "WildMultip": "2"
+    },
+    "Pioneer20": {
+        "name": "Pioneer20",
+        "paytable": "paytable10",
+        "lines": "lines20",
+        "numberFS": "15",
+        "FSMultipl": "3",
+        "WildMultip": "2"
+    },
+    "Pioneer30": {
+        "name": "Pioneer30",
+        "paytable": "paytable10",
+        "lines": "lines30Sailor",
+        "numberFS": "15",
+        "FSMultipl": "3",
+        "WildMultip": "2"
+    },
+    "UltraHot": {
+        "name": "UltraHot",
+        "paytable": "paytable5Lines",
+        "lines": "lines5",
+        "numberFS": "0",
+        "FSMultipl": "0",
+        "WildMultip": "0"
+    },
+    "EW": {
+        "name": "EW",
+        "paytable": "paytable20LinesEW",
+        "lines": "lines20",
+        "numberFS": "15",
+        "FSMultipl": "1",
+        "WildMultip": "1"
+    },
+    "Circus": {
+        "name": "Circus",
+        "paytable": "paytable50Lines",
+        "lines": "lines50",
+        "numberFS": "15",
+        "FSMultipl": "1",
+        "WildMultip": "1/2"
+    },
+    "CrazyHot30": {
+        "name": "CrazyHot30",
+        "paytable": "paytable30LinesCrazy",
+        "lines": "lines30Crazy",
+        "numberFS": "0",
+        "FSMultipl": "0",
+        "WildMultip": "1"
+    },
+    "Book": {
+        "name": "Book",
+        "paytable": "paytable10LinesBook",
+        "lines": "lines10",
+        "numberFS": "10",
+        "FSMultipl": "1",
+        "WildMultip": "1"
+    },
+    "PioneerRespin": {
+        "name": "PioneerRespin",
+        "paytable": "paytable20LinesClover",
+        "lines": "lines20",
+        "numberFS": "17",
+        "FSMultipl": "3",
+        "WildMultip": "1"
+    },
+    "Evo20": {
+        "name": "Evo20",
+        "paytable": "evo20",
+        "lines": "lines20",
+        "numberFS": "20",
+        "FSMultipl": "3",
+        "WildMultip": "1"
+    }
+
+}

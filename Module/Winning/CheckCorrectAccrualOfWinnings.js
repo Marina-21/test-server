@@ -26,9 +26,9 @@ function CheckCorrectAccrualOfWinnings(actionsSpin, res, winLinesWithoutScatter,
                 const tempSymbols = res.context.matrix[coordinates[0]][coordinates[1]];
                 getingSymbols.push(tempSymbols);
             });
-            const arrWithWild = getingSymbols.filter((value) => value == 2);
+            const arrWithWild = getingSymbols.filter((el) => el == "2");
 
-            let amount = winRight(line.positions, paytable, line.symbol, bet);
+            const amount = winRight(line.positions, paytable, line.symbol, bet);
 
             const multiplier = (arrWithWild.length > 0 && line.symbol !== "2") ? WildMultip : 1;
 
@@ -36,7 +36,7 @@ function CheckCorrectAccrualOfWinnings(actionsSpin, res, winLinesWithoutScatter,
                 let rightAmount = (amount * multiplier * FSMultipl);
                 console.log(rightAmount);
                 console.log(line.amount);
-                expect(line.amount).to.be.equal(rightAmount);
+                expect(line.amount).to.be.eql(rightAmount);
             } else {
                 let rightAmount = (amount * multiplier);
                 console.log(rightAmount);

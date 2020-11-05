@@ -23,7 +23,6 @@ function CheckWinningLineCoordinates(winLinesWithoutScatter, linesCoordinates) {
             logger.info(`rightCoordinatesLines - ${ coordinatesLines }`);
             expect(coordinatesLines.length).to.eql(line.positions.length);
             expect(value).to.be.true;
-            // expect(numberLines.id).to.be.equal(idLines);
         });
     }
 }

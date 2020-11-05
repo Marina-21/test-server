@@ -456,6 +456,15 @@ let gamesDate = [{
         betUkr: favoritBets,
         betTR: GizilBets,
         betOMG: OMGBet
+    },
+    {
+        name: "racer",
+        id: 35,
+        lines: 20,
+        number: 30,
+        betUkr: favoritBets,
+        betTR: GizilBets,
+        betOMG: OMGBet
     }
 ];
 
@@ -531,7 +540,6 @@ let Gizil = new Platforms(
     "crazyguysgames",
     "25412"
 );
-
 
 let Dev = new Platforms(
     "https://www.betinvest.ptst/bigames/cg-gw01/v1/client/spin",

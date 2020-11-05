@@ -1,4 +1,4 @@
-const paytable = {
+const paytable10 = {
     "1": {
         "2": 2,
         "3": 5,
@@ -462,7 +462,7 @@ const evo20 = {
 
 
 module.exports = {
-    paytable,
+    paytable10,
     paytable20LinesEW,
     paytable5Lines,
     paytable50Lines,

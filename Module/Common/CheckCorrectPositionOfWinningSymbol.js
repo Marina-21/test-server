@@ -10,20 +10,22 @@ log4js.configure({
 const logger = log4js.getLogger();
 logger.level = 'debug';
 
-function CheckCorrectPositionOfWinningSymbol(winLinesWithoutScatter, res) {
+function CheckCorrectPositionOfWinningSymbol(UseMathModele, res, funcResultExpW, winLinesWithoutScatter) {
+    const matrix = (UseMathModele.name === "EW") ? funcResultExpW.newMatrix : res.context.matrix;
     if (winLinesWithoutScatter) {
         logger.info('check correct position of winning symbol');
+        const wild = (UseMathModele.name === "Book") ? "1" : "2";
 
         winLinesWithoutScatter.forEach((line) => {
             console.log(`${ line.id } - id `);
             logger.info(`${ line.id } - id `);
 
             line.positions.forEach((coordinate) => {
-                const tempSymbols = res.context.matrix[coordinate[0]][coordinate[1]];
-                if (tempSymbols !== "2") {
-                    expect(line.symbol).to.eql(tempSymbols);
+                const tempSymbols = matrix[coordinate[0]][coordinate[1]];
+                if (tempSymbols !== wild) {
+                    expect(line.symbol).to.be.eql(tempSymbols);
                 } else {
-                    expect("2").to.eql(tempSymbols);
+                    expect(wild).to.eql(tempSymbols);
                     console.log('there is a wild in the pay line');
                     logger.info('there is a wild in the pay line');
                 }

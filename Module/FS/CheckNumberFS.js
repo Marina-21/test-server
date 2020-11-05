@@ -13,9 +13,9 @@ logger.level = 'debug';
 function CheckNumberFS(actionsSpin, nextActionsSpin, FSCount, numberFS) {
     if (actionsSpin === "spin" && nextActionsSpin === "freespin") {
         console.log(FSCount.total);
-        expect(FSCount.total).to.equal(numberFS);
-        expect(FSCount.rest).to.equal(numberFS);
-        expect(FSCount.add).to.equal(numberFS);
+        expect(FSCount.total).to.equal(parseInt(numberFS));
+        expect(FSCount.rest).to.equal(parseInt(numberFS));
+        expect(FSCount.add).to.equal(parseInt(numberFS));
     }
 }
 

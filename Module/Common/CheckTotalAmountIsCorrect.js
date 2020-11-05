@@ -10,12 +10,12 @@ log4js.configure({
 const logger = log4js.getLogger();
 logger.level = 'debug';
 
-function CheckTotalAmountIsCorrect(winLines, res) {
+function CheckTotalAmountIsCorrect(winLines, res, multipResult = 1) {
     if (winLines) {
         logger.info('check total amount is correct');
         let rightTotalAmount = winLines.reduce((total, lines) => total + lines.amount, 0);
         console.log(`rightTotalAmount - ${ rightTotalAmount }`);
-        expect(rightTotalAmount).to.be.equal(res.context.win.total);
+        expect(rightTotalAmount * multipResult).to.be.equal(res.context.win.total);
     }
 }
 

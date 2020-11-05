@@ -3,6 +3,7 @@ const fetch = require('node-fetch');
 const { counter } = require('../global');
 const listGame = require('../dictionaries/games.json');
 const listBet = require('../dictionaries/bet');
+const listMathModele = require('../dictionaries/mathModele');
 
 const log4js = require('log4js');
 log4js.configure({
@@ -56,32 +57,33 @@ function chekActionSpin(res) {
     return nameAction;
 }
 
-function chekExpendingWild(matrix) {
-    const newMatrix = [];
-    let ExpWild = false;
-    let indexWild = [];
-    // let matrixTest = [
-    //     ["1", "B", "A"],
-    //     ["1", "2", "A"],
-    //     ["A", "1", "A"],
-    //     ["A", "B", "A"],
-    //     ["A", "B", "A"],
-    // ];
-    console.log(matrix);
+function chekExpendingWild(UseMathModele, res) {
+    if (UseMathModele.name === "EW") {
+        const newMatrix = [];
+        let ExpWild = false;
+        let indexWild = [];
+        // let matrixTest = [
+        //     ["1", "B", "A"],
+        //     ["1", "2", "A"],
+        //     ["A", "1", "A"],
+        //     ["A", "B", "A"],
+        //     ["A", "B", "A"],
+        // ];
 
-    matrix.forEach((el, index) => {
-        let tempSymbol = el.filter(symbol => symbol != 2);
-        if (tempSymbol.length < 3) {
-            newMatrix.push(["2", "2", "2"]);
-            console.log(tempSymbol);
-            ExpWild = true;
-            indexWild.push(index);
-        } else {
-            newMatrix.push(el);
-        }
-    });
-    console.log(newMatrix);
-    return { newMatrix, ExpWild, indexWild };
+        res.context.matrix.forEach((el, index) => {
+            let tempSymbol = el.filter(symbol => symbol != 2);
+            if (tempSymbol.length < 3) {
+                newMatrix.push(["2", "2", "2"]);
+                console.log(tempSymbol);
+                ExpWild = true;
+                indexWild.push(index);
+            } else {
+                newMatrix.push(el);
+            }
+        });
+        console.log(newMatrix);
+        return { newMatrix, ExpWild, indexWild };
+    }
 }
 
 let checkError = function(res, urlSpin) {
@@ -101,19 +103,20 @@ let checkSymbolMultiplier = function(winSymbol) {
     let symbolE = winSymbol.includes("E");
     if (symbolB || symbolC || symbolD || symbolE) {
         return true;
-    } else {
-        return false;
     }
 };
 
-let checkTypeWin = function(res) {
-    const totalWin = res.context.win.total;
+let checkTypeWin = function(res, typeWin) {
     const bet = betLines(res);
-    const typeCoef = totalWin / bet;
+
+    let typeCoef;
+    if (typeWin === 'win') {
+        typeCoef = (res.context[typeWin].total) / bet;
+    } else {
+        typeCoef = (res.context[typeWin].win.total) / bet;
+    }
     console.log((typeCoef) + " - typeCoef");
     logger.info(`${typeCoef} - typeCoef`);
-    console.log(res.context.win.type);
-    logger.info(res.context.win.type);
 
     if (typeCoef < 5) {
         return "regular";
@@ -152,16 +155,18 @@ function getGame(gameName, Useplatform) {
     const arrGames = Object.values(listGame);
     const indexGame = arrGames.findIndex((el) => { return el.name === gameName; });
     console.log(indexGame);
-    const { name } = arrGames[indexGame];
+    const { name, mathModele } = arrGames[indexGame];
     const id = parseInt(arrGames[indexGame].id);
     const lines = parseInt(arrGames[indexGame].lines);
     const useBet = arrGames[indexGame][Useplatform.bet];
     const elbet = parseInt(listBet[useBet][7]);
+    // const gameMathModele = listMathModele[nameMathModele];
     return {
         name,
         id,
         lines,
-        elbet
+        elbet,
+        mathModele
     };
 }
 

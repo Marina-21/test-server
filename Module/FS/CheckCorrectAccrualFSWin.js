@@ -11,9 +11,9 @@ const logger = log4js.getLogger();
 logger.level = 'debug';
 
 
-function CheckCorrectAccrualFSWin(actionsSpin, funcResultWin, res, globalDate) {
-    if (actionsSpin == "freespin") {
-        if (funcResultWin) {
+function CheckCorrectAccrualFSWin(actionsSpin, UseMathModele, winLines, res, globalDate) {
+    if (actionsSpin === "freespin" && UseMathModele.name !== "Book") {
+        if (winLines) {
             console.log(`${ res.context.freespins.win } - fsWin
     / ${ globalDate.oldFsWin } + ${ res.context.win.total } - oldFsWin + totalAmount `);
 

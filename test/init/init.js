@@ -1,10 +1,11 @@
 const fs = require('fs').promises;
 require('dotenv').config();
 
-
-const { Favorit, Gizil, Dev, OMG, Favoritsport, FavBet } = require('../../const/platforms');
 const { init } = require('../../const/spinPlatform');
-const { getToken } = require('../../const/function');
+const Platform = require('../../const/Platform');
+const listPlatform = require('../../dictionaries/platform');
+const listGame = require('../../dictionaries/games.json');
+const arrGames = Object.values(listGame);
 
 const log4js = require('log4js');
 log4js.configure({
@@ -14,25 +15,17 @@ log4js.configure({
 const logger = log4js.getLogger();
 logger.level = 'debug';
 
-const platform = {
-    Favorit: Favorit,
-    Gizil: Gizil,
-    Dev: Dev,
-    OMG: OMG,
-    Favoritsport: Favoritsport,
-    FavBet: FavBet
-};
-let usePlatform = platform[process.env.PLATFORM];
-let { urlInit, gamesDate, nameToken } = usePlatform;
+const platform = listPlatform[process.env.PLATFORM];
+const Useplatform = new Platform(platform);
 let token;
 
 describe.only('init', () => {
 
     before("token", async() => {
         try {
-            token = await usePlatform.getToken();
+            token = await Useplatform.getToken();
             let file = {
-                [nameToken]: token
+                [Useplatform.nameToken]: token
             };
             await fs.writeFile('db1.json', JSON.stringify(file));
             // return (token);
@@ -41,24 +34,17 @@ describe.only('init', () => {
             logger.info('!!!!!!ERROR in before block!!!!!! ' + error);
         }
     });
-    gamesDate.forEach((el) => {
+    arrGames.forEach((game) => {
         it("Init", async() => {
             try {
-                let id = el.id;
-                let responce = await init(urlInit, token, id);
+                let responce = await init(Useplatform.getUrlInit(), token, parseInt(game.id));
                 let { res } = responce;
-                logger.info(res);
-
-
-                logger.info("Type of win is correct");
-                console.log(`${responce} - ${id}`);
-
+                console.log(`${game.id}`);
             } catch (error) {
                 let { code, message } = error;
                 console.log(code + "  code");
                 console.log(message + "  message");
                 logger.log('!!!!!!ERROR in before block!!!!!! ' + error);
-                logger.info('!!!!!!ERROR in before block!!!!!! ' + error);
             }
         });
     });

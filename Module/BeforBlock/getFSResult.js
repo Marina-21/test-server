@@ -13,7 +13,7 @@ logger.level = 'debug';
 
 
 async function getFSResult(nextActionsSpin, actionsSpin, res) {
-    if (nextActionsSpin === "freespin" || actionsSpin === "freespin") {
+    if (res.context.hasOwnProperty("freespins")) {
         const FSCount = res.context.freespins.count;
         console.log(FSCount.rest);
         logger.info(FSCount.rest);

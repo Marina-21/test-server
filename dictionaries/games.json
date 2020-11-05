@@ -6,7 +6,8 @@
         "number": "0",
         "betUkr": "favoritBets",
         "betTR": "GizilBets",
-        "betOMG": "OMGBet"
+        "betOMG": "OMGBet",
+        "nameMathModele": "Pioneer"
     },
     "neon": {
         "name": "neon",
@@ -15,7 +16,8 @@
         "number": "1",
         "betUkr": "favoritBets",
         "betTR": "GizilBets",
-        "betOMG": "OMGBet"
+        "betOMG": "OMGBet",
+        "nameMathModele": "Pioneer"
     },
     "dzen": {
         "name": "dzen",
@@ -24,7 +26,8 @@
         "number": "2",
         "betUkr": "favoritBets",
         "betTR": "GizilBets",
-        "betOMG": "OMGBet"
+        "betOMG": "OMGBet",
+        "nameMathModele": "Pioneer"
     },
     "halloween": {
         "name": "halloween",
@@ -33,7 +36,8 @@
         "number": "3",
         "betUkr": "favoritBets",
         "betTR": "GizilBets",
-        "betOMG": "OMGBet"
+        "betOMG": "OMGBet",
+        "nameMathModele": "Pioneer"
     },
     "food": {
         "name": "food",
@@ -42,7 +46,8 @@
         "number": "4",
         "betUkr": "favoritBets",
         "betTR": "GizilBets",
-        "betOMG": "OMGBet"
+        "betOMG": "OMGBet",
+        "nameMathModele": "Pioneer"
     },
     "pixelact": {
         "name": "pixelact",
@@ -51,7 +56,8 @@
         "number": "5",
         "betUkr": "favoritBets",
         "betTR": "GizilBets",
-        "betOMG": "OMGBet"
+        "betOMG": "OMGBet",
+        "nameMathModele": "Pioneer"
     },
     "steam": {
         "name": "steam",
@@ -60,7 +66,8 @@
         "number": "6",
         "betUkr": "favoritBets",
         "betTR": "GizilBets",
-        "betOMG": "OMGBet"
+        "betOMG": "OMGBet",
+        "nameMathModele": "Pioneer"
     },
     "viking": {
         "name": "viking",
@@ -69,7 +76,8 @@
         "number": "7",
         "betUkr": "favoritBets",
         "betTR": "GizilBets",
-        "betOMG": "OMGBet"
+        "betOMG": "OMGBet",
+        "nameMathModele": "Pioneer"
     },
     "fruit3": {
         "name": "fruit3",
@@ -78,7 +86,8 @@
         "number": "8",
         "betUkr": "betMath3Ukr",
         "betTR": "GizilBets",
-        "betOMG": "OMGBet"
+        "betOMG": "OMGBet",
+        "nameMathModele": "UltraHot"
     },
     "fruit5": {
         "name": "fruit5",
@@ -87,7 +96,8 @@
         "number": "9",
         "betUkr": "favoritBets",
         "betTR": "GizilBets",
-        "betOMG": "OMGBet"
+        "betOMG": "OMGBet",
+        "nameMathModele": "Pioneer"
     },
     "covid": {
         "name": "covid",
@@ -96,7 +106,8 @@
         "number": "10",
         "betUkr": "favoritBets",
         "betTR": "GizilBets",
-        "betOMG": "OMGBet"
+        "betOMG": "OMGBet",
+        "nameMathModele": "Pioneer"
     },
     "volcan": {
         "name": "volcan",
@@ -105,7 +116,8 @@
         "number": "11",
         "betUkr": "favoritBets",
         "betTR": "GizilBets",
-        "betOMG": "OMGBet"
+        "betOMG": "OMGBet",
+        "nameMathModele": "EW"
     },
     "sailor": {
         "name": "sailor",
@@ -115,7 +127,8 @@
         "bets": "betSailor",
         "betUkr": "betSailor",
         "betTR": "GizilBets",
-        "betOMG": "OMGBet"
+        "betOMG": "OMGBet",
+        "nameMathModele": "Pioneer"
     },
     "circus": {
         "name": "circus",
@@ -124,7 +137,8 @@
         "number": "13",
         "betUkr": "betCircusUkr",
         "betTR": "betCircusTR",
-        "betOMG": "betCircusOMG"
+        "betOMG": "betCircusOMG",
+        "nameMathModele": "Circus"
     },
     "crazyHot30": {
         "name": "crazyHot30",
@@ -133,7 +147,8 @@
         "number": "14",
         "betUkr": "betCrazyHotUk",
         "betTR": "betCrazyHotTR",
-        "betOMG": "betCrazyHotOMG"
+        "betOMG": "betCrazyHotOMG",
+        "nameMathModele": "CrazyHot30"
     },
     "sailor20": {
         "name": "sailor20",
@@ -142,7 +157,8 @@
         "number": "15",
         "betUkr": "favoritBets",
         "betTR": "GizilBets",
-        "betOMG": "OMGBet"
+        "betOMG": "OMGBet",
+        "nameMathModele": "Pioneer20"
     },
     "pearl": {
         "name": "pearl",
@@ -151,7 +167,8 @@
         "number": "16",
         "betUkr": "betPearlUkr",
         "betTR": "GizilBets",
-        "betOMG": "OMGBet"
+        "betOMG": "OMGBet",
+        "nameMathModele": "Pioneer"
     },
     "sailor30": {
         "name": "sailor30",
@@ -160,7 +177,8 @@
         "number": "17",
         "betUkr": "betLine30SimpleUK",
         "betTR": "betSailor30TR",
-        "betOMG": "betSailor30OMG"
+        "betOMG": "betSailor30OMG",
+        "nameMathModele": "Pioneer30"
     },
     "CrazyHot5": {
         "name": "CrazyHot5",
@@ -169,7 +187,8 @@
         "number": "18",
         "betUkr": "betCrazyHot5UK",
         "betTR": "betCrazyHotTR",
-        "betOMG": "OMGBet"
+        "betOMG": "OMGBet",
+        "nameMathModele": "UltraHot"
     },
     "Pearl20": {
         "name": "Pearl20",
@@ -178,7 +197,8 @@
         "number": "19",
         "betUkr": "favoritBets",
         "betTR": "GizilBets",
-        "betOMG": "OMGBet"
+        "betOMG": "OMGBet",
+        "nameMathModele": "Pioneer20"
     },
     "crazy20": {
         "name": "crazy20",
@@ -187,7 +207,8 @@
         "number": "20",
         "betUkr": "favoritBets",
         "betTR": "GizilBets",
-        "betOMG": "OMGBet"
+        "betOMG": "OMGBet",
+        "nameMathModele": "Pioneer20"
     },
     "football20": {
         "name": "football20",
@@ -196,16 +217,18 @@
         "number": "21",
         "betUkr": "favoritBets",
         "betTR": "GizilBets",
-        "betOMG": "OMGBet"
+        "betOMG": "OMGBet",
+        "nameMathModele": "Pioneer20"
     },
-    "clover": {
+    "PioneerRespin": {
         "name": "clover",
         "id": "26",
         "lines": "20",
         "number": "22",
         "betUkr": "betCloverUkr",
         "betTR": "betSailor30TR",
-        "betOMG": "betCloverUkr"
+        "betOMG": "betCloverUkr",
+        "nameMathModele": "Pioneer20"
     },
     "kavun": {
         "name": "kavun",
@@ -214,7 +237,8 @@
         "number": "23",
         "betUkr": "betMath3Ukr",
         "betTR": "GizilBets",
-        "betOMG": "OMGBet"
+        "betOMG": "OMGBet",
+        "nameMathModele": "UltraHot"
     },
     "book": {
         "name": "book",
@@ -223,7 +247,8 @@
         "number": "24",
         "betUkr": "betBookUkr",
         "betTR": "betSailor30TR",
-        "betOMG": "betBookOMG"
+        "betOMG": "betBookOMG",
+        "nameMathModele": "Book"
     },
     "aztec": {
         "name": "aztec",
@@ -232,7 +257,8 @@
         "number": "25",
         "betUkr": "betAztecUkr",
         "betTR": "GizilBets",
-        "betOMG": "betAztecUkr"
+        "betOMG": "betAztecUkr",
+        "nameMathModele": "Pioneer20"
     },
     "osiris": {
         "name": "osiris",
@@ -241,7 +267,8 @@
         "number": "26",
         "betUkr": "favoritBets",
         "betTR": "GizilBets",
-        "betOMG": "OMGBet"
+        "betOMG": "OMGBet",
+        "nameMathModele": "Pioneer20"
     },
     "halloween20": {
         "name": "halloween20",
@@ -250,7 +277,8 @@
         "number": "27",
         "betUkr": "favoritBets",
         "betTR": "GizilBets",
-        "betOMG": "OMGBet"
+        "betOMG": "OMGBet",
+        "nameMathModele": "Pioneer20"
     },
     "fever": {
         "name": "fever",
@@ -259,7 +287,8 @@
         "number": "28",
         "betUkr": "betLine30SimpleUK",
         "betTR": "betSailor30TR",
-        "betOMG": "betSailor30OMG"
+        "betOMG": "betSailor30OMG",
+        "nameMathModele": "Pioneer30"
     },
     "viking20": {
         "name": "viking20",
@@ -268,6 +297,17 @@
         "number": "29",
         "betUkr": "favoritBets",
         "betTR": "GizilBets",
-        "betOMG": "OMGBet"
+        "betOMG": "OMGBet",
+        "nameMathModele": "Evo20"
+    },
+    "racer": {
+        "name": "racer",
+        "id": "35",
+        "lines": "20",
+        "number": "30",
+        "betUkr": "favoritBets",
+        "betTR": "GizilBets",
+        "betOMG": "OMGBet",
+        "nameMathModele": "Evo20"
     }
 }
