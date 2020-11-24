@@ -10,8 +10,8 @@ log4js.configure({
 const logger = log4js.getLogger();
 logger.level = 'debug';
 
-function CheckCorrectAddFSWinToBalance(actionsSpin, FSCount, globalDate, res) {
-    if (actionsSpin === "freespin") {
+function CheckCorrectAddFSWinToBalance(nextActionsSpin, FSCount, globalDate, res) {
+    if (res.context.hasOwnProperty("freespins") && nextActionsSpin !== 'spin') {
         if (FSCount.rest === 0 && FSCount.add === 0) {
             const rightBalance = globalDate.oldBalance + res.context.freespins.win;
             console.log("!!! balance " + res.user.balance);

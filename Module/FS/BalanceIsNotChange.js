@@ -10,8 +10,8 @@ log4js.configure({
 const logger = log4js.getLogger();
 logger.level = 'debug';
 
-function BalanceIsNotChange(actionsSpin, FSCount, res, globalDate) {
-    if (actionsSpin == "freespin") {
+function BalanceIsNotChange(nextActionsSpin, FSCount, res, globalDate) {
+    if (res.context.hasOwnProperty("freespins") && nextActionsSpin !== 'spin') {
         if (FSCount.rest > 0) {
             console.log(`${ res.user.balance } - balance / ${ globalDate.oldBalance } - oldBalance `);
             logger.info(`${ res.user.balance } - balance / ${ globalDate.oldBalance } - oldBalance `);

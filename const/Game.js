@@ -14,12 +14,12 @@ class Game {
         this.nameMathModele = game.nameMathModele;
     }
     getBet(Useplatform) {
-        this.useBet = this[Useplatform.bet];
-        return (this.elbet = parseInt(listBet[this.useBet][7]));
-    }
-    // getMathModele() {
-    //     return (this.UseMathModele = listMathModele[this.nameMathModele]);
-    // }
+            this.useBet = this[Useplatform.bet];
+            return (this.elbet = parseInt(listBet[this.useBet][6]));
+        }
+        // getMathModele() {
+        //     return (this.UseMathModele = listMathModele[this.nameMathModele]);
+        // }
     getId() {
         return (parseInt(this.id));
     }

@@ -12,14 +12,15 @@ const logger = log4js.getLogger();
 logger.level = 'debug';
 
 
-function CheckCorrectAccrualScatter(winLinesScatter, actionsSpin, res, paytable, FSMultipl) {
+function CheckCorrectAccrualScatter(winLinesScatter, actionsSpin, res, paytable, FSMultipl, UseMathModele, FSChangeMultipl = 1) {
     if (winLinesScatter) {
         logger.info('check correct accrual Scatter');
         const bet = betLines(res);
         const symbol = 1;
         console.log(winLinesScatter);
         if (actionsSpin === "freespin") {
-            const winRightScatter = winRight(winLinesScatter.positions, paytable, symbol, bet) * FSMultipl;
+            const FSMultiplier = (UseMathModele.name === "Evo30") ? (FSChangeMultipl - 2) : FSMultipl;
+            const winRightScatter = winRight(winLinesScatter.positions, paytable, symbol, bet) * FSMultiplier;
             console.log(` ${ winLinesScatter.amount } - amount `);
             console.log(`${ winRightScatter } - winRightScatter `);
 

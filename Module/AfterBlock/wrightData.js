@@ -11,7 +11,7 @@ log4js.configure({
 const logger = log4js.getLogger();
 logger.level = 'debug';
 
-async function wrightData(nextActionsSpin, FSCount, res, UseMathModele) {
+async function wrightData(nextActionsSpin, FSCount, res, UseMathModele, funcResultRSpin, FSChangeMultipl = 1) {
     if (nextActionsSpin === "freespin" && FSCount.rest > 0) {
         const oldRest = res.context.freespins.count.rest;
         const oldTotal = res.context.freespins.count.total;
@@ -22,7 +22,28 @@ async function wrightData(nextActionsSpin, FSCount, res, UseMathModele) {
             const oldESymbol = res.context.freespins.expendingSymbol;
             globalDate = {...globalDate, oldESymbol };
         }
+        if (UseMathModele.name === "Evo30") {
+            globalDate = {...globalDate, FSChangeMultipl };
+        }
         await fs.writeFile('db.json', JSON.stringify(globalDate));
+    }
+    if (UseMathModele.name === "PioneerRespin") {
+        let wildDateRSpin;
+        const oldBalance = res.user.balance;
+        wildDateRSpin = { oldBalance };
+        if (nextActionsSpin === "respin") {
+            const oldPositionWild = funcResultRSpin.positionWild;
+            const oldIndexWild = funcResultRSpin.indexWild;
+            const oldWinRSpin = res.context.respin.total;
+            const numberRSpin = funcResultRSpin.numberRSpin;
+            // const numberRSpin = 0;
+            wildDateRSpin = {...wildDateRSpin, oldPositionWild, oldIndexWild, oldBalance, oldWinRSpin, numberRSpin };
+        }
+        if (nextActionsSpin === "spin") {
+            const oldWinRSpin = 0;
+            wildDateRSpin = {...wildDateRSpin, oldWinRSpin };
+        }
+        await fs.writeFile('db2.json', JSON.stringify(wildDateRSpin));
     }
 }
 

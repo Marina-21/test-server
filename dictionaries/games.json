@@ -220,7 +220,7 @@
         "betOMG": "OMGBet",
         "nameMathModele": "Pioneer20"
     },
-    "PioneerRespin": {
+    "clover": {
         "name": "clover",
         "id": "26",
         "lines": "20",
@@ -228,7 +228,7 @@
         "betUkr": "betCloverUkr",
         "betTR": "betSailor30TR",
         "betOMG": "betCloverUkr",
-        "nameMathModele": "Pioneer20"
+        "nameMathModele": "PioneerRespin"
     },
     "kavun": {
         "name": "kavun",
@@ -309,5 +309,15 @@
         "betTR": "GizilBets",
         "betOMG": "OMGBet",
         "nameMathModele": "Evo20"
+    },
+    "forest": {
+        "name": "forest",
+        "id": "34",
+        "lines": "30",
+        "number": "31",
+        "betUkr": "favoritBets",
+        "betTR": "GizilBets",
+        "betOMG": "OMGBet",
+        "nameMathModele": "Evo30"
     }
 }

@@ -78,6 +78,14 @@
         "numberFS": "20",
         "FSMultipl": "3",
         "WildMultip": "1"
+    },
+    "Evo30": {
+        "name": "Evo30",
+        "paytable": "evo20",
+        "lines": "lines30Sailor",
+        "numberFS": "15",
+        "FSMultipl": "1",
+        "WildMultip": "1"
     }
 
 }

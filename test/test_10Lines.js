@@ -39,7 +39,7 @@ const CheckFeatureEW = require('../Module/EW/CheckFeatureEW');
 const EWModule = require('../Module/EW/EWModule');
 const getNewMatrixESymbol = require('../Module/book/getNewMatrixESymbol');
 const BookModule = require('../Module/book/BookModule');
-
+const CheckMultipFS = require('../Module/Evo30/CheckMultipFS');
 
 const log4js = require('log4js');
 log4js.configure({
@@ -63,7 +63,7 @@ const UseLines = listlines[UseMathModele.lines];
 let numberErrors = 0;
 
 
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i < 50; i++) {
     describe.only(`Test 10Lines game: ${Usegame.getLines()}, ${Usegame.getId()} -  ${i}`, () => {
 
         let data = {
@@ -77,7 +77,12 @@ for (let i = 0; i < 100; i++) {
             globalDate: null,
             funcResultExpW: null,
             featureEW: null,
-            funcResultESymbol: null
+            funcResultESymbol: null,
+            winRSpin: null,
+            wildDateRSpin: null,
+            numberRSpin: null,
+            funcResultRSpin: null,
+            FSChangeMultipl: 1
         };
 
         before("Spin", async() => {
@@ -94,9 +99,10 @@ for (let i = 0; i < 100; i++) {
                 let funcResultExpW = chekExpendingWild(UseMathModele, res);
                 const funcResultESymbol = getNewMatrixESymbol(UseMathModele, res, actionsSpin, Usepaytable);
                 const featureEW = CheckFeatureEW(res);
+                const FSChangeMultipl = CheckMultipFS(UseMathModele, actionsSpin, res, FSResult);
 
 
-                data = { res, nextActionsSpin, actionsSpin, winLines, funcResultExpW, funcResultESymbol, featureEW, ...winningResult, ...FSResult };
+                data = { res, nextActionsSpin, actionsSpin, winLines, funcResultExpW, funcResultESymbol, featureEW, FSChangeMultipl, ...winningResult, ...FSResult };
 
             } catch (error) {
                 // numberErrors += 1;
@@ -113,8 +119,8 @@ for (let i = 0; i < 100; i++) {
 
         });
         it('check correct accrual Scatter', () => {
-            const { winLinesScatter, actionsSpin, res } = data;
-            CheckCorrectAccrualScatter(winLinesScatter, actionsSpin, res, Usepaytable, UseMathModele.FSMultipl);
+            const { winLinesScatter, actionsSpin, res, FSChangeMultipl } = data;
+            CheckCorrectAccrualScatter(winLinesScatter, actionsSpin, res, Usepaytable, UseMathModele.FSMultipl, UseMathModele, FSChangeMultipl);
 
         });
         it('check correct position Scatter', () => {
@@ -128,8 +134,8 @@ for (let i = 0; i < 100; i++) {
 
         });
         it('check correct accrual of winnings', () => {
-            const { actionsSpin, res, winLinesWithoutScatter, } = data;
-            CheckCorrectAccrualOfWinnings(actionsSpin, res, winLinesWithoutScatter, UseMathModele.FSMultipl, UseMathModele.WildMultip, Usepaytable);
+            const { actionsSpin, res, winLinesWithoutScatter, FSChangeMultipl } = data;
+            CheckCorrectAccrualOfWinnings(actionsSpin, res, winLinesWithoutScatter, UseMathModele.FSMultipl, UseMathModele.WildMultip, Usepaytable, UseMathModele, FSChangeMultipl);
 
         });
         it('check total amount is correct', () => {
@@ -157,8 +163,8 @@ for (let i = 0; i < 100; i++) {
 
         });
         it('balance is not change', () => {
-            const { actionsSpin, FSCount, res, globalDate } = data;
-            BalanceIsNotChange(actionsSpin, FSCount, res, globalDate);
+            const { actionsSpin, FSCount, res, globalDate, nextActionsSpin } = data;
+            BalanceIsNotChange(actionsSpin, FSCount, res, globalDate, nextActionsSpin);
 
         });
         it('check correct accrual FSWin', function() {
@@ -167,8 +173,8 @@ for (let i = 0; i < 100; i++) {
 
         });
         it('check correct add FSWin to balance', function() {
-            const { actionsSpin, FSCount, globalDate, res } = data;
-            CheckCorrectAddFSWinToBalance(actionsSpin, FSCount, globalDate, res);
+            const { nextActionsSpin, FSCount, globalDate, res } = data;
+            CheckCorrectAddFSWinToBalance(nextActionsSpin, FSCount, globalDate, res);
 
         });
         it("check type of win Lines", () => {
@@ -183,10 +189,10 @@ for (let i = 0; i < 100; i++) {
         it("BookModule", () => {
             BookModule(UseMathModele, data, Usepaytable);
 
-        })
+        });
         after("wright", async() => {
-            let { FSCount, res, nextActionsSpin } = data;
-            wrightData(nextActionsSpin, FSCount, res, UseMathModele);
+            let { FSCount, res, nextActionsSpin, FSChangeMultipl, funcResultRSpin } = data;
+            wrightData(nextActionsSpin, FSCount, res, UseMathModele, funcResultRSpin, FSChangeMultipl);
 
         });
     });

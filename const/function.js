@@ -136,20 +136,6 @@ async function readToken(nameToken) {
     return (token);
 }
 
-async function checkWild(matrix) {
-    let wildInSpin = false;
-    let indexWild = [];
-    let positionWild = [];
-    matrix.forEach((el, index) => {
-        let tempSymbol = el.filter(symbol => symbol === '2');
-        if (tempSymbol.length > 0) {
-            indexWild.push(index);
-            positionWild.push({ index, symbol: el });
-            wildInSpin = true;
-        }
-    });
-    return { wildInSpin, indexWild, positionWild };
-}
 
 function getGame(gameName, Useplatform) {
     const arrGames = Object.values(listGame);
@@ -183,5 +169,4 @@ module.exports = {
     checkTypeWin,
     readToken,
     getGame,
-    checkWild
 };

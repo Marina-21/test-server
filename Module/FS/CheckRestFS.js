@@ -14,7 +14,7 @@ function checkRestFS(actionsSpin, FSCount, globalDate, numberFS) {
     if (actionsSpin == "freespin") {
         let rightRest;
         if (FSCount.add > 0) {
-            rightRest = globalDate.oldRest - 1 + numberFS;
+            rightRest = globalDate.oldRest - 1 + parseInt(numberFS);
         } else {
             rightRest = globalDate.oldRest - 1;
         }

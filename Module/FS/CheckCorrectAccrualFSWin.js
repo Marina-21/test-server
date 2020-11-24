@@ -12,7 +12,7 @@ logger.level = 'debug';
 
 
 function CheckCorrectAccrualFSWin(actionsSpin, UseMathModele, winLines, res, globalDate) {
-    if (actionsSpin === "freespin" && UseMathModele.name !== "Book") {
+    if (res.context.hasOwnProperty("freespins") && actionsSpin !== "spin" && UseMathModele.name !== "Book") {
         if (winLines) {
             console.log(`${ res.context.freespins.win } - fsWin
     / ${ globalDate.oldFsWin } + ${ res.context.win.total } - oldFsWin + totalAmount `);
