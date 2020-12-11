@@ -25,7 +25,7 @@ const CheckFeatureRespinIfThereIsWild = require('../../Module/Respin/CheckFeatur
 const checkMax3Respin = require('../../Module/Respin/checkMax3Respin');
 const wrightData = require('../../Module/AfterBlock/wrightData');
 const CheckPositionWild = require('../../Module/Respin/CheckPositionWild');
-const ChekBalanceBeforeRespin = require('../Module/Respin/CheckCorrectAccrualOfWinnings');
+const ChekBalanceBeforeRespin = require('../../Module/Respin/CheckBalanceRespinBeforFS');
 const CheckBalanceAfterRespin = require('../../Module/Respin/CheckBalanceAfterRespin');
 const CheckBalanceDuringRespin = require('../../Module/Respin/CheckBalanceDuringRespin');
 const CheckBalanceRespinBeforFS = require('../../Module/Respin/CheckBalanceRespinBeforFS');
@@ -121,8 +121,8 @@ for (let i = 0; i < 1; i++) {
 
         });
         it('check a maximum of 3 respins after a Wild activates a respin', () => {
-            let { funcResultRSpin, featureRSpin } = data;
-            checkMax3Respin(funcResultRSpin, featureRSpin);
+            let { funcResultRSpin } = data;
+            checkMax3Respin(funcResultRSpin);
 
         });
         it('check correct position of Wild in respin', () => {
@@ -232,8 +232,8 @@ for (let i = 0; i < 1; i++) {
 
         });
         after("wright", async() => {
-            let { FSCount, res, nextActionsSpin, funcResultRSpin, featureRSpin, FSChangeMultipl } = data;
-            wrightData(nextActionsSpin, FSCount, res, UseMathModele, funcResultRSpin, featureRSpin, FSChangeMultipl);
+            let { FSCount, res, nextActionsSpin, funcResultRSpin, FSChangeMultipl } = data;
+            wrightData(nextActionsSpin, FSCount, res, UseMathModele, funcResultRSpin, FSChangeMultipl);
 
         });
     });

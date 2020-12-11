@@ -319,5 +319,15 @@
         "betTR": "GizilBets",
         "betOMG": "OMGBet",
         "nameMathModele": "Evo30"
+    },
+    "maya": {
+        "name": "maya",
+        "id": "36",
+        "lines": "20",
+        "number": "32",
+        "betUkr": "favoritBets",
+        "betTR": "GizilBets",
+        "betOMG": "OMGBet",
+        "nameMathModele": "PioneerRespin"
     }
 }

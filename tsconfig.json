@@ -1,0 +1,29 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+        "alwaysStrict": false,
+        "declaration": false,
+        "target": "ESNext",
+        "module": "commonjs",
+        "noImplicitAny": true,
+        "moduleResolution": "node",
+        "noUnusedLocals": true,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "strictNullChecks": true,
+        "sourceMap": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "outDir": "./dist",
+        "baseUrl": "./",
+        "incremental": true,
+        "resolveJsonModule": true,
+        "paths": {
+            "~*": ["src/*"]
+        },
+        "plugins": [{ "transform": "typescript-transform-paths" }]
+    },
+    "include": ["/**/*"]
+}

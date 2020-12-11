@@ -12,7 +12,7 @@ const logger = log4js.getLogger();
 logger.level = 'debug';
 
 async function wrightData(nextActionsSpin, FSCount, res, UseMathModele, funcResultRSpin, FSChangeMultipl = 1) {
-    if (nextActionsSpin === "freespin" && FSCount.rest > 0) {
+    if (res.context.hasOwnProperty("freespins") && FSCount.rest > 0) {
         const oldRest = res.context.freespins.count.rest;
         const oldTotal = res.context.freespins.count.total;
         const oldFsWin = res.context.freespins.win;

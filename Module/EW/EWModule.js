@@ -27,7 +27,6 @@ function EWModule(UseMathModele, data) {
             it('check wild is expending', function() {
                 let { funcResultExpW, wild, } = data;
                 CheckWildIsExpending(funcResultExpW, wild);
-
             });
             it('check the wild is not appeared in 1 and 5 reels', () => {
                 let { funcResultExpW } = data;

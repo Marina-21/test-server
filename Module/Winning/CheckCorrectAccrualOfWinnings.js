@@ -11,7 +11,7 @@ log4js.configure({
 const logger = log4js.getLogger();
 logger.level = 'debug';
 
-function CheckCorrectAccrualOfWinnings(actionsSpin, res, winLinesWithoutScatter, FSMultipl, WildMultip, paytable, UseMathModele, FSChangeMultipl = 1) {
+function CheckCorrectAccrualOfWinnings(actionsSpin, res, winLinesWithoutScatter, FSMultipl, WildMultip, numberFS, paytable, UseMathModele, FSCount, FSChangeMultipl = 1) {
     if (winLinesWithoutScatter) {
         logger.info('check correct accrual of winnings in FS * 3');
         let bet = res.context.bet;
@@ -33,7 +33,8 @@ function CheckCorrectAccrualOfWinnings(actionsSpin, res, winLinesWithoutScatter,
             const multiplier = (arrWithWild.length > 0 && line.symbol !== "2") ? WildMultip : 1;
             const FSMultiplier = (UseMathModele.name === "Evo30") ? (FSChangeMultipl - 2) : FSMultipl;
 
-            if (actionsSpin == "freespin") {
+            if (actionsSpin == "freespin" ||
+                res.context.hasOwnProperty("freespins") && actionsSpin == "respin" && FSCount.add !== numberFS && FSCount.rest !== numberFS && FSCount.total !== numberFS) {
                 let rightAmount = (amount * parseInt(multiplier) * FSMultiplier);
                 console.log(FSMultiplier);
                 console.log(rightAmount);

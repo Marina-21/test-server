@@ -80,7 +80,7 @@ async function spin(urlSpin, token, id, elbet, lines) {
                     bet: elbet,
                 },
                 action: actionsSpin
-                    // cheats: "1ADAAC1FCAIAD1A"
+                    // cheats: "1ADAACAFCAIAD1A"
             }),
         });
 
